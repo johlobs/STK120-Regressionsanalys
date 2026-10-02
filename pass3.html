@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Pass 3: Dummyvariabler, goodness of fit, signifikanstest – STK120 Regressionsanalys: mentorspass</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./pass4.html" rel="next">
+<link href="./pass2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a06d91ce84fd25668039cca5222332b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="custom.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STK120 Regressionsanalys: mentorspass</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Sök"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Skifta navigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Start</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./om.html"> 
+<span class="menu-text">Om materialet</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://johlobs.github.io/" target="_blank"> 
+<span class="menu-text">Alla verktyg</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pass1.html">Mentorspass HT26</a></li><li class="breadcrumb-item"><a href="./pass3.html">Pass 3: Dummyvariabler, goodness of fit, signifikanstest</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Mentorspass HT26</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pass1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pass 1: Repetition av samband och hypotestest</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pass2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pass 2: Sambandsanalys</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pass3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Pass 3: Dummyvariabler, goodness of fit, signifikanstest</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pass4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pass 4: Begränsade modeller, antaganden, polynom</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pass5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Referens</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./om.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Om materialet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">På sidan</h2>
+   
+  <ul class="collapse">
+  <li><a href="#körschema" id="toc-körschema" class="nav-link active" data-scroll-target="#körschema">Körschema</a></li>
+  <li><a href="#nya-begrepp" id="toc-nya-begrepp" class="nav-link" data-scroll-target="#nya-begrepp">Nya begrepp</a></li>
+  <li><a href="#tentafrågor-uppgiftsbladet" id="toc-tentafrågor-uppgiftsbladet" class="nav-link" data-scroll-target="#tentafrågor-uppgiftsbladet">Tentafrågor (uppgiftsbladet)</a></li>
+  <li><a href="#fler-tentafrågor-på-området" id="toc-fler-tentafrågor-på-området" class="nav-link" data-scroll-target="#fler-tentafrågor-på-området">Fler tentafrågor på området</a></li>
+  <li><a href="#interaktivt-visa-från-datorn" id="toc-interaktivt-visa-från-datorn" class="nav-link" data-scroll-target="#interaktivt-visa-från-datorn">Interaktivt (visa från datorn)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pass1.html">Mentorspass HT26</a></li><li class="breadcrumb-item"><a href="./pass3.html">Pass 3: Dummyvariabler, goodness of fit, signifikanstest</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Pass 3: Dummyvariabler, goodness of fit, signifikanstest</h1>
+<p class="subtitle lead">Torsdag 15 oktober 2026, 13:00–15:00</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Tre föreläsningar sedan förra passet, så det här är det tyngsta passet. Bygg upp det i samma ordning som föreläsningarna: först vad en dummy gör med linjen, sedan hur bra modellen passar (R²), sist hur vi testar koefficienterna. Excelutskriften (uppgift 2) knyter ihop allt och är den viktigaste tentafrågetypen i kursen.</p>
+<div class="pass-meta">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Föreläsning</th>
+<th>Datum</th>
+<th>Tema</th>
+<th>Kapitel (5:e uppl.)</th>
+<th>Teman enligt kursplanen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F3</td>
+<td>tis 6 okt</td>
+<td>Dummyvariabler</td>
+<td>14.3 + 16.1</td>
+<td>Den multipla linjära regressionsmodellen; kategorisk variabel med flera kategorier</td>
+</tr>
+<tr class="even">
+<td>F4</td>
+<td>fre 9 okt</td>
+<td>Goodness of fit</td>
+<td>14.4</td>
+<td>Hur välanpassad är modellen till data? Fokus R². F-värdet (test av alla parametrar)</td>
+</tr>
+<tr class="odd">
+<td>F5</td>
+<td>tis 13 okt</td>
+<td>Signifikanstest</td>
+<td>15.1</td>
+<td>Hypotestester av linjära samband</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="körschema" class="level2">
+<h2 class="anchored" data-anchor-id="körschema">Körschema</h2>
+<div class="korschema">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tid</th>
+<th>Vad</th>
+<th>Kommentar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>13:00–13:10</td>
+<td>Tavla: dummy som parallellförskjuten linje, SST = SSR + SSE</td>
+<td>Bild 1 och 3 nedan.</td>
+</tr>
+<tr class="even">
+<td>13:10–13:55</td>
+<td>Del 1: uppgift 1–5</td>
+<td>Uppgift 1 är lång (20 p). Säg åt studenterna att göra a–e först och ta f sist.</td>
+</tr>
+<tr class="odd">
+<td>13:55–14:05</td>
+<td>Paus</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>14:05–14:55</td>
+<td>Del 2: genomgång</td>
+<td><strong>2</strong> (Excel, begreppsfälla) → <strong>1</strong> (dummy och interaktion) → <strong>4</strong> (svagaste frågan på 2026-08-20) → 3 och 5 snabbt.</td>
+</tr>
+<tr class="odd">
+<td>14:55–15:00</td>
+<td>Sammanfattning</td>
+<td>“Var hittar jag vad i Excelutskriften?” Visa kartan nedan en gång till.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="nya-begrepp" class="level2">
+<h2 class="anchored" data-anchor-id="nya-begrepp">Nya begrepp</h2>
+<section id="f3-dummyvariabler" class="level3">
+<h3 class="anchored" data-anchor-id="f3-dummyvariabler">F3: dummyvariabler</h3>
+<div class="nytt">
+<p>Nytt begrepp: dummyvariabel</p>
+<p>En dummy är en variabel som bara kan vara 0 eller 1, t.ex. kvinna = 1, annars 0. Den flyttar hela linjen uppåt eller nedåt för gruppen med 1, men lutningen är densamma. Koefficienten är alltså <strong>skillnaden i genomsnittligt y mellan grupperna</strong>, allt annat lika. Gruppen med 0 kallas <strong>referensgruppen</strong>.</p>
+<p>Har variabeln fler kategorier (t.ex. grundskola, gymnasium, universitet) behövs <strong>k − 1</strong> dummies. Tar man med alla k blir de tillsammans exakt lika med konstanten (de summerar alltid till 1) och modellen går inte att skatta: <em>dummy variable trap</em>.</p>
+</div>
+<div class="tavla">
+<p>Rita på tavlan: dummy som parallell linje</p>
+<p><img src="figurer/p3_dummy_parallell.svg" class="img-fluid" style="width:80.0%"></p>
+<ol type="1">
+<li>Rita en stigande linje och skriv “d = 0, referensgrupp”.</li>
+<li>Rita en parallell linje ovanför och skriv “d = 1”.</li>
+<li>Pila avståndet mellan linjerna: det är b₂, och det är lika stort vid alla x.</li>
+<li>Fråga: “Vad skulle krävas för att linjerna inte ska vara parallella?” Det leder till interaktion (uppgift 1).</li>
+</ol>
+</div>
+<div class="tavla">
+<p>Rita på tavlan: interaktion (uppgift 1, cykelresande)</p>
+<p><img src="figurer/p3_interaktion_cykel.svg" class="img-fluid" style="width:80.0%"></p>
+<p>Rita de två linjerna efter att studenterna har räknat c). Poängen: interaktionstermen ändrar <strong>lutningen</strong> för gruppen med cykelväg (−3,1 + 1,9 = −1,2), dummyn ändrar <strong>nivån</strong> (42 + 8,4 = 50,4).</p>
+</div>
+<div class="fraga-gruppen">
+<p>Fråga till gruppen</p>
+<p>“Vi har tre utbildningsnivåer och kön i en lönemodell. Hur många dummyvariabler behövs?” (Svar: 2 + 1 = 3. Exakt så frågade tentan 2025-08-20, fråga 16.4. Den bästa A-tentan svarade 1.)</p>
+</div>
+</section>
+<section id="f4-goodness-of-fit" class="level3">
+<h3 class="anchored" data-anchor-id="f4-goodness-of-fit">F4: goodness of fit</h3>
+<div class="nytt">
+<p>Nytt begrepp: R², justerat R² och standardfelet</p>
+<ul>
+<li><strong>R²</strong> = SSR / SST: hur stor andel av variationen i y som modellen förklarar.</li>
+<li><strong>Justerat R²</strong> straffar varje ny variabel. Använd det när modeller med olika antal variabler jämförs.</li>
+<li><strong>Standardfelet</strong> sₑ (översta tabellen i Excel) = typiskt avstånd mellan observerat och predikterat y, i y:s enhet. Det är <em>inte</em> samma sak som standardfelet för en koefficient.</li>
+</ul>
+</div>
+<div class="tavla">
+<p>Rita på tavlan: varför SST = SSR + SSE</p>
+<p><img src="figurer/p3_sst_uppdelning.svg" class="img-fluid" style="width:85.0%"></p>
+<ol type="1">
+<li>Rita linjen, en vågrät streckad linje för ȳ och en punkt högt ovanför båda.</li>
+<li>Dra det lodräta avståndet från ȳ till punkten: totalt (→ SST).</li>
+<li>Dela det vid regressionslinjen: från ȳ upp till linjen är den förklarade delen (→ SSR), från linjen upp till punkten är residualen (→ SSE).</li>
+<li>Summera över alla punkter (i kvadrat): SST = SSR + SSE. R² = SSR / SST.</li>
+<li>Koppla till A/B/C-figuren från pass 2: B–C är förklarat, A–B är residualen.</li>
+</ol>
+</div>
+<div class="tavla">
+<p>Rita på tavlan: R² mot justerat R²</p>
+<p><img src="figurer/p3_r2_justerat.svg" class="img-fluid" style="width:75.0%"></p>
+<p>Här läggs rena brusvariabler till en efter en. R² kryper uppåt ändå, medan justerat R² sjunker. Rita det som två skissade kurvor.</p>
+</div>
+</section>
+<section id="f5-signifikanstest" class="level3">
+<h3 class="anchored" data-anchor-id="f5-signifikanstest">F5: signifikanstest</h3>
+<div class="nytt">
+<p>Nytt begrepp: t-test och F-test</p>
+<ul>
+<li><strong>t-test</strong> för en koefficient: H₀: βⱼ = 0. t = bⱼ / se(bⱼ). Svarar på om just den variabeln har ett samband med y, allt annat lika.</li>
+<li><strong>F-test</strong> (test of joint significance): H₀: β₁ = β₂ = … = βₖ = 0. Svarar på om modellen förklarar något alls. Förkastas H₀ vet vi bara att <strong>minst en</strong> koefficient skiljer sig från noll.</li>
+</ul>
+</div>
+<div class="tavla">
+<p>Rita på tavlan: tentans t-test i en bild</p>
+<p><img src="figurer/p1_tfordelning.svg" class="img-fluid" style="width:80.0%"></p>
+<p>Samma bild som i pass 1, nu med t = b / se(b). Skriv formeln stort och visa hur t växer när b växer och krymper när se växer. Det är hela uppgift 4.</p>
+</div>
+</section>
+<section id="karta-över-excelutskriften" class="level3">
+<h3 class="anchored" data-anchor-id="karta-över-excelutskriften">Karta över Excelutskriften</h3>
+<p>Använd utskriften från uppgift 2 och peka på varje del:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Var i utskriften</th>
+<th>Vad det är</th>
+<th>Tentafråga</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regressionsstatistik: R-kvadrat</td>
+<td>Andel förklarad variation (SSR/SST)</td>
+<td>2026-08-20 fr. 12</td>
+</tr>
+<tr class="even">
+<td>Justerad R-kvadrat</td>
+<td>R² straffat för antal variabler. Använd vid jämförelse mellan modeller</td>
+<td>2025-08-20 fr. 16.2</td>
+</tr>
+<tr class="odd">
+<td>Standardfel (översta tabellen)</td>
+<td>sₑ: typiskt avstånd mellan y och ŷ, i y:s enhet</td>
+<td>2026-08-20 fr. 16a, 2024-12-15 fr. 15.2</td>
+</tr>
+<tr class="even">
+<td>ANOVA: F och p-värde för F</td>
+<td>Testar om alla β = 0</td>
+<td>2025-08-20 fr. 16.1</td>
+</tr>
+<tr class="odd">
+<td>Koefficienter</td>
+<td>b: förändring i y per enhet x, allt annat lika</td>
+<td>alla tentor</td>
+</tr>
+<tr class="even">
+<td>Standardfel (per rad)</td>
+<td>Osäkerheten i just den koefficienten</td>
+<td>2024-12-15 fr. 15.3</td>
+</tr>
+<tr class="odd">
+<td>t-kvot</td>
+<td>b / se(b)</td>
+<td>2026-08-20 fr. 11</td>
+</tr>
+<tr class="even">
+<td>p-värde</td>
+<td>Sannolikheten för minst så extremt t om β = 0</td>
+<td>2025-06-05 fr. 16.4–5</td>
+</tr>
+<tr class="odd">
+<td>Konstant</td>
+<td>ŷ när alla x = 0, ofta utanför data</td>
+<td>2026-08-20 fr. 16c</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="tentafrågor-uppgiftsbladet" class="level2">
+<h2 class="anchored" data-anchor-id="tentafrågor-uppgiftsbladet">Tentafrågor (uppgiftsbladet)</h2>
+<section id="cykelresande-och-stadsplanering-dummyvariabler-och-interaktion" class="level3 tenta">
+<h3 class="anchored" data-anchor-id="cykelresande-och-stadsplanering-dummyvariabler-och-interaktion">1. Cykelresande och stadsplanering: dummyvariabler och interaktion</h3>
+<p><span class="chip egen">Konstruerad övning</span> <span class="chip">20 p</span> <span class="chip ofta">🔁 Samma upplägg i essäerna</span></p>
+<blockquote class="blockquote">
+<p>En samhällsplanerare vill förklara hur stor andel av sina dagliga resor invånare i en kommun gör med cykel. Hon tror att avstånd till stadskärnan påverkar negativt, men att effekten ser olika ut beroende på om man bor i ett område med cykelvägnät eller inte.</p>
+<ol type="a">
+<li>Vilka variabler bör ingå i modellen? Motivera. b) Skriv upp modellspecifikationen. Förklara innebörden av varje term. c) Den skattade modellen ger ŷ = 42 − 3,1·avstånd + 8,4·cykelväg + 1,9·(cykelväg × avstånd). Skriv upp de två skattade ekvationerna, en per grupp. d) Tolka koefficienterna i sitt sammanhang. e) En invånare bor 5 km från stadskärnan i ett område med cykelvägnät. Vad är det predikterade cykelresandet? f) Vad är “dummy variable trap” och hur undviker man det?</li>
+</ol>
+</blockquote>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Facit och genomgång
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Avstånd, dummyn cykelväg (1 = cykelvägnät) och interaktionen cykelväg × avstånd. Interaktionen behövs eftersom teorin säger att avståndseffekten <strong>skiljer sig</strong> mellan grupperna.</p></li>
+<li><p>cykelresande = β₀ + β₁·avstånd + β₂·cykelväg + β₃·(cykelväg × avstånd) + ε. β₀: nivå för referensgruppen vid 0 km. β₁: lutning för referensgruppen. β₂: nivåskillnad för gruppen med cykelväg. β₃: skillnad i lutning. ε: felterm.</p></li>
+<li><p>Utan cykelväg: ŷ = 42 − 3,1·avstånd. Med cykelväg: ŷ = 50,4 − 1,2·avstånd.</p></li>
+<li><p>−3,1: utan cykelväg minskar cykelresandet med 3,1 procentenheter per km. 8,4: med cykelväg är nivån 8,4 procentenheter högre vid 0 km. 1,9: avståndseffekten är 1,9 procentenheter svagare per km med cykelväg. Cykelvägar dämpar alltså avståndseffekten.</p></li>
+<li><p>50,4 − 1,2 · 5 = <strong>44,4 %</strong>.</p></li>
+<li><p>k kategorier ger k − 1 dummies. Annars perfekt multikollinjäritet med konstanten.</p></li>
+</ol>
+<p>Koppling: precis den här typen av tolkning (en dummy, en interaktion, “effekten för respektive grupp”) kommer i de engelska essäfrågorna på varje tenta 2024–2025 och i fråga 7 på 2026-08-20.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="tolka-en-excelutskrift" class="level3 tenta">
+<h3 class="anchored" data-anchor-id="tolka-en-excelutskrift">2. Tolka en Excelutskrift</h3>
+<p><span class="chip datum">2026-08-20, fråga 16</span> <span class="chip">8 p</span> <span class="chip disc">🔥 Begreppsfälla: 33 %, gap 2,33</span> <span class="chip ofta">🔁 På varje tenta</span></p>
+<blockquote class="blockquote">
+<p>Du analyserar ett antal företag för att se vad som kan förklara skillnader i lönsamhet hos ett antal företag. Du använder Excel och får nedanstående resultat från din regressionsanalys. Den beroende variabeln är den årliga lönsamheten (i miljoner kronor) och de oberoende variablerna är: 1. Belopp som läggs på löner (i miljoner kronor) 2. Belopp som läggs på Forskning och Utveckling (FoU) (i miljoner kronor) 3. Belopp som läggs på reklam (i miljoner kronor) 4. Om företaget har en kvinnlig VD (1 om ja, 0 om nej) 5. Andel av de anställda som är kvinnor (procent)</p>
+</blockquote>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Regressionsstatistik</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Multipel-R</td>
+<td>0,845</td>
+</tr>
+<tr class="even">
+<td>R-kvadrat</td>
+<td>0,714</td>
+</tr>
+<tr class="odd">
+<td>Justerad R-kvadrat</td>
+<td>0,698</td>
+</tr>
+<tr class="even">
+<td>Standardfel</td>
+<td>4,321</td>
+</tr>
+<tr class="odd">
+<td>Observationer</td>
+<td>60</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>fg</th>
+<th>KvS</th>
+<th>MKv</th>
+<th>F</th>
+<th>p-värde för F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regression</td>
+<td>5</td>
+<td>2890,45</td>
+<td>578,09</td>
+<td>30,98</td>
+<td>0,00001</td>
+</tr>
+<tr class="even">
+<td>Residual</td>
+<td>54</td>
+<td>1008,55</td>
+<td>18,68</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>59</td>
+<td>3899</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Koefficienter</th>
+<th>Standardfel</th>
+<th>t-kvot</th>
+<th>p-värde</th>
+<th>Nedre 95%</th>
+<th>Övre 95%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Konstant</td>
+<td>25,678</td>
+<td>8,123</td>
+<td>3,16</td>
+<td>0,002</td>
+<td>9,412</td>
+<td>41,944</td>
+</tr>
+<tr class="even">
+<td>Löner</td>
+<td>0,456</td>
+<td>0,345</td>
+<td>1,32</td>
+<td>0,192</td>
+<td>−0,234</td>
+<td>1,146</td>
+</tr>
+<tr class="odd">
+<td>FoU</td>
+<td>1,234</td>
+<td>0,456</td>
+<td>2,71</td>
+<td>0,009</td>
+<td>0,32</td>
+<td>2,148</td>
+</tr>
+<tr class="even">
+<td>Reklam</td>
+<td>0,789</td>
+<td>0,345</td>
+<td>2,29</td>
+<td>0,026</td>
+<td>0,097</td>
+<td>1,481</td>
+</tr>
+<tr class="odd">
+<td>Kvinnlig VD</td>
+<td>3,567</td>
+<td>1,234</td>
+<td>2,89</td>
+<td>0,005</td>
+<td>1,091</td>
+<td>6,043</td>
+</tr>
+<tr class="even">
+<td>Andel kvinnor</td>
+<td>0,123</td>
+<td>0,056</td>
+<td>2,2</td>
+<td>0,032</td>
+<td>0,011</td>
+<td>0,235</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<ol type="a">
+<li>Tolka värdet på “Standardfel” i översta delen av tabellen noga (2 poäng) b) Tolka den skattade koefficienten för variabeln FoU, inklusive dess statistiska signifikans (4p) c) Förklara <strong>med en mening</strong> varför vi ska vara försiktiga när vi tolkar den skattade koefficienten för konstanten i ovanstående tabell (2p)</li>
+</ol>
+</blockquote>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Facit och genomgång
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>4,321 är sₑ: företagens faktiska lönsamhet avviker i genomsnitt ungefär 4,3 miljoner kronor från den predikterade. <strong>Fallan:</strong> att tolka det som FoU:s eller någon annan koefficients standardfel. Den bästa A-tentan blandade också ihop det med t-värdet.</p></li>
+<li><p>Ytterligare 1 miljon kronor på FoU hänger i genomsnitt ihop med 1,234 miljoner kronor högre lönsamhet, <strong>allt annat lika</strong>. t = 1,234 / 0,456 ≈ 2,71, p = 0,009 &lt; 0,05 (även &lt; 0,01): signifikant på 5 % och 1 %. Nämn hypoteserna H₀: β_FoU = 0 mot H_A: β_FoU ≠ 0.</p></li>
+<li><p>Konstanten är predikterad lönsamhet för ett företag utan löner, FoU, reklam, kvinnlig VD och kvinnliga anställda, något som inte finns i data (extrapolation).</p></li>
+</ol>
+<p>Genomgångstips: låt studenterna själva hitta varje siffra i tabellen med “kartan” ovan innan du visar svaret.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="t-värde-och-p-värde" class="level3 tenta">
+<h3 class="anchored" data-anchor-id="t-värde-och-p-värde">3. t-värde och p-värde</h3>
+<p><span class="chip datum">2024-11-01, fråga 1</span> <span class="chip">2 p</span> <span class="chip">Sant/falskt</span></p>
+<blockquote class="blockquote">
+<p>Vid hypotestest av en lutningskoefficient kan både t-värden och p-värden användas. Om inget annat ändras innebär ett större t-värde (mer skilt från noll) alltid att p-värdet blir lägre.</p>
+</blockquote>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Facit och genomgång
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Sant.</strong> Större |t| ger mindre yta i svansarna, alltså lägre p.&nbsp;Den bästa A-tentan svarade fel här. Systerfrågan 2024-12-15 hade ordet “högre” och då var svaret falskt (pass 1).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="koefficient-standardfel-och-t-värde" class="level3 tenta">
+<h3 class="anchored" data-anchor-id="koefficient-standardfel-och-t-värde">4. Koefficient, standardfel och t-värde</h3>
+<p><span class="chip datum">2026-08-20, fråga 11</span> <span class="chip datum">2025-03-25, fråga 12</span> <span class="chip">4 p</span> <span class="chip svar">⚠️ Svagast på tentan: 33 %, gap 0,83</span></p>
+<blockquote class="blockquote">
+<p>Antag att du genomför ett test för individuell signifikans, dvs testar signifikansen för en enskild koefficient. Om den skattade koefficienten är positiv, vilket av följande påståenden är korrekt?</p>
+</blockquote>
+<ul>
+<li>Ett högre värde på koefficienten leder till ett högre värde på t-värdet, allt annat lika</li>
+<li>Ett högre värde på koefficienten leder till ett högre värde på standardfelet, allt annat lika</li>
+<li>Koefficientens och t-värdets värden är oberoende av varandra</li>
+<li>Ett högre värde på standardfelet leder till ett högre värde på t-värdet, allt annat lika</li>
+</ul>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Facit och genomgång
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Ett högre värde på koefficienten leder till ett högre värde på t-värdet, allt annat lika.</strong></p>
+<p>Allt följer ur t = b / se(b). Skriv formeln på tavlan och låt studenterna testa varje alternativ mot den i stället för att resonera fritt. Exempel ur uppgift 2: FoU, 1,234 / 0,456 ≈ 2,71.</p>
+<p>Frågan kom ordagrant även 2025-03-25: den återkommer.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="f-test-och-r²" class="level3 tenta">
+<h3 class="anchored" data-anchor-id="f-test-och-r²">5. F-test och R²</h3>
+<p><span class="chip datum">2026-08-20, fråga 1</span> <span class="chip">2 p</span> <span class="chip">Sant/falskt</span> <span class="chip latt">Lätt: 90 %</span></p>
+<blockquote class="blockquote">
+<p>En modell som har ett lågt p-värde för F-testet och alltså är statistiskt signifikant som helhet, kan ändå ha ett lågt värde på determinationskoefficienten.</p>
+</blockquote>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Facit och genomgång
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Sant.</strong> F-testet frågar <em>om</em> modellen förklarar något, R² <em>hur mycket</em>. Med många observationer räcker lite förklaring för signifikans. Exempel: LPM-uppgiften i pass 5 har R² = 0,13 men F-testets p-värde 0,0000.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="fler-tentafrågor-på-området" class="level2">
+<h2 class="anchored" data-anchor-id="fler-tentafrågor-på-området">Fler tentafrågor på området</h2>
+<div class="fler">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tenta</th>
+<th>Fråga</th>
+<th>Rätt svar</th>
+<th>Kommentar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2024-03-19, fråga 11</td>
+<td>“Värdet på den skattade koefficienten för en dummyvariabel visar:”</td>
+<td>den genomsnittliga skillnaden i intercept mellan de två grupperna</td>
+<td>Tavelbilden med parallella linjer.</td>
+</tr>
+<tr class="even">
+<td>2024-11-01, fråga 10</td>
+<td>“En så kallad dummyvariabel:”</td>
+<td>är en variabel som bara kan anta två olika värden</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2025-08-20, fråga 16.4</td>
+<td>Lönemodell med ålder, utbildningsnivå (3 nivåer), erfarenhet och kön: hur många dummyvariabler?</td>
+<td>3 (2 för utbildning, 1 för kön)</td>
+<td>Bästa A-tentan svarade 1. Bra diskussionsfråga.</td>
+</tr>
+<tr class="even">
+<td>2024-12-15, fråga 11</td>
+<td>“I en regressionsmodell mäter determinationskoefficienten …”</td>
+<td>hur stor andel av variationen i den beroende variabeln som förklaras av modellen</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2026-08-20, fråga 12</td>
+<td>Vad representerar R² i en enkel linjär regression?</td>
+<td>den procentuella andelen av den totala variationen i den beroende variabeln som förklaras av de oberoende variablerna</td>
+<td>82 % av maxpoängen. Distraktorn byter plats på beroende och oberoende.</td>
+</tr>
+<tr class="even">
+<td>2024-12-15, fråga 12</td>
+<td>Koefficienten för “bostadsyta” betecknas …?</td>
+<td>β₁ (inte x₁)</td>
+<td>Notation, som i pass 2.</td>
+</tr>
+<tr class="odd">
+<td>2025-08-20, fråga 9</td>
+<td>A/B/C-figuren: vilket avstånd är standardfelet?</td>
+<td>Inget, det är ett sammanfattande mått</td>
+<td>Koppla till “Standardfel” i kartan.</td>
+</tr>
+<tr class="even">
+<td>2024-03-19, fråga 15; 2024-12-15, fråga 15; 2025-08-20, fråga 16</td>
+<td>Excelessäer: tolka F-test, R², koefficienter, hypoteser</td>
+<td></td>
+<td>Samma färdigheter som uppgift 2. Bra extrauppgifter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Gemensamt F-test som sant/falskt (2025-06-05 fråga 2 och 2025-03-25 fråga 2) ligger på uppgiftsbladet för pass 4.</p>
+</section>
+<section id="interaktivt-visa-från-datorn" class="level2">
+<h2 class="anchored" data-anchor-id="interaktivt-visa-från-datorn">Interaktivt (visa från datorn)</h2>
+<p>Dummy och interaktion: ändra koefficienterna och se hur de två gruppernas linjer rör sig.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="267" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 266;"><span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>viewof c_b1 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">5</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="op">-</span><span class="fl">3.1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"b₁ avstånd"</span>})</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>viewof c_b2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">10</span><span class="op">,</span> <span class="dv">20</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">8.4</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"b₂ cykelväg (dummy)"</span>})</span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>viewof c_b3 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">1.9</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"b₃ interaktion"</span>})</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`Utan cykelväg: ŷ = 42 </span><span class="sc">${</span>c_b1 <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="st">"−"</span> <span class="op">:</span> <span class="st">"+"</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(c_b1)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">·avstånd  |  Med cykelväg: ŷ = </span><span class="sc">${</span>(<span class="dv">42</span> <span class="op">+</span> c_b2)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>(c_b1 <span class="op">+</span> c_b3) <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="st">"−"</span> <span class="op">:</span> <span class="st">"+"</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(c_b1 <span class="op">+</span> c_b3)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">·avstånd`</span></span></code></pre></div><button title="Kopiera till urklipp" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="271" data-source-offset="-474"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 270;"><span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">640</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">340</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"avstånd (km)"</span>}<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">70</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"cykelresande (%)"</span>}<span class="op">,</span></span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="st">"utan cykelväg"</span><span class="op">,</span> <span class="st">"med cykelväg"</span>]<span class="op">,</span> <span class="dt">range</span><span class="op">:</span> [<span class="st">"#1f2a37"</span><span class="op">,</span> <span class="st">"#1c64f2"</span>]}<span class="op">,</span></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>([[<span class="dv">0</span><span class="op">,</span> <span class="dv">42</span>]<span class="op">,</span> [<span class="dv">12</span><span class="op">,</span> <span class="dv">42</span> <span class="op">+</span> <span class="dv">12</span> <span class="op">*</span> c_b1]]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1f2a37"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>([[<span class="dv">0</span><span class="op">,</span> <span class="dv">42</span> <span class="op">+</span> c_b2]<span class="op">,</span> [<span class="dv">12</span><span class="op">,</span> <span class="dv">42</span> <span class="op">+</span> c_b2 <span class="op">+</span> <span class="dv">12</span> <span class="op">*</span> (c_b1 <span class="op">+</span> c_b3)]]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1c64f2"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Kopiera till urklipp" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-5" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<p>R² mot justerat R²: lägg till brusvariabler och se vad som händer.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="286" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 285;"><span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>viewof k_brus <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">15</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"antal brusvariabler"</span>})</span>
+<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>r2demo <span class="op">=</span> {</span>
+<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>  <span class="co">// fixed simulated data: y depends on x1 only, n = 25</span></span>
+<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> n <span class="op">=</span> <span class="dv">25</span><span class="op">,</span> rand <span class="op">=</span> d3<span class="op">.</span><span class="at">randomNormal</span><span class="op">.</span><span class="fu">source</span>(d3<span class="op">.</span><span class="fu">randomLcg</span>(<span class="dv">42</span>))(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> x1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(n)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> <span class="fu">rand</span>())<span class="op">;</span></span>
+<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> y <span class="op">=</span> x1<span class="op">.</span><span class="fu">map</span>(v <span class="kw">=&gt;</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">1.2</span> <span class="op">*</span> v <span class="op">+</span> <span class="fu">rand</span>())<span class="op">;</span></span>
+<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> noise <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">15</span>)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> d3<span class="op">.</span><span class="fu">range</span>(n)<span class="op">.</span><span class="fu">map</span>(() <span class="kw">=&gt;</span> <span class="fu">rand</span>()))<span class="op">;</span></span>
+<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> fit <span class="op">=</span> (k) <span class="kw">=&gt;</span> {</span>
+<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> cols <span class="op">=</span> [x1<span class="op">,</span> <span class="op">...</span>noise<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> k)]<span class="op">;</span></span>
+<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> X <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(n)<span class="op">.</span><span class="fu">map</span>(i <span class="kw">=&gt;</span> [<span class="dv">1</span><span class="op">,</span> <span class="op">...</span>cols<span class="op">.</span><span class="fu">map</span>(c <span class="kw">=&gt;</span> c[i])])<span class="op">;</span></span>
+<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> p <span class="op">=</span> X[<span class="dv">0</span>]<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> XtX <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(p)<span class="op">.</span><span class="fu">map</span>(a <span class="kw">=&gt;</span> d3<span class="op">.</span><span class="fu">range</span>(p)<span class="op">.</span><span class="fu">map</span>(b <span class="kw">=&gt;</span> d3<span class="op">.</span><span class="fu">sum</span>(X<span class="op">,</span> r <span class="kw">=&gt;</span> r[a] <span class="op">*</span> r[b])))<span class="op">;</span></span>
+<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> Xty <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(p)<span class="op">.</span><span class="fu">map</span>(a <span class="kw">=&gt;</span> d3<span class="op">.</span><span class="fu">sum</span>(X<span class="op">,</span> (r<span class="op">,</span> i) <span class="kw">=&gt;</span> r[a] <span class="op">*</span> y[i]))<span class="op">;</span></span>
+<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> A <span class="op">=</span> XtX<span class="op">.</span><span class="fu">map</span>((r<span class="op">,</span> i) <span class="kw">=&gt;</span> [<span class="op">...</span>r<span class="op">,</span> Xty[i]])<span class="op">;</span></span>
+<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> p<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> m <span class="op">=</span> i<span class="op">;</span> <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> p<span class="op">;</span> j<span class="op">++</span>) <span class="cf">if</span> (<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(A[j][i]) <span class="op">&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(A[m][i])) m <span class="op">=</span> j<span class="op">;</span></span>
+<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a>      [A[i]<span class="op">,</span> A[m]] <span class="op">=</span> [A[m]<span class="op">,</span> A[i]]<span class="op">;</span></span>
+<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> p<span class="op">;</span> j<span class="op">++</span>) { <span class="kw">const</span> f <span class="op">=</span> A[j][i] <span class="op">/</span> A[i][i]<span class="op">;</span> <span class="cf">for</span> (<span class="kw">let</span> c <span class="op">=</span> i<span class="op">;</span> c <span class="op">&lt;=</span> p<span class="op">;</span> c<span class="op">++</span>) A[j][c] <span class="op">-=</span> f <span class="op">*</span> A[i][c]<span class="op">;</span> }</span>
+<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> beta <span class="op">=</span> <span class="bu">Array</span>(p)<span class="op">.</span><span class="fu">fill</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> p <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--</span>) beta[i] <span class="op">=</span> (A[i][p] <span class="op">-</span> d3<span class="op">.</span><span class="fu">sum</span>(d3<span class="op">.</span><span class="fu">range</span>(i <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> p)<span class="op">,</span> c <span class="kw">=&gt;</span> A[i][c] <span class="op">*</span> beta[c])) <span class="op">/</span> A[i][i]<span class="op">;</span></span>
+<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> yh <span class="op">=</span> X<span class="op">.</span><span class="fu">map</span>(r <span class="kw">=&gt;</span> d3<span class="op">.</span><span class="fu">sum</span>(r<span class="op">,</span> (v<span class="op">,</span> j) <span class="kw">=&gt;</span> v <span class="op">*</span> beta[j]))<span class="op">;</span></span>
+<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> my <span class="op">=</span> d3<span class="op">.</span><span class="fu">mean</span>(y)<span class="op">,</span> sst <span class="op">=</span> d3<span class="op">.</span><span class="fu">sum</span>(y<span class="op">,</span> v <span class="kw">=&gt;</span> (v <span class="op">-</span> my) <span class="op">**</span> <span class="dv">2</span>)<span class="op">,</span> sse <span class="op">=</span> d3<span class="op">.</span><span class="fu">sum</span>(y<span class="op">,</span> (v<span class="op">,</span> i) <span class="kw">=&gt;</span> (v <span class="op">-</span> yh[i]) <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> r2 <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> sse <span class="op">/</span> sst<span class="op">,</span> kk <span class="op">=</span> k <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="dt">k</span><span class="op">:</span> kk<span class="op">,</span> r2<span class="op">,</span> <span class="dt">adj</span><span class="op">:</span> <span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">-</span> r2) <span class="op">*</span> (n <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> (n <span class="op">-</span> kk <span class="op">-</span> <span class="dv">1</span>)}<span class="op">;</span></span>
+<span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">16</span>)<span class="op">.</span><span class="fu">map</span>(fit)<span class="op">;</span></span>
+<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-314"><a href="#cb3-314" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`Med </span><span class="sc">${</span>k_brus<span class="sc">}</span><span class="vs"> brusvariabler: R² = **</span><span class="sc">${</span>r2demo[k_brus]<span class="op">.</span><span class="at">r2</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">**, justerat R² = **</span><span class="sc">${</span>r2demo[k_brus]<span class="op">.</span><span class="at">adj</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">**`</span></span></code></pre></div><button title="Kopiera till urklipp" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="315" data-source-offset="-1661"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 314;"><span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">640</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="fl">0.2</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"värde"</span>}<span class="op">,</span> <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"antal brusvariabler"</span>}<span class="op">,</span></span>
+<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(r2demo<span class="op">.</span><span class="fu">map</span>((d<span class="op">,</span> i) <span class="kw">=&gt;</span> ({i<span class="op">,</span> <span class="dt">v</span><span class="op">:</span> d<span class="op">.</span><span class="at">r2</span>}))<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"i"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"v"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1c64f2"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb4-319"><a href="#cb4-319" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(r2demo<span class="op">.</span><span class="fu">map</span>((d<span class="op">,</span> i) <span class="kw">=&gt;</span> ({i<span class="op">,</span> <span class="dt">v</span><span class="op">:</span> d<span class="op">.</span><span class="at">adj</span>}))<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"i"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"v"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e02424"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([k_brus]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#9ca3af"</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,4"</span>})<span class="op">,</span></span>
+<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>([{<span class="dt">i</span><span class="op">:</span> <span class="dv">13</span><span class="op">,</span> <span class="dt">v</span><span class="op">:</span> <span class="fl">0.95</span><span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"R² (blå)"</span>}<span class="op">,</span> {<span class="dt">i</span><span class="op">:</span> <span class="dv">13</span><span class="op">,</span> <span class="dt">v</span><span class="op">:</span> <span class="fl">0.85</span><span class="op">,</span> <span class="dt">t</span><span class="op">:</span> <span class="st">"justerat R² (röd)"</span>}]<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> <span class="st">"i"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"v"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">"t"</span>})</span>
+<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Kopiera till urklipp" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjX2IxID0gSW5wdXRzLnJhbmdlKFstNSwgMV0sIHtzdGVwOiAwLjEsIHZhbHVlOiAtMy4xLCBsYWJlbDogXCJi4oKBIGF2c3TDpW5kXCJ9KVxudmlld29mIGNfYjIgPSBJbnB1dHMucmFuZ2UoWy0xMCwgMjBdLCB7c3RlcDogMC4xLCB2YWx1ZTogOC40LCBsYWJlbDogXCJi4oKCIGN5a2VsdsOkZyAoZHVtbXkpXCJ9KVxudmlld29mIGNfYjMgPSBJbnB1dHMucmFuZ2UoWy0zLCA0XSwge3N0ZXA6IDAuMSwgdmFsdWU6IDEuOSwgbGFiZWw6IFwiYuKCgyBpbnRlcmFrdGlvblwifSlcbm1kYFV0YW4gY3lrZWx2w6RnOiDFtyA9IDQyICR7Y19iMSA8IDAgPyBcIuKIklwiIDogXCIrXCJ9ICR7TWF0aC5hYnMoY19iMSkudG9GaXhlZCgxKX3Ct2F2c3TDpW5kICB8ICBNZWQgY3lrZWx2w6RnOiDFtyA9ICR7KDQyICsgY19iMikudG9GaXhlZCgxKX0gJHsoY19iMSArIGNfYjMpIDwgMCA/IFwi4oiSXCIgOiBcIitcIn0gJHtNYXRoLmFicyhjX2IxICsgY19iMykudG9GaXhlZCgxKX3Ct2F2c3TDpW5kYFxuUGxvdC5wbG90KHtcbiAgd2lkdGg6IDY0MCwgaGVpZ2h0OiAzNDAsIHg6IHtkb21haW46IFswLCAxMl0sIGxhYmVsOiBcImF2c3TDpW5kIChrbSlcIn0sIHk6IHtkb21haW46IFswLCA3MF0sIGxhYmVsOiBcImN5a2VscmVzYW5kZSAoJSlcIn0sXG4gIGNvbG9yOiB7bGVnZW5kOiB0cnVlLCBkb21haW46IFtcInV0YW4gY3lrZWx2w6RnXCIsIFwibWVkIGN5a2VsdsOkZ1wiXSwgcmFuZ2U6IFtcIiMxZjJhMzdcIiwgXCIjMWM2NGYyXCJdfSxcbiAgbWFya3M6IFtcbiAgICBQbG90LmxpbmUoW1swLCA0Ml0sIFsxMiwgNDIgKyAxMiAqIGNfYjFdXSwge3N0cm9rZTogXCIjMWYyYTM3XCIsIHN0cm9rZVdpZHRoOiAyLjV9KSxcbiAgICBQbG90LmxpbmUoW1swLCA0MiArIGNfYjJdLCBbMTIsIDQyICsgY19iMiArIDEyICogKGNfYjEgKyBjX2IzKV1dLCB7c3Ryb2tlOiBcIiMxYzY0ZjJcIiwgc3Ryb2tlV2lkdGg6IDIuNX0pLFxuICAgIFBsb3QucnVsZVkoWzBdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGtfYnJ1cyA9IElucHV0cy5yYW5nZShbMCwgMTVdLCB7c3RlcDogMSwgdmFsdWU6IDAsIGxhYmVsOiBcImFudGFsIGJydXN2YXJpYWJsZXJcIn0pXG5yMmRlbW8gPSB7XG4gIC8vIGZpeGVkIHNpbXVsYXRlZCBkYXRhOiB5IGRlcGVuZHMgb24geDEgb25seSwgbiA9IDI1XG4gIGNvbnN0IG4gPSAyNSwgcmFuZCA9IGQzLnJhbmRvbU5vcm1hbC5zb3VyY2UoZDMucmFuZG9tTGNnKDQyKSkoMCwgMSk7XG4gIGNvbnN0IHgxID0gZDMucmFuZ2UobikubWFwKCgpID0+IHJhbmQoKSk7XG4gIGNvbnN0IHkgPSB4MS5tYXAodiA9PiAxICsgMS4yICogdiArIHJhbmQoKSk7XG4gIGNvbnN0IG5vaXNlID0gZDMucmFuZ2UoMTUpLm1hcCgoKSA9PiBkMy5yYW5nZShuKS5tYXAoKCkgPT4gcmFuZCgpKSk7XG4gIGNvbnN0IGZpdCA9IChrKSA9PiB7XG4gICAgY29uc3QgY29scyA9IFt4MSwgLi4ubm9pc2Uuc2xpY2UoMCwgayldO1xuICAgIGNvbnN0IFggPSBkMy5yYW5nZShuKS5tYXAoaSA9PiBbMSwgLi4uY29scy5tYXAoYyA9PiBjW2ldKV0pO1xuICAgIGNvbnN0IHAgPSBYWzBdLmxlbmd0aDtcbiAgICBjb25zdCBYdFggPSBkMy5yYW5nZShwKS5tYXAoYSA9PiBkMy5yYW5nZShwKS5tYXAoYiA9PiBkMy5zdW0oWCwgciA9PiByW2FdICogcltiXSkpKTtcbiAgICBjb25zdCBYdHkgPSBkMy5yYW5nZShwKS5tYXAoYSA9PiBkMy5zdW0oWCwgKHIsIGkpID0+IHJbYV0gKiB5W2ldKSk7XG4gICAgY29uc3QgQSA9IFh0WC5tYXAoKHIsIGkpID0+IFsuLi5yLCBYdHlbaV1dKTtcbiAgICBmb3IgKGxldCBpID0gMDsgaSA8IHA7IGkrKykge1xuICAgICAgbGV0IG0gPSBpOyBmb3IgKGxldCBqID0gaSArIDE7IGogPCBwOyBqKyspIGlmIChNYXRoLmFicyhBW2pdW2ldKSA+IE1hdGguYWJzKEFbbV1baV0pKSBtID0gajtcbiAgICAgIFtBW2ldLCBBW21dXSA9IFtBW21dLCBBW2ldXTtcbiAgICAgIGZvciAobGV0IGogPSBpICsgMTsgaiA8IHA7IGorKykgeyBjb25zdCBmID0gQVtqXVtpXSAvIEFbaV1baV07IGZvciAobGV0IGMgPSBpOyBjIDw9IHA7IGMrKykgQVtqXVtjXSAtPSBmICogQVtpXVtjXTsgfVxuICAgIH1cbiAgICBjb25zdCBiZXRhID0gQXJyYXkocCkuZmlsbCgwKTtcbiAgICBmb3IgKGxldCBpID0gcCAtIDE7IGkgPj0gMDsgaS0tKSBiZXRhW2ldID0gKEFbaV1bcF0gLSBkMy5zdW0oZDMucmFuZ2UoaSArIDEsIHApLCBjID0+IEFbaV1bY10gKiBiZXRhW2NdKSkgLyBBW2ldW2ldO1xuICAgIGNvbnN0IHloID0gWC5tYXAociA9PiBkMy5zdW0ociwgKHYsIGopID0+IHYgKiBiZXRhW2pdKSk7XG4gICAgY29uc3QgbXkgPSBkMy5tZWFuKHkpLCBzc3QgPSBkMy5zdW0oeSwgdiA9PiAodiAtIG15KSAqKiAyKSwgc3NlID0gZDMuc3VtKHksICh2LCBpKSA9PiAodiAtIHloW2ldKSAqKiAyKTtcbiAgICBjb25zdCByMiA9IDEgLSBzc2UgLyBzc3QsIGtrID0gayArIDE7XG4gICAgcmV0dXJuIHtrOiBraywgcjIsIGFkajogMSAtICgxIC0gcjIpICogKG4gLSAxKSAvIChuIC0ga2sgLSAxKX07XG4gIH07XG4gIHJldHVybiBkMy5yYW5nZSgwLCAxNikubWFwKGZpdCk7XG59XG5tZGBNZWQgJHtrX2JydXN9IGJydXN2YXJpYWJsZXI6IFLCsiA9ICoqJHtyMmRlbW9ba19icnVzXS5yMi50b0ZpeGVkKDMpfSoqLCBqdXN0ZXJhdCBSwrIgPSAqKiR7cjJkZW1vW2tfYnJ1c10uYWRqLnRvRml4ZWQoMyl9KipgXG5QbG90LnBsb3Qoe1xuICB3aWR0aDogNjQwLCBoZWlnaHQ6IDMwMCwgeToge2RvbWFpbjogWy0wLjIsIDFdLCBsYWJlbDogXCJ2w6RyZGVcIn0sIHg6IHtsYWJlbDogXCJhbnRhbCBicnVzdmFyaWFibGVyXCJ9LFxuICBtYXJrczogW1xuICAgIFBsb3QubGluZShyMmRlbW8ubWFwKChkLCBpKSA9PiAoe2ksIHY6IGQucjJ9KSksIHt4OiBcImlcIiwgeTogXCJ2XCIsIHN0cm9rZTogXCIjMWM2NGYyXCIsIHN0cm9rZVdpZHRoOiAyfSksXG4gICAgUGxvdC5saW5lKHIyZGVtby5tYXAoKGQsIGkpID0+ICh7aSwgdjogZC5hZGp9KSksIHt4OiBcImlcIiwgeTogXCJ2XCIsIHN0cm9rZTogXCIjZTAyNDI0XCIsIHN0cm9rZVdpZHRoOiAyfSksXG4gICAgUGxvdC5ydWxlWChba19icnVzXSwge3N0cm9rZTogXCIjOWNhM2FmXCIsIHN0cm9rZURhc2hhcnJheTogXCI0LDRcIn0pLFxuICAgIFBsb3QudGV4dChbe2k6IDEzLCB2OiAwLjk1LCB0OiBcIlLCsiAoYmzDpSlcIn0sIHtpOiAxMywgdjogMC44NSwgdDogXCJqdXN0ZXJhdCBSwrIgKHLDtmQpXCJ9XSwge3g6IFwiaVwiLCB5OiBcInZcIiwgdGV4dDogXCJ0XCJ9KVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdjX2IxJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2NfYjInKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY19iMycpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdrX2JydXMnKSJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./pass2.html" class="pagination-link" aria-label="Pass 2: Sambandsanalys">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Pass 2: Sambandsanalys</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./pass4.html" class="pagination-link" aria-label="Pass 4: Begränsade modeller, antaganden, polynom">
+        <span class="nav-page-text">Pass 4: Begränsade modeller, antaganden, polynom</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>STK120 · Handelshögskolan vid Göteborgs universitet · Mentorsmaterial HT26</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

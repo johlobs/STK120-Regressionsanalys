@@ -1,0 +1,450 @@
+[
+  {
+    "objectID": "pass5.html",
+    "href": "pass5.html",
+    "title": "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata",
+    "section": "",
+    "text": "Sista passet före tentan (3 nov). Här ligger de två stora essäfrågorna som var mest urskiljande på alla tre tentatillfällen VT26: linjär sannolikhetsmodell och tolkning av en regressionstabell med fixa effekter. Det är fler uppgifter än det hinns med. Prioritera essäerna och låt de korta frågorna bli hemuppgift.\nI VT26 handlade Lecture 12 om omitted variable bias och paneldata. Bilden om utelämnade variabler nedan hör dit.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata"
+    ]
+  },
+  {
+    "objectID": "pass5.html#körschema",
+    "href": "pass5.html#körschema",
+    "title": "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata",
+    "section": "Körschema",
+    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:10\nTavla: tabellen med de tre logmodellerna och LPM mot S-kurvan\n\n\n\n13:10–13:55\nDel 1: uppgift 4 och 8 (essäerna) först, sedan 1–3\nSäg uttryckligen att 5–7 är för den som hinner.\n\n\n13:55–14:05\nPaus\n\n\n\n14:05–14:55\nDel 2: genomgång\n4 (LPM, störst gap) → 8 (fixa effekter) → 2 (dummyessä) → 3 (log + interaktion) → 1, 5–7 snabbt.\n\n\n14:55–15:00\nAvslut inför tentan\nPeka på startsidans tabell “Återkommer på varje tenta”.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata"
+    ]
+  },
+  {
+    "objectID": "pass5.html#nya-begrepp",
+    "href": "pass5.html#nya-begrepp",
+    "title": "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata",
+    "section": "Nya begrepp",
+    "text": "Nya begrepp\n\nF9: logaritmiska modeller\n\nNytt begrepp: tre logmodeller och deras tolkning\n\n\n\n\n\n\n\n\nModell (bokens namn)\nEkvation\nTolkning av b₁\n\n\n\n\nLin-log (logarithmic model)\ny = b₀ + b₁ ln x\n1 % mer x → y ändras med b₁ / 100 enheter\n\n\nLog-lin (exponential model)\nln y = b₀ + b₁x\n1 enhet mer x → y ändras med cirka 100 · b₁ %\n\n\nLog-log (power regression model)\nln y = b₀ + b₁ ln x\n1 % mer x → y ändras med b₁ % (elasticitet)\n\n\n\nMinnesregel: ln framför x betyder “procent i x”, ln framför y betyder “procent i y”.\n\n\nRita på tavlan: tabellen och tre kurvor\n\nSkriv tabellen ovan på tavlan och låt den stå kvar hela passet. Gruppen ska kunna fylla i tolkningskolumnen själv i slutet.\n\n\n\nF11: interaktion\n\nNytt begrepp: interaktion med en dummy\nI y = b₀ + b₁x + b₂d + b₃(x · d) är effekten av x b₁ för d = 0 och b₁ + b₃ för d = 1. Sätt alltid in d = 0 och d = 1 och skriv två ekvationer, som i cykeluppgiften i pass 3. Med ln x i stället för x gäller samma sak, men delat med 100: (b₁ + b₃) / 100 för d = 1.\n\n\n\nF12: sannolikhetsmodeller\n\nNytt begrepp: linjär sannolikhetsmodell (LPM) och logit\nNär y är 0 eller 1 blir ŷ en sannolikhet. I en LPM skattas den med vanlig OLS, så koefficienterna tolkas som förändring i sannolikhet i procentenheter: b = 0,047 betyder 4,7 procentenheter.\nNackdelar med LPM: prediktioner kan hamna under 0 eller över 1, marginaleffekten är konstant och feltermen är heteroskedastisk. Logit (eller probit) ger en S-kurva som alltid håller sig mellan 0 och 1, men då beror marginaleffekten på var man befinner sig, och R² går inte att använda.\n\n\nRita på tavlan: rak linje mot S-kurva\n\n\nRita punkter på två vågräta rader, y = 0 och y = 1.\nDra en rak linje genom dem (LPM) och visa var den går under 0 och över 1.\nRita S-kurvan (logit) som planar ut vid 0 och 1.\nFråga: “Var är effekten av x störst på S-kurvan?” (I mitten, där kurvan är brantast.)\n\n\n\nFråga till gruppen: procent eller procentenheter?\n“En LPM-koefficient är −0,01. Minskar sannolikheten med 1 procent?” Nej, med 1 procentenhet. Exakt den skillnaden avgjorde 2025-08-20, fråga 4, där den bästa A-tentan svarade fel.\n\n\n\nF12: paneldata och fixa effekter\n\nNytt begrepp: fixa effekter\nPaneldata = samma enheter (skolor, företag, personer) observerade flera gånger. Med fixa effekter får varje enhet en egen konstant, ungefär en dummy per enhet. Då försvinner allt som skiljer enheterna åt men inte ändras över tid, och effekten skattas bara utifrån variation inom samma enhet.\n\n\nRita på tavlan: tre grupper, två slutsatser\n\nRita tre punktmoln som vart och ett lutar nedåt men ligger på en stigande diagonal. En linje genom allt (streckad) lutar uppåt. Med fixa effekter jämför man bara inom varje moln och ser det verkliga negativa sambandet.\n\n\nRita på tavlan: utelämnad variabel (OVB)\n\nOVB uppstår när en utelämnad variabel z både hänger ihop med x och påverkar y. Fixa effekter tar bort de z som är konstanta inom en enhet, men inte allt. Det är kärnan i uppgift 8c.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata"
+    ]
+  },
+  {
+    "objectID": "pass5.html#tentafrågor-uppgiftsbladet",
+    "href": "pass5.html#tentafrågor-uppgiftsbladet",
+    "title": "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata",
+    "section": "Tentafrågor (uppgiftsbladet)",
+    "text": "Tentafrågor (uppgiftsbladet)\n\n1. Tolka en lin-log-modell\n2026-08-20, fråga 3 2 p Sant/falskt 80 %\n\nI en lin–log-modell, om koefficienten på ln(x) skattas till 0,5, innebär det att en ökning av X med 1 procent ökar Y med ungefär 0,005 enheter.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nSant. b₁ / 100 = 0,5 / 100 = 0,005 enheter. Peka på första raden i tabellen.\n\n\n\n\n\n2. Dummyvariabler: begrepp och fällor\n2026-08-20, fråga 17 10 p 🔥 Begreppsfälla: 59 %, gap 3,93\n\nIbland används något vi kallar för “dummy-variabler” inom regressionsanalysen. a) Beskriv vad som skiljer en dummyvariabel från de “vanliga variablerna” vi annars använder. Beskriv här själva variabelns egenskaper, inte tolkning av regressionsresultat eller liknande (4p) b) Beskriv vad som skiljer i tolkningen av koefficienten för en dummy-variabel jämfört med de “vanliga variablerna” vi annars använder. (4p) c) Inom regressionsanalysen finns något vi kallar för “the dummy variable trap”. Beskriv hur vi kan undvika den. (2p)\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\n\nAntar bara värdena 0 och 1 och anger tillhörighet till en kategori (t.ex. kvinna/inte kvinna). Den har ingen meningsfull enhet eller skala. En kategorisk variabel med k kategorier görs om till k − 1 sådana variabler.\nVanlig variabel: förändring i y per en enhet mer x (lutning). Dummy: skillnaden i genomsnittligt y mellan gruppen med 1 och referensgruppen, allt annat lika (skillnad i nivå). Nämn referensgruppen uttryckligen, det ger poäng.\nTa med k − 1 dummies för k kategorier. Annars summerar de till 1, precis som konstanten, och det blir perfekt multikollinjäritet.\n\nTips: frågan ger mycket poäng för exakta formuleringar. Låt studenterna skriva sina svar och läs upp ett par. Gruppen bedömer om “referensgrupp” och “allt annat lika” finns med.\n\n\n\n\n\n3. Log-modell med interaktion\n2024-12-15, fråga 5 2025-08-20, fråga 8 4 p 🔁 Tre tentor i rad\n\nSuppose you have the following estimated interaction model: ŷ = b₀ + b₁ln(x) + b₂d + b₃ln(x) × d, where ln(x) is the natural logarithm of x and d is a dummy variable. What is the effect of a percent increase in x on the expected dependent variable for d = 1?\n\n\nb₃/100\nb₁/100\n(b₁ + b₃d)/100\nb₁ + b₃d\nb₃\nb₁\nb₁ + b₂\n(b₁ + b₃)/100\nb₃/100\nb₁ + b₂ + b₃\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\n(b₁ + b₃)/100. Sätt in d = 1: ŷ = (b₀ + b₂) + (b₁ + b₃) ln(x). Det är en lin-log-modell med koefficienten b₁ + b₃, alltså delat med 100.\nFällan: (b₁ + b₃d)/100 är rätt bara när d inte är given (2024-11-01, fråga 5). 2025-08-20 valde den bästa A-tentan just det alternativet och fick 0 poäng. Läs om d är angiven.\n\n\n\n\n\n4. Linjär sannolikhetsmodell: tidsbegränsade anställningar\n2026-08-20, fråga 14 15 p 🔥 Störst gap på tentan: 4,94 🔁 På varje tenta\n\nTidsbegränsade anställningar är en återkommande fråga i arbetsmarknadsdebatten. […] En forskare vill undersöka vilka individer som har högre sannolikhet att ha en tidsbegränsad anställning. Den beroende variabeln är tidsbegränsad (Begr.), som är lika med 1 om individen har en tidsbegränsad anställning och lika med 0 om individen har en tillsvidareanställning. De förklarande variablerna är: kvinna (1 om kvinna), Utb. (antal utbildningsår), ålder, ålder2 (ålder i kvadrat), offentlig (1 om offentlig sektor, 0 om privat), kvinna_offentlig (interaktion mellan kvinna och offentlig sektor).\nBegrᵢ = β₀ + β₁Utbᵢ + β₂ålderᵢ + β₃ålder2ᵢ + β₄kvinnaᵢ + β₅offentligᵢ + β₆kvinnaᵢ·offentligᵢ + uᵢ\n\nN = 18 542, R² = 0,1305, justerat R² = 0,1302, F = 463,31 (signifikans F 0,0000).\n\n\n\n\nKoefficienter\nStandardfel\nt-värde\np-värde\n\n\n\n\nIntercept\n0,7420\n0,0300\n24,7333\n0,0000\n\n\nutbildning\n−0,0072\n0,0010\n−7,2000\n0,0000\n\n\nålder\n−0,0155\n0,0011\n−14,0909\n0,0000\n\n\nålder2\n0,0002\n0,0000\n16,0000\n0,0000\n\n\nkvinna\n0,0100\n0,0070\n1,4286\n0,1532\n\n\noffentlig\n0,0250\n0,0065\n3,8462\n0,0001\n\n\nkvinna_offentlig\n0,0350\n0,0105\n3,3333\n0,0009\n\n\n\n\nFråga 1 (4 poäng): Predikera sannolikheten att ha en tidsbegränsad anställning för en kvinna som är 30 år gammal, har 14 års utbildning och arbetar i offentlig sektor. Fråga 2 (4 poäng): Vad är den marginella effekten av ålder på sannolikheten att ha en tidsbegränsad anställning för en person som är 60 år gammal? Ge en tolkning också i ord vad det siffran betyder. Fråga 3 (4 poäng): Tolka koefficienterna för kvinna, offentlig och kvinna_offentlig. Fråga 4 (3 poäng): Anta att forskaren funderar på att i stället skatta en logistisk regressionsmodell. Vilken är en viktig nackdel med den linjära sannolikhetsmodellen i detta sammanhang?\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nFråga 1. 0,7420 − 0,0072·14 − 0,0155·30 + 0,0002·900 + 0,0100 + 0,0250 + 0,0350 = 0,7420 − 0,1008 − 0,4650 + 0,1800 + 0,0700 = 0,4262 ≈ 42,6 %. Vanliga fel: glömma interaktionen, eller sätta in 30 i stället för 900 för ålder2.\nFråga 2. −0,0155 + 2 · 0,0002 · 60 = 0,0085: vid 60 år ökar sannolikheten med cirka 0,85 procentenheter per extra år. Linjärtermen är negativ men marginaleffekten positiv vid 60. Sambandet är U-format med vändpunkt vid 0,0155 / 0,0004 ≈ 39 år (samma formel som i pass 4).\nFråga 3. kvinna (0,0100, p = 0,15): ingen säkerställd skillnad mellan kvinnor och män i privat sektor. offentlig (0,0250): män i offentlig sektor har 2,5 procentenheter högre sannolikhet än män i privat. kvinna_offentlig (0,0350): skillnaden mellan kvinnor och män är 3,5 procentenheter större i offentlig sektor. Total skillnad för en kvinna i offentlig sektor mot en man i privat: 0,0100 + 0,0250 + 0,0350 = 7 procentenheter.\nFråga 4. LPM kan ge predikterade sannolikheter under 0 eller över 1, och marginaleffekten är konstant. Logit håller sig alltid mellan 0 och 1.\nGenomgångstips: ta fråga 1 tillsammans på tavlan rad för rad. Det är den del alla kan få poäng på.\n\n\n\n\n\n5. Linjär sannolikhetsmodell eller probit?\n2026-08-20, fråga 8 4 p ⚠️ Svårt för alla: 55 %, gap 0,30\n\nEn forskare vill studera sannolikheten att en individ stödjer ett förslag om höjd bensinskatt. Den beroende variabeln är lika med 1 om individen stödjer förslaget och 0 annars. Forskaren överväger att använda antingen en linjär sannolikhetsmodell eller en probitmodell. Vilket av följande påståenden är korrekt?\n\n\nI en probitmodell kan koefficienterna tolkas direkt som förändringar i sannolikhet.\nEn linjär sannolikhetsmodell och en probitmodell ger samma predikterade sannolikheter.\nI en probitmodell bestäms sannolikheten av en icke-linjär funktion, vilket gör att marginaleffekten av en variabel också beror på värdet på variabeln.\nEn linjär sannolikhetsmodell garanterar alltid att predikterade sannolikheter ligger mellan 0 och 1.\nEn probitmodell kan bara användas om den beroende variabeln är kontinuerlig.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nAlternativ 3. Peka på S-kurvan: lutningen ändras längs kurvan. Probit och logit beter sig likadant här. Kursen visar logit, men frågan använde probit, så säg det högt.\n\n\n\n\n\n6. R² och logistisk regression\n2024-12-15, fråga 4 2025-06-05, fråga 3 2024-03-19, fråga 4 2 + 2 p 🔁 Tre tentor\n\n\nIs the following statement true or false?: “The R-squared cannot be used with the logistic regression”\nIs the following statement true or false?: “We cannot evaluate the predictive accuracy of the logistic regression models using adjusted R-squared”\n\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\na) True. b) True. Logit skattas inte med OLS och y är 0/1, så SST = SSR + SSE gäller inte. Man jämför i stället andelen rätt klassificerade observationer. 2024-03-19 frågade samma sak om “binary choice models”.\n\n\n\n\n\n7. Fixa effekter\n2026-08-20, fråga 4 2 p Sant/falskt Lätt: 78 %\n\nFixa effekter innebär att vi kontrollerar för tidsinvarianta skillnader mellan enheter, till exempel individer, kommuner eller företag. I en paneldatamodell identifieras effekten då av variation inom samma enhet över tid.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nSant. Bra uppvärmning före uppgift 8. Peka på bilden med de tre molnen.\n\n\n\n\n\n8. Diskriminering i skolan: fixa effekter och kausal diskussion\n2026-08-20, fråga 13 15 p 🔥 Begreppsfälla: 43 %, gap 3,99\n\nI artikeln “Gender Grading Bias in Junior High School Mathematics” […] undersöker vi om pojkar missgynnas vid betygssättning i matematik i grundskolans senare år i Stockholm under perioden 2012–2017. Vi gör detta genom att jämföra elevernas slutbetyg i matematik från grundskolan, nedan kallat Betyg, med resultatet på ett diagnostiskt prov i matematik, nedan kallat Provresultat. […] Provet genomförs under den första veckan på gymnasiet, ungefär två månader efter att slutbetyget i matematik sattes i grundskolan. Både betyg och provresultat är normaliserade till samma skala, från 0,0 till 2,0 […]. Den beroende variabeln Y i analysen är skillnaden mellan betyg och provresultat: Yᵢ = Betygᵢ − Provresultatᵢ […]. Vi estimerar följande modell: Yᵢ = β₀ + β₁Pojkeᵢ + β₂X + uᵢ. […] Klustrade standardfel anges inom parentes. […] * anger signifikans på 10 %-nivån, ** på 5 %-nivån och *** på 1 %-nivån.\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariabel\n(1)\n(2)\n(3)\n(4)\n(5)\n(6)\n\n\n\n\nPojke\n−0,232*** (0,007)\n−0,233*** (0,007)\n−0,237*** (0,007)\n−0,238*** (0,009)\n−0,239*** (0,010)\n−0,238*** (0,011)\n\n\nAndel kvinnliga lärare\n\n\n\n0,255 (0,137)\n\n0,045 (0,180)\n\n\nFöräldrars utbildningsnivå\n\n\n\n\n0,115 (0,099)\n0,133 (0,099)\n\n\nAndel pojkar\n\n\n\n\n0,118 (0,110)\n0,127 (0,100)\n\n\nÅrs-FE\nNej\nJa\nJa\nJa\nJa\nJa\n\n\nSkol-FE\nNej\nNej\nJa\nJa\nJa\nJa\n\n\nN\n33 486\n33 486\n33 486\n33 486\n33 486\n33 486\n\n\nJusterat R²\n0,036\n0,044\n0,114\n0,102\n0,110\n0,110\n\n\n\n\n\nRegressionsmodell (2 poäng): Skriv upp den skattade regressionsfunktionen som motsvarar den sista kolumnen, kolumn (6), i tabellen. Du behöver inte inkludera konstanten i ditt svar eller de fixa effekterna. b) Tolkning av koefficienter (5 poäng): Tolka och kommentera samtliga skattade koefficienter i kolumn (6). c) Tolkning och kausal diskussion (8 poäng): Använd informationen i tabellen och introduktionen ovan för att diskutera om resultaten stödjer slutsatsen att pojkar diskrimineras vid betygssättning i matematik. Kan du komma på en alternativ förklaring till de skattade resultaten som inte bygger på betygsdiskriminering?\n\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\na) Ŷ = −0,238·Pojke + 0,045·Andel kvinnliga lärare + 0,133·Föräldrars utbildningsnivå + 0,127·Andel pojkar.\nb) Pojke: skillnaden mellan betyg och provresultat är i genomsnitt 0,238 enheter mindre för pojkar än för flickor, jämfört inom samma skola och år. Pojkar får alltså lägre betyg i förhållande till vad provet visar (skalan är 0–2, så det är en stor skillnad). Signifikant på 1 %. De tre kontrollvariablerna är inte signifikanta (t = koefficient / standardfel &lt; 2). Skol-FE och Års-FE: jämförelsen görs inom samma skola och samma år.\nc) Stöd: koefficienten är nästan densamma (−0,232 till −0,239) i alla sex kolumner. Den påverkas alltså inte av fixa effekter eller kontroller, vilket talar emot att skillnader mellan skolor förklarar resultatet.\nAlternativa förklaringar: (1) betyget mäter mer än provet, t.ex. närvaro, inlämningar och muntlig aktivitet, där flickor i genomsnitt kan ligga högre. (2) Provet skrivs två månader senare och påverkar ingenting. Om flickor i genomsnitt anstränger sig mindre än pojkar på ett sådant prov blir flickornas provresultat lägre och deras Y högre, och skillnaden uppstår utan diskriminering. Kontrollera riktningen med gruppen: om pojkar i stället ansträngde sig mindre skulle pojkarnas Y bli högre, vilket är tvärtom mot resultatet. Detta är OVB-resonemanget: något som hänger ihop med kön och påverkar Y.\nGenomgångstips: det här var en av de svagaste frågorna. Låt grupperna först bara svara på a) och tolka en koefficient, sedan diskutera c) muntligt två och två.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata"
+    ]
+  },
+  {
+    "objectID": "pass5.html#fler-tentafrågor-på-området",
+    "href": "pass5.html#fler-tentafrågor-på-området",
+    "title": "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata",
+    "section": "Fler tentafrågor på området",
+    "text": "Fler tentafrågor på området\n\n\n\n\n\n\n\n\n\n\nTenta\nFråga\nRätt svar\nKommentar\n\n\n\n\n2024-03-19, fråga 8\n“A model in which only one or more independent variables is log transformed is called a(n) …”\nlogarithmic model\nBokens namn.\n\n\n2024-11-01, fråga 8\n“… only the dependent variable is log transformed …”\nexponential model\n\n\n\n2024-12-15, fråga 8\n“… both the dependent and independent variables are log transformed …”\npower regression model\nInte “log-log model” bland alternativen.\n\n\n2024-11-01, fråga 4\n“The models with log transformations cannot be estimated with the ordinary least squares method”\nFalse\n\n\n\n2025-03-25, fråga 7\nLog-log, β₁ = 0,8. Vad händer med y om x ökar med 5 %?\nY increases by 4%\n0,8 · 5 %.\n\n\n2025-08-20, fråga 7\nLog-log, β₁ = 0,2. x ökar med 1 %\nY increases by 0.2%\n\n\n\n2025-06-05, fråga 10\nln y = β₀ + β₁x, β₁ = 0,04, x ökar med 5 enheter\n20%\n100 · 0,04 · 5.\n\n\n2024-11-01, fråga 5\nSamma log-interaktion som uppgift 3 men utan givet d\n(b₁ + b₃d)/100\nJämför med uppgift 3.\n\n\n2025-03-25, fråga 8\ny = β₀ + β₁x + β₂d + β₃xd + ε, β₃ &lt; 0. Vad innebär det?\nThe effect of x on y is weaker when d = 1\n\n\n\n2025-06-05, fråga 11\ny = β₀ + β₁x + β₂xd + ε. Interaktionen orsakar …\na change in just the slope\nIngen dummy-huvudeffekt, alltså samma intercept.\n\n\n2026-08-20, fråga 7\nY = b₀ + b₁X + b₂Kvinna + b₃(X·Kvinna) + e. Vilket påstående är korrekt?\nInget av ovanstående\n⚠️ Svårt för alla: 37 %. Effekten av X är b₁ för män och b₁ + b₃ för kvinnor, vilket inget alternativ säger.\n\n\n2026-08-20, fråga 5\nLPM, dummy för högst grundskola, b = 0,047\n4,7 procentenheter högre sannolikhet att vara arbetslös\n80 %.\n\n\n2025-03-25, fråga 4\nLogit, marginaleffekt −0,015: “reduces the probability by 1.5 percentage point”\nTrue\n\n\n\n2025-08-20, fråga 4\nMarginaleffekt −0,01: “reduces the probability of the event by 1%”\nFalse\nProcent mot procentenheter. Den bästa A-tentan svarade fel.\n\n\nEngelska essäfrågan 14 2024–2025\nLPM: predicera sannolikhet, marginaleffekt av ålder, tolka dummy och ln(inkomst)\n\nSamma färdigheter som uppgift 4. ln(inkomst) i en LPM: 1 % mer inkomst ger b / 100 procentenheter.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata"
+    ]
+  },
+  {
+    "objectID": "pass5.html#interaktivt-visa-från-datorn",
+    "href": "pass5.html#interaktivt-visa-från-datorn",
+    "title": "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata",
+    "section": "Interaktivt (visa från datorn)",
+    "text": "Interaktivt (visa från datorn)\nLPM mot logit: flytta reglagen och se var LPM-linjen lämnar intervallet [0, 1].\n\nviewof l_a = Inputs.range([-8, 2], {step: 0.1, value: -5.5, label: \"logit: konstant\"})\nviewof l_b = Inputs.range([0.2, 2.5], {step: 0.05, value: 1.1, label: \"logit: lutning\"})\nl_pts = {\n  const rand = d3.randomUniform.source(d3.randomLcg(7));\n  return d3.range(80).map(() =&gt; {\n    const x = 10 * rand()();\n    const p = 1 / (1 + Math.exp(-(l_a + l_b * x)));\n    return {x, y: rand()() &lt; p ? 1 : 0};\n  });\n}\nl_ols = {\n  const mx = d3.mean(l_pts, d =&gt; d.x), my = d3.mean(l_pts, d =&gt; d.y);\n  const b = d3.sum(l_pts, d =&gt; (d.x - mx) * (d.y - my)) / d3.sum(l_pts, d =&gt; (d.x - mx) ** 2);\n  return {a: my - b * mx, b};\n}\nmd`LPM (OLS på samma data): ŷ = ${l_ols.a.toFixed(2)} + ${l_ols.b.toFixed(3)}x. Konstant marginaleffekt **${(100 * l_ols.b).toFixed(1)} procentenheter** per enhet x. Logitens marginaleffekt beror på x och är störst där p = 0,5.`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 640, height: 340, x: {domain: [-1, 11], label: \"x\"}, y: {domain: [-0.4, 1.4], label: \"sannolikhet\"},\n  marks: [\n    Plot.rect([{x1: -1, x2: 11, y1: 1, y2: 1.4}, {x1: -1, x2: 11, y1: -0.4, y2: 0}], {x1: \"x1\", x2: \"x2\", y1: \"y1\", y2: \"y2\", fill: \"#fde8e8\"}),\n    Plot.dot(l_pts, {x: \"x\", y: \"y\", r: 3, fill: \"#1f2a37\", fillOpacity: 0.5}),\n    Plot.line([[-1, l_ols.a - l_ols.b], [11, l_ols.a + 11 * l_ols.b]], {stroke: \"#e02424\", strokeWidth: 2.5}),\n    Plot.line(d3.range(-1, 11.01, 0.1).map(x =&gt; [x, 1 / (1 + Math.exp(-(l_a + l_b * x)))]), {stroke: \"#1c64f2\", strokeWidth: 2.5})\n  ]\n})\n\n\n\n\n\n\n\n\nLogtolkning: räkna ut effekten för valfri modell.\n\nviewof lm_typ = Inputs.radio([\"lin-log\", \"log-lin\", \"log-log\"], {value: \"lin-log\", label: \"modell\"})\nviewof lm_b = Inputs.number({value: 0.5, step: 0.01, label: \"b₁\"})\nviewof lm_d = Inputs.number({value: 1, step: 1, label: lm_typ === \"log-lin\" ? \"ökning i x (enheter)\" : \"ökning i x (%)\"})\nmd`${lm_typ === \"lin-log\" ? `y ändras med cirka **${(lm_b * lm_d / 100).toFixed(4)} enheter** (b₁ · ${lm_d} / 100)` : lm_typ === \"log-lin\" ? `y ändras med cirka **${(100 * lm_b * lm_d).toFixed(2)} %** (100 · b₁ · ${lm_d})` : `y ändras med cirka **${(lm_b * lm_d).toFixed(2)} %** (b₁ · ${lm_d})`}`",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata"
+    ]
+  },
+  {
+    "objectID": "pass3.html",
+    "href": "pass3.html",
+    "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
+    "section": "",
+    "text": "Tre föreläsningar sedan förra passet, så det här är det tyngsta passet. Bygg upp det i samma ordning som föreläsningarna: först vad en dummy gör med linjen, sedan hur bra modellen passar (R²), sist hur vi testar koefficienterna. Excelutskriften (uppgift 2) knyter ihop allt och är den viktigaste tentafrågetypen i kursen.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
+    ]
+  },
+  {
+    "objectID": "pass3.html#körschema",
+    "href": "pass3.html#körschema",
+    "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
+    "section": "Körschema",
+    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:10\nTavla: dummy som parallellförskjuten linje, SST = SSR + SSE\nBild 1 och 3 nedan.\n\n\n13:10–13:55\nDel 1: uppgift 1–5\nUppgift 1 är lång (20 p). Säg åt studenterna att göra a–e först och ta f sist.\n\n\n13:55–14:05\nPaus\n\n\n\n14:05–14:55\nDel 2: genomgång\n2 (Excel, begreppsfälla) → 1 (dummy och interaktion) → 4 (svagaste frågan på 2026-08-20) → 3 och 5 snabbt.\n\n\n14:55–15:00\nSammanfattning\n“Var hittar jag vad i Excelutskriften?” Visa kartan nedan en gång till.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
+    ]
+  },
+  {
+    "objectID": "pass3.html#nya-begrepp",
+    "href": "pass3.html#nya-begrepp",
+    "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
+    "section": "Nya begrepp",
+    "text": "Nya begrepp\n\nF3: dummyvariabler\n\nNytt begrepp: dummyvariabel\nEn dummy är en variabel som bara kan vara 0 eller 1, t.ex. kvinna = 1, annars 0. Den flyttar hela linjen uppåt eller nedåt för gruppen med 1, men lutningen är densamma. Koefficienten är alltså skillnaden i genomsnittligt y mellan grupperna, allt annat lika. Gruppen med 0 kallas referensgruppen.\nHar variabeln fler kategorier (t.ex. grundskola, gymnasium, universitet) behövs k − 1 dummies. Tar man med alla k blir de tillsammans exakt lika med konstanten (de summerar alltid till 1) och modellen går inte att skatta: dummy variable trap.\n\n\nRita på tavlan: dummy som parallell linje\n\n\nRita en stigande linje och skriv “d = 0, referensgrupp”.\nRita en parallell linje ovanför och skriv “d = 1”.\nPila avståndet mellan linjerna: det är b₂, och det är lika stort vid alla x.\nFråga: “Vad skulle krävas för att linjerna inte ska vara parallella?” Det leder till interaktion (uppgift 1).\n\n\n\nRita på tavlan: interaktion (uppgift 1, cykelresande)\n\nRita de två linjerna efter att studenterna har räknat c). Poängen: interaktionstermen ändrar lutningen för gruppen med cykelväg (−3,1 + 1,9 = −1,2), dummyn ändrar nivån (42 + 8,4 = 50,4).\n\n\nFråga till gruppen\n“Vi har tre utbildningsnivåer och kön i en lönemodell. Hur många dummyvariabler behövs?” (Svar: 2 + 1 = 3. Exakt så frågade tentan 2025-08-20, fråga 16.4. Den bästa A-tentan svarade 1.)\n\n\n\nF4: goodness of fit\n\nNytt begrepp: R², justerat R² och standardfelet\n\nR² = SSR / SST: hur stor andel av variationen i y som modellen förklarar.\nJusterat R² straffar varje ny variabel. Använd det när modeller med olika antal variabler jämförs.\nStandardfelet sₑ (översta tabellen i Excel) = typiskt avstånd mellan observerat och predikterat y, i y:s enhet. Det är inte samma sak som standardfelet för en koefficient.\n\n\n\nRita på tavlan: varför SST = SSR + SSE\n\n\nRita linjen, en vågrät streckad linje för ȳ och en punkt högt ovanför båda.\nDra det lodräta avståndet från ȳ till punkten: totalt (→ SST).\nDela det vid regressionslinjen: från ȳ upp till linjen är den förklarade delen (→ SSR), från linjen upp till punkten är residualen (→ SSE).\nSummera över alla punkter (i kvadrat): SST = SSR + SSE. R² = SSR / SST.\nKoppla till A/B/C-figuren från pass 2: B–C är förklarat, A–B är residualen.\n\n\n\nRita på tavlan: R² mot justerat R²\n\nHär läggs rena brusvariabler till en efter en. R² kryper uppåt ändå, medan justerat R² sjunker. Rita det som två skissade kurvor.\n\n\n\nF5: signifikanstest\n\nNytt begrepp: t-test och F-test\n\nt-test för en koefficient: H₀: βⱼ = 0. t = bⱼ / se(bⱼ). Svarar på om just den variabeln har ett samband med y, allt annat lika.\nF-test (test of joint significance): H₀: β₁ = β₂ = … = βₖ = 0. Svarar på om modellen förklarar något alls. Förkastas H₀ vet vi bara att minst en koefficient skiljer sig från noll.\n\n\n\nRita på tavlan: tentans t-test i en bild\n\nSamma bild som i pass 1, nu med t = b / se(b). Skriv formeln stort och visa hur t växer när b växer och krymper när se växer. Det är hela uppgift 4.\n\n\n\nKarta över Excelutskriften\nAnvänd utskriften från uppgift 2 och peka på varje del:\n\n\n\n\n\n\n\n\nVar i utskriften\nVad det är\nTentafråga\n\n\n\n\nRegressionsstatistik: R-kvadrat\nAndel förklarad variation (SSR/SST)\n2026-08-20 fr. 12\n\n\nJusterad R-kvadrat\nR² straffat för antal variabler. Använd vid jämförelse mellan modeller\n2025-08-20 fr. 16.2\n\n\nStandardfel (översta tabellen)\nsₑ: typiskt avstånd mellan y och ŷ, i y:s enhet\n2026-08-20 fr. 16a, 2024-12-15 fr. 15.2\n\n\nANOVA: F och p-värde för F\nTestar om alla β = 0\n2025-08-20 fr. 16.1\n\n\nKoefficienter\nb: förändring i y per enhet x, allt annat lika\nalla tentor\n\n\nStandardfel (per rad)\nOsäkerheten i just den koefficienten\n2024-12-15 fr. 15.3\n\n\nt-kvot\nb / se(b)\n2026-08-20 fr. 11\n\n\np-värde\nSannolikheten för minst så extremt t om β = 0\n2025-06-05 fr. 16.4–5\n\n\nKonstant\nŷ när alla x = 0, ofta utanför data\n2026-08-20 fr. 16c",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
+    ]
+  },
+  {
+    "objectID": "pass3.html#tentafrågor-uppgiftsbladet",
+    "href": "pass3.html#tentafrågor-uppgiftsbladet",
+    "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
+    "section": "Tentafrågor (uppgiftsbladet)",
+    "text": "Tentafrågor (uppgiftsbladet)\n\n1. Cykelresande och stadsplanering: dummyvariabler och interaktion\nKonstruerad övning 20 p 🔁 Samma upplägg i essäerna\n\nEn samhällsplanerare vill förklara hur stor andel av sina dagliga resor invånare i en kommun gör med cykel. Hon tror att avstånd till stadskärnan påverkar negativt, men att effekten ser olika ut beroende på om man bor i ett område med cykelvägnät eller inte.\n\nVilka variabler bör ingå i modellen? Motivera. b) Skriv upp modellspecifikationen. Förklara innebörden av varje term. c) Den skattade modellen ger ŷ = 42 − 3,1·avstånd + 8,4·cykelväg + 1,9·(cykelväg × avstånd). Skriv upp de två skattade ekvationerna, en per grupp. d) Tolka koefficienterna i sitt sammanhang. e) En invånare bor 5 km från stadskärnan i ett område med cykelvägnät. Vad är det predikterade cykelresandet? f) Vad är “dummy variable trap” och hur undviker man det?\n\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\n\nAvstånd, dummyn cykelväg (1 = cykelvägnät) och interaktionen cykelväg × avstånd. Interaktionen behövs eftersom teorin säger att avståndseffekten skiljer sig mellan grupperna.\ncykelresande = β₀ + β₁·avstånd + β₂·cykelväg + β₃·(cykelväg × avstånd) + ε. β₀: nivå för referensgruppen vid 0 km. β₁: lutning för referensgruppen. β₂: nivåskillnad för gruppen med cykelväg. β₃: skillnad i lutning. ε: felterm.\nUtan cykelväg: ŷ = 42 − 3,1·avstånd. Med cykelväg: ŷ = 50,4 − 1,2·avstånd.\n−3,1: utan cykelväg minskar cykelresandet med 3,1 procentenheter per km. 8,4: med cykelväg är nivån 8,4 procentenheter högre vid 0 km. 1,9: avståndseffekten är 1,9 procentenheter svagare per km med cykelväg. Cykelvägar dämpar alltså avståndseffekten.\n50,4 − 1,2 · 5 = 44,4 %.\nk kategorier ger k − 1 dummies. Annars perfekt multikollinjäritet med konstanten.\n\nKoppling: precis den här typen av tolkning (en dummy, en interaktion, “effekten för respektive grupp”) kommer i de engelska essäfrågorna på varje tenta 2024–2025 och i fråga 7 på 2026-08-20.\n\n\n\n\n\n2. Tolka en Excelutskrift\n2026-08-20, fråga 16 8 p 🔥 Begreppsfälla: 33 %, gap 2,33 🔁 På varje tenta\n\nDu analyserar ett antal företag för att se vad som kan förklara skillnader i lönsamhet hos ett antal företag. Du använder Excel och får nedanstående resultat från din regressionsanalys. Den beroende variabeln är den årliga lönsamheten (i miljoner kronor) och de oberoende variablerna är: 1. Belopp som läggs på löner (i miljoner kronor) 2. Belopp som läggs på Forskning och Utveckling (FoU) (i miljoner kronor) 3. Belopp som läggs på reklam (i miljoner kronor) 4. Om företaget har en kvinnlig VD (1 om ja, 0 om nej) 5. Andel av de anställda som är kvinnor (procent)\n\n\n\n\nRegressionsstatistik\n\n\n\n\n\nMultipel-R\n0,845\n\n\nR-kvadrat\n0,714\n\n\nJusterad R-kvadrat\n0,698\n\n\nStandardfel\n4,321\n\n\nObservationer\n60\n\n\n\n\n\n\n\nfg\nKvS\nMKv\nF\np-värde för F\n\n\n\n\nRegression\n5\n2890,45\n578,09\n30,98\n0,00001\n\n\nResidual\n54\n1008,55\n18,68\n\n\n\n\nTotal\n59\n3899\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKoefficienter\nStandardfel\nt-kvot\np-värde\nNedre 95%\nÖvre 95%\n\n\n\n\nKonstant\n25,678\n8,123\n3,16\n0,002\n9,412\n41,944\n\n\nLöner\n0,456\n0,345\n1,32\n0,192\n−0,234\n1,146\n\n\nFoU\n1,234\n0,456\n2,71\n0,009\n0,32\n2,148\n\n\nReklam\n0,789\n0,345\n2,29\n0,026\n0,097\n1,481\n\n\nKvinnlig VD\n3,567\n1,234\n2,89\n0,005\n1,091\n6,043\n\n\nAndel kvinnor\n0,123\n0,056\n2,2\n0,032\n0,011\n0,235\n\n\n\n\n\nTolka värdet på “Standardfel” i översta delen av tabellen noga (2 poäng) b) Tolka den skattade koefficienten för variabeln FoU, inklusive dess statistiska signifikans (4p) c) Förklara med en mening varför vi ska vara försiktiga när vi tolkar den skattade koefficienten för konstanten i ovanstående tabell (2p)\n\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\n\n4,321 är sₑ: företagens faktiska lönsamhet avviker i genomsnitt ungefär 4,3 miljoner kronor från den predikterade. Fallan: att tolka det som FoU:s eller någon annan koefficients standardfel. Den bästa A-tentan blandade också ihop det med t-värdet.\nYtterligare 1 miljon kronor på FoU hänger i genomsnitt ihop med 1,234 miljoner kronor högre lönsamhet, allt annat lika. t = 1,234 / 0,456 ≈ 2,71, p = 0,009 &lt; 0,05 (även &lt; 0,01): signifikant på 5 % och 1 %. Nämn hypoteserna H₀: β_FoU = 0 mot H_A: β_FoU ≠ 0.\nKonstanten är predikterad lönsamhet för ett företag utan löner, FoU, reklam, kvinnlig VD och kvinnliga anställda, något som inte finns i data (extrapolation).\n\nGenomgångstips: låt studenterna själva hitta varje siffra i tabellen med “kartan” ovan innan du visar svaret.\n\n\n\n\n\n3. t-värde och p-värde\n2024-11-01, fråga 1 2 p Sant/falskt\n\nVid hypotestest av en lutningskoefficient kan både t-värden och p-värden användas. Om inget annat ändras innebär ett större t-värde (mer skilt från noll) alltid att p-värdet blir lägre.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nSant. Större |t| ger mindre yta i svansarna, alltså lägre p. Den bästa A-tentan svarade fel här. Systerfrågan 2024-12-15 hade ordet “högre” och då var svaret falskt (pass 1).\n\n\n\n\n\n4. Koefficient, standardfel och t-värde\n2026-08-20, fråga 11 2025-03-25, fråga 12 4 p ⚠️ Svagast på tentan: 33 %, gap 0,83\n\nAntag att du genomför ett test för individuell signifikans, dvs testar signifikansen för en enskild koefficient. Om den skattade koefficienten är positiv, vilket av följande påståenden är korrekt?\n\n\nEtt högre värde på koefficienten leder till ett högre värde på t-värdet, allt annat lika\nEtt högre värde på koefficienten leder till ett högre värde på standardfelet, allt annat lika\nKoefficientens och t-värdets värden är oberoende av varandra\nEtt högre värde på standardfelet leder till ett högre värde på t-värdet, allt annat lika\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nEtt högre värde på koefficienten leder till ett högre värde på t-värdet, allt annat lika.\nAllt följer ur t = b / se(b). Skriv formeln på tavlan och låt studenterna testa varje alternativ mot den i stället för att resonera fritt. Exempel ur uppgift 2: FoU, 1,234 / 0,456 ≈ 2,71.\nFrågan kom ordagrant även 2025-03-25: den återkommer.\n\n\n\n\n\n5. F-test och R²\n2026-08-20, fråga 1 2 p Sant/falskt Lätt: 90 %\n\nEn modell som har ett lågt p-värde för F-testet och alltså är statistiskt signifikant som helhet, kan ändå ha ett lågt värde på determinationskoefficienten.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nSant. F-testet frågar om modellen förklarar något, R² hur mycket. Med många observationer räcker lite förklaring för signifikans. Exempel: LPM-uppgiften i pass 5 har R² = 0,13 men F-testets p-värde 0,0000.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
+    ]
+  },
+  {
+    "objectID": "pass3.html#fler-tentafrågor-på-området",
+    "href": "pass3.html#fler-tentafrågor-på-området",
+    "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
+    "section": "Fler tentafrågor på området",
+    "text": "Fler tentafrågor på området\n\n\n\n\n\n\n\n\n\n\nTenta\nFråga\nRätt svar\nKommentar\n\n\n\n\n2024-03-19, fråga 11\n“Värdet på den skattade koefficienten för en dummyvariabel visar:”\nden genomsnittliga skillnaden i intercept mellan de två grupperna\nTavelbilden med parallella linjer.\n\n\n2024-11-01, fråga 10\n“En så kallad dummyvariabel:”\när en variabel som bara kan anta två olika värden\n\n\n\n2025-08-20, fråga 16.4\nLönemodell med ålder, utbildningsnivå (3 nivåer), erfarenhet och kön: hur många dummyvariabler?\n3 (2 för utbildning, 1 för kön)\nBästa A-tentan svarade 1. Bra diskussionsfråga.\n\n\n2024-12-15, fråga 11\n“I en regressionsmodell mäter determinationskoefficienten …”\nhur stor andel av variationen i den beroende variabeln som förklaras av modellen\n\n\n\n2026-08-20, fråga 12\nVad representerar R² i en enkel linjär regression?\nden procentuella andelen av den totala variationen i den beroende variabeln som förklaras av de oberoende variablerna\n82 % av maxpoängen. Distraktorn byter plats på beroende och oberoende.\n\n\n2024-12-15, fråga 12\nKoefficienten för “bostadsyta” betecknas …?\nβ₁ (inte x₁)\nNotation, som i pass 2.\n\n\n2025-08-20, fråga 9\nA/B/C-figuren: vilket avstånd är standardfelet?\nInget, det är ett sammanfattande mått\nKoppla till “Standardfel” i kartan.\n\n\n2024-03-19, fråga 15; 2024-12-15, fråga 15; 2025-08-20, fråga 16\nExcelessäer: tolka F-test, R², koefficienter, hypoteser\n\nSamma färdigheter som uppgift 2. Bra extrauppgifter.\n\n\n\n\nGemensamt F-test som sant/falskt (2025-06-05 fråga 2 och 2025-03-25 fråga 2) ligger på uppgiftsbladet för pass 4.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
+    ]
+  },
+  {
+    "objectID": "pass3.html#interaktivt-visa-från-datorn",
+    "href": "pass3.html#interaktivt-visa-från-datorn",
+    "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
+    "section": "Interaktivt (visa från datorn)",
+    "text": "Interaktivt (visa från datorn)\nDummy och interaktion: ändra koefficienterna och se hur de två gruppernas linjer rör sig.\n\nviewof c_b1 = Inputs.range([-5, 1], {step: 0.1, value: -3.1, label: \"b₁ avstånd\"})\nviewof c_b2 = Inputs.range([-10, 20], {step: 0.1, value: 8.4, label: \"b₂ cykelväg (dummy)\"})\nviewof c_b3 = Inputs.range([-3, 4], {step: 0.1, value: 1.9, label: \"b₃ interaktion\"})\nmd`Utan cykelväg: ŷ = 42 ${c_b1 &lt; 0 ? \"−\" : \"+\"} ${Math.abs(c_b1).toFixed(1)}·avstånd  |  Med cykelväg: ŷ = ${(42 + c_b2).toFixed(1)} ${(c_b1 + c_b3) &lt; 0 ? \"−\" : \"+\"} ${Math.abs(c_b1 + c_b3).toFixed(1)}·avstånd`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 640, height: 340, x: {domain: [0, 12], label: \"avstånd (km)\"}, y: {domain: [0, 70], label: \"cykelresande (%)\"},\n  color: {legend: true, domain: [\"utan cykelväg\", \"med cykelväg\"], range: [\"#1f2a37\", \"#1c64f2\"]},\n  marks: [\n    Plot.line([[0, 42], [12, 42 + 12 * c_b1]], {stroke: \"#1f2a37\", strokeWidth: 2.5}),\n    Plot.line([[0, 42 + c_b2], [12, 42 + c_b2 + 12 * (c_b1 + c_b3)]], {stroke: \"#1c64f2\", strokeWidth: 2.5}),\n    Plot.ruleY([0])\n  ]\n})\n\n\n\n\n\n\n\n\nR² mot justerat R²: lägg till brusvariabler och se vad som händer.\n\nviewof k_brus = Inputs.range([0, 15], {step: 1, value: 0, label: \"antal brusvariabler\"})\nr2demo = {\n  // fixed simulated data: y depends on x1 only, n = 25\n  const n = 25, rand = d3.randomNormal.source(d3.randomLcg(42))(0, 1);\n  const x1 = d3.range(n).map(() =&gt; rand());\n  const y = x1.map(v =&gt; 1 + 1.2 * v + rand());\n  const noise = d3.range(15).map(() =&gt; d3.range(n).map(() =&gt; rand()));\n  const fit = (k) =&gt; {\n    const cols = [x1, ...noise.slice(0, k)];\n    const X = d3.range(n).map(i =&gt; [1, ...cols.map(c =&gt; c[i])]);\n    const p = X[0].length;\n    const XtX = d3.range(p).map(a =&gt; d3.range(p).map(b =&gt; d3.sum(X, r =&gt; r[a] * r[b])));\n    const Xty = d3.range(p).map(a =&gt; d3.sum(X, (r, i) =&gt; r[a] * y[i]));\n    const A = XtX.map((r, i) =&gt; [...r, Xty[i]]);\n    for (let i = 0; i &lt; p; i++) {\n      let m = i; for (let j = i + 1; j &lt; p; j++) if (Math.abs(A[j][i]) &gt; Math.abs(A[m][i])) m = j;\n      [A[i], A[m]] = [A[m], A[i]];\n      for (let j = i + 1; j &lt; p; j++) { const f = A[j][i] / A[i][i]; for (let c = i; c &lt;= p; c++) A[j][c] -= f * A[i][c]; }\n    }\n    const beta = Array(p).fill(0);\n    for (let i = p - 1; i &gt;= 0; i--) beta[i] = (A[i][p] - d3.sum(d3.range(i + 1, p), c =&gt; A[i][c] * beta[c])) / A[i][i];\n    const yh = X.map(r =&gt; d3.sum(r, (v, j) =&gt; v * beta[j]));\n    const my = d3.mean(y), sst = d3.sum(y, v =&gt; (v - my) ** 2), sse = d3.sum(y, (v, i) =&gt; (v - yh[i]) ** 2);\n    const r2 = 1 - sse / sst, kk = k + 1;\n    return {k: kk, r2, adj: 1 - (1 - r2) * (n - 1) / (n - kk - 1)};\n  };\n  return d3.range(0, 16).map(fit);\n}\nmd`Med ${k_brus} brusvariabler: R² = **${r2demo[k_brus].r2.toFixed(3)}**, justerat R² = **${r2demo[k_brus].adj.toFixed(3)}**`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 640, height: 300, y: {domain: [-0.2, 1], label: \"värde\"}, x: {label: \"antal brusvariabler\"},\n  marks: [\n    Plot.line(r2demo.map((d, i) =&gt; ({i, v: d.r2})), {x: \"i\", y: \"v\", stroke: \"#1c64f2\", strokeWidth: 2}),\n    Plot.line(r2demo.map((d, i) =&gt; ({i, v: d.adj})), {x: \"i\", y: \"v\", stroke: \"#e02424\", strokeWidth: 2}),\n    Plot.ruleX([k_brus], {stroke: \"#9ca3af\", strokeDasharray: \"4,4\"}),\n    Plot.text([{i: 13, v: 0.95, t: \"R² (blå)\"}, {i: 13, v: 0.85, t: \"justerat R² (röd)\"}], {x: \"i\", y: \"v\", text: \"t\"})\n  ]\n})",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
+    ]
+  },
+  {
+    "objectID": "pass1.html",
+    "href": "pass1.html",
+    "title": "Pass 1: Repetition av samband och hypotestest",
+    "section": "",
+    "text": "Passet ligger direkt efter F1, som repeterade det viktigaste från STK110. Alla uppgifter är från tidigare tentor i STK120. Sidan är främst till för att gå tillbaka till om frågor om korrelation, kausalitet eller p-värden kommer upp senare i kursen.\nHypotestest för två populationer (10.1) togs bara upp kort på F1 och förekommer inte på någon av tentorna i STK120, så det ingår inte.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 1: Repetition av samband och hypotestest"
+    ]
+  },
+  {
+    "objectID": "pass1.html#körschema",
+    "href": "pass1.html#körschema",
+    "title": "Pass 1: Repetition av samband och hypotestest",
+    "section": "Körschema",
+    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n10:15–10:20\nIntroduktion\nUpplägget: räkna själva, paus, genomgång.\n\n\n10:20–11:10\nDel 1: uppgift 1–7\nDel A (sant/falskt) går snabbt. Lägg tiden på del B.\n\n\n11:10–11:20\nPaus\n\n\n\n11:20–12:10\nDel 2: genomgång\n2 och 5 tillsammans (korrelation är inte lutning) → 3 (kausalitet) → 6 (p-värde) → 4 och 7 (t och p) → 1.\n\n\n12:10–12:15\nSammanfattning",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 1: Repetition av samband och hypotestest"
+    ]
+  },
+  {
+    "objectID": "pass1.html#begrepp-att-repetera",
+    "href": "pass1.html#begrepp-att-repetera",
+    "title": "Pass 1: Repetition av samband och hypotestest",
+    "section": "Begrepp att repetera",
+    "text": "Begrepp att repetera\n\nKovarians, korrelation och kausalitet\n\nKovarians: bara tecknet går att tolka. Storleken beror på enheterna.\nKorrelation r: riktning och hur tydligt det linjära sambandet är, mellan −1 och 1, utan enhet. Inte lutning, inte kausalitet.\nKausalitet: kräver teori och design. Varken korrelation eller regression bevisar den på egen hand.\n\n\n\nRita på tavlan: tre punktmoln\n\nRita tre små moln: ett tätt stigande, ett glest stigande och ett U. Fråga: “Vilket har r närmast noll?” Många svarar det glesa, men det är U:et. r mäter bara linjära samband (uppgift 1).\n\n\nRita på tavlan: t-fördelningen och p-värdet\n\n\nRita en klockkurva och skriv “om H₀ är sann”.\nMarkera de kritiska värdena (±2,02 vid df = 42) och skugga svansarna utanför dem: det är α.\nRita in observerat t = 2,18 (Antal rum i uppgift 6).\nYtan bortom ±2,18 är p-värdet. Mindre yta än α ger förkastad H₀.\nVisa: större t ger mindre yta, alltså lägre p (uppgift 4).",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 1: Repetition av samband och hypotestest"
+    ]
+  },
+  {
+    "objectID": "pass1.html#tentafrågor-uppgiftsbladet",
+    "href": "pass1.html#tentafrågor-uppgiftsbladet",
+    "title": "Pass 1: Repetition av samband och hypotestest",
+    "section": "Tentafrågor (uppgiftsbladet)",
+    "text": "Tentafrågor (uppgiftsbladet)\n\n1. Korrelation och icke-linjära samband\n2025-03-25, fråga 1 2 p Sant/falskt\n\nKorrelationen mäter den linjära samvariationen mellan två variabler. Detta innebär att korrelationen kan beräknas till ett värde nära noll även för samband som är tydliga, men som är icke-linjära.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nSant. U:et i tavelbilden. Därför ska man alltid börja med en scatterplot.\n\n\n\n\n\n2. Vad visar korrelationskoefficienten?\n2024-03-19, fråga 2 2 p Sant/falskt\n\nKorrelationskoefficienten för två variabler visar hur stor förändring vi i genomsnitt observerar i den ena variabeln vid en enhets förändring i den andra variabeln.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nFalskt. Det beskriver lutningen b₁ (F2). r har ingen enhet. Visa: byter man kronor mot tusental kronor ändras lutningen 1000 gånger, men r är densamma.\n\n\n\n\n\n3. Korrelation, regression och kausalitet\n2024-12-15, fråga 2 2 p Sant/falskt\n\nEn viktig skillnad mellan korrelationsanalys och regressionsanalys är att regressionsanalysen säger mer om kausalitet, dvs åt vilket håll orsakssambandet går, än vad korrelationsanalysen gör.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nFalskt. I en regression väljer vi vad som är y och x, men det bevisar ingen riktning. Byter man plats går regressionen lika bra att skatta.\n\n\n\n\n\n4. t-värde och p-värde\n2024-12-15, fråga 1 2 p Sant/falskt\n\nVid hypotestest av en lutningskoefficient kan både t-värden och p-värden användas. Om inget annat ändras innebär ett större t-värde (mer skilt från noll) alltid att p-värdet blir högre.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nFalskt, det blir lägre. Samma fråga med “lägre” (2024-11-01, fråga 1) har svaret sant. Läs sista ordet.\n\n\n\n\n\n5. Tolka en korrelationskoefficient\n2025-03-25, fråga 21 2 p Essä\n\nDu analyserar löner hos säljare och har följande information: Månadslön: i kronor. Ålder: ålder i antal år. […] Du beräknar att korrelationskoefficienten för variablerna “Ålder” och “Månadslön” är 0,264. Tolka detta värde (2p)\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nPositivt (äldre säljare har i genomsnitt högre lön), svagt till måttligt linjärt samband. Det betyder inte 0,264 kronor per år, och inte att åldern orsakar lönen (erfarenhet är en trolig alternativ förklaring).\n\n\n\n\n\n6. Hypotestest och p-värde i en Excelutskrift\n2025-06-05, fråga 16.4–6 9 p Essä 🔁 På varje tenta\n\nDu har bestämt dig för att undersöka hur bostadsmarknaden i ett område i Göteborg fungerar och har därför samlat in data (försäljningspris, antal kvadratmeter, antal rum, ifall lägenheten har balkong eller ej, samt månadsavgift) från Hemnet för de lägenheter som såldes där under perioden 1 mars – 15 juni. Du kör sedan en regressionsanalys i Excel.\n\n\n\n\n\nKoefficienter\nStandardfel\nt-kvot\np-värde\n\n\n\n\nKonstant\n2667139,87\n264205,93\n10,095\n8,46E-13\n\n\nKvadratmeter\n18110,02\n5971,18\n3,033\n0,0041\n\n\nAntal rum\n251066,61\n115386,66\n2,176\n0,0352\n\n\nAvgift\n−91,32\n84,26\n−1,084\n0,2846\n\n\nBalkong\n−20234,64\n95628,92\n−0,212\n0,8334\n\n\n\n(47 observationer.)\n\n\nTolka p-värdet som rapporteras på raden för “Antal rum” med fokus på statistisk signifikans, dvs tolka det som ett resultat från ett hypotestest. (3 poäng) 5. P-värdet, siffran som rapporteras i outputen, har även en egen tolkning som inte behöver handla om statistisk signifikans. Förklara vad själva p-värdet som rapporteras på raden för “Antal rum” innebär, utan att tolka det som ett test på statistisk signifikans. (3 poäng) 6. Skriv ned de hypoteser som används för att testa den statistiska signifikansen för “avgift”. Motivera hypoteserna genom att förklara varför du ställer upp dem exakt som du gör. (3 poäng)\n\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nSäg först: varje rad är ett vanligt hypotestest med H₀: koefficienten är 0 i populationen.\n4. H₀: β = 0, H_A: β ≠ 0. p = 0,0352 &lt; 0,05: förkasta H₀ på 5 % men inte på 1 %. Ange nivån och dra slutsatsen i ord.\n5. Sannolikheten att få en koefficient minst så långt från 0 (|t| ≥ 2,18) om H₀ är sann. Inte sannolikheten att H₀ är sann. Den bästa A-tentan skrev “ett högt p-värde kännetecknas av ett stort t-värde”, vilket är omvänt.\n6. H₀: β_avgift = 0, H_A: β_avgift ≠ 0. Likheten i H₀, tvåsidigt eftersom ingen riktning är given, β och inte b. Med p = 0,28 förkastas inte H₀, men det bevisar inte att avgiften saknar betydelse.\n\n\n\n\n\n7. Hur hänger t-värde och p-värde ihop?\n2025-08-20, fråga 16.3 4 p Essä\n\nStatistisk signifikans för enskilda koefficienter kan redovisas i form av t-värde och/eller p-värde. Förklara vad t-värde respektive p-värde visar och hur de hänger ihop. (4p)\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nt = b / se(b): hur många standardfel skattningen ligger från 0. p: sannolikheten för minst så extremt t om H₀ är sann. Större |t| ger lägre p, och |t| &gt; kritiskt t är samma sak som p &lt; α. Kontroll: Antal rum har t = 2,18 och kritiskt t = 2,018 (df = 47 − 4 − 1 = 42), samma slutsats som p = 0,035 &lt; 0,05.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 1: Repetition av samband och hypotestest"
+    ]
+  },
+  {
+    "objectID": "pass1.html#interaktivt-visa-från-datorn",
+    "href": "pass1.html#interaktivt-visa-från-datorn",
+    "title": "Pass 1: Repetition av samband och hypotestest",
+    "section": "Interaktivt (visa från datorn)",
+    "text": "Interaktivt (visa från datorn)\nDra i r och se hur punktmolnet ändras. Samma data, bara blandade olika mycket.\n\nviewof r1 = Inputs.range([-0.99, 0.99], {step: 0.01, value: 0.3, label: \"r\"})\np1pts = {\n  const rand = d3.randomNormal.source(d3.randomLcg(3))(0, 1);\n  return d3.range(80).map(() =&gt; [rand(), rand()]);\n}\np1data = p1pts.map(([z1, z2]) =&gt; ({x: z1, y: r1 * z1 + Math.sqrt(1 - r1 * r1) * z2}))\nPlot.plot({\n  width: 420, height: 420, x: {domain: [-3, 3], label: \"x\"}, y: {domain: [-3, 3], label: \"y\"},\n  marks: [Plot.dot(p1data, {x: \"x\", y: \"y\", fill: \"#1c64f2\", r: 3.5}), Plot.frame({stroke: \"#e5e7eb\"})]\n})",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 1: Repetition av samband och hypotestest"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STK120 Regressionsanalys: mentorspass HT26",
+    "section": "",
+    "text": "En sida per mentorspass. Varje sida följer samma ordning som passet:",
+    "crumbs": [
+      "Start"
+    ]
+  },
+  {
+    "objectID": "index.html#passen",
+    "href": "index.html#passen",
+    "title": "STK120 Regressionsanalys: mentorspass HT26",
+    "section": "Passen",
+    "text": "Passen\n\n\n\nPass\nDatum\nFöreläsningar\nInnehåll\n\n\n\n\nPass 1\nfre 2 okt, 10:15–12:15\nF1\nRepetition: samband, korrelation, kausalitet, hypotestest\n\n\nPass 2\nmån 5 okt, 14:00–16:00\nF2\nSambandsanalys: regressionslinjen, residualen, β mot b\n\n\nPass 3\ntors 15 okt, 13:00–15:00\nF3–F5\nDummyvariabler, goodness of fit (R²), signifikanstest\n\n\nPass 4\nons 21 okt, 13:00–15:00\nF6–F8\nBegränsade modeller, antaganden (LENA PH), polynom\n\n\nPass 5\nmån 26 okt, 13:00–15:00\nF9, F11, F12\nLogaritmer, interaktion, sannolikhetsmodeller, paneldata\n\n\n\nTentan är tisdag 3 november 2026, omtentan lördag 12 december 2026.",
+    "crumbs": [
+      "Start"
+    ]
+  },
+  {
+    "objectID": "index.html#etiketter-på-tentafrågorna",
+    "href": "index.html#etiketter-på-tentafrågorna",
+    "title": "STK120 Regressionsanalys: mentorspass HT26",
+    "section": "Etiketter på tentafrågorna",
+    "text": "Etiketter på tentafrågorna\n\n2026-08-20, fråga 9 tentans datum och frågenummer.\n🔥 Begreppsfälla frågan skilde tydligt mellan godkända och underkända studenter (stort gap i resultatanalysen). Prioritera i genomgången.\n⚠️ Svårt för alla lågt resultat men litet gap: svårt oavsett nivå. Gå igenom lugnt, steg för steg.\n🔁 På varje tenta samma frågetyp har kommit på alla eller nästan alla tentor sedan 2024.\nEget räkneexempel inte från en tenta.\n\nResultatsiffror (andel av maxpoängen och gap) finns bara för tentan 2026-08-20, eftersom det är det enda tillfälle där både frågepappret och resultaten per fråga finns. Se Om materialet.",
+    "crumbs": [
+      "Start"
+    ]
+  },
+  {
+    "objectID": "index.html#återkommer-på-varje-tenta",
+    "href": "index.html#återkommer-på-varje-tenta",
+    "title": "STK120 Regressionsanalys: mentorspass HT26",
+    "section": "Återkommer på varje tenta",
+    "text": "Återkommer på varje tenta\nDet här är frågetyper som har kommit på alla eller nästan alla sju tentor från 2024-03-19 till 2026-08-20. De är värda att öva på oavsett vad som sägs på föreläsningarna.\n\n\n\n\n\n\n\n\nFrågetyp\nVar på tentan\nPass\n\n\n\n\nTolka en Excelutskrift (F-test, R², koefficient, p-värde, konstanten)\nDel 2, essä\n3\n\n\nRestriktionstest: har två variabler samma lutning? (bostadsrättsexemplet)\nDel 1\n4\n\n\nRegressionsantaganden (lucktext, matchning eller flerval)\nDel 1\n4\n\n\nKvadratisk modell: marginaleffekt eller vändpunkt\nDel 1 och essä\n4\n\n\nLogmodeller: namn, tolkning av 1 % ökning\nDel 1\n5\n\n\nInteraktion mellan dummy och x (eller ln x)\nDel 1 och essä\n3, 5\n\n\nLinjär sannolikhetsmodell: predicera, marginaleffekt, tolka dummy\nDel 2, essä\n5",
+    "crumbs": [
+      "Start"
+    ]
+  },
+  {
+    "objectID": "om.html",
+    "href": "om.html",
+    "title": "Om materialet",
+    "section": "",
+    "text": "Föreläsningsbilder VT26. F1–F7 (Anders Boman) och Lecture 8–12 (Björn Tyrefors). Numreringen skiljer sig från HT26: i VT26 är interaktioner Lecture 10, sannolikhetsmodeller Lecture 11 och omitted variable bias plus paneldata Lecture 12. Appen följer HT26:s numrering och matchar på tema.\nKursplanen HT26. Fliken STK120 i Plan för STK110 och STK120 HT26.xlsx: datum, teman och kapitel per föreläsning. F10 (22 okt) har inget angivet tema.\nMentorsdokumenten. #N Uppgifter och Mentor pass N i mappen STK120 HT26/Träffar. Uppgifterna på varje appsida är desamma som på uppgiftsbladet.\nTidigare tentor i STK120. 2024-03-19 (anpassad), 2024-11-01, 2024-12-15, 2025-03-25, 2025-06-05, 2025-08-20 och 2026-08-20. Alla svarsalternativ som anges som rätta är kontrollerade mot tentornas rättning. Modellsvaren är egna, inte studenternas.\nResultatanalysen STK120_resultatanalys_VT26: andel av maxpoängen och gap mellan godkända och underkända per fråga.",
+    "crumbs": [
+      "Start",
+      "Referens",
+      "Om materialet"
+    ]
+  },
+  {
+    "objectID": "om.html#källor",
+    "href": "om.html#källor",
+    "title": "Om materialet",
+    "section": "",
+    "text": "Föreläsningsbilder VT26. F1–F7 (Anders Boman) och Lecture 8–12 (Björn Tyrefors). Numreringen skiljer sig från HT26: i VT26 är interaktioner Lecture 10, sannolikhetsmodeller Lecture 11 och omitted variable bias plus paneldata Lecture 12. Appen följer HT26:s numrering och matchar på tema.\nKursplanen HT26. Fliken STK120 i Plan för STK110 och STK120 HT26.xlsx: datum, teman och kapitel per föreläsning. F10 (22 okt) har inget angivet tema.\nMentorsdokumenten. #N Uppgifter och Mentor pass N i mappen STK120 HT26/Träffar. Uppgifterna på varje appsida är desamma som på uppgiftsbladet.\nTidigare tentor i STK120. 2024-03-19 (anpassad), 2024-11-01, 2024-12-15, 2025-03-25, 2025-06-05, 2025-08-20 och 2026-08-20. Alla svarsalternativ som anges som rätta är kontrollerade mot tentornas rättning. Modellsvaren är egna, inte studenternas.\nResultatanalysen STK120_resultatanalys_VT26: andel av maxpoängen och gap mellan godkända och underkända per fråga.",
+    "crumbs": [
+      "Start",
+      "Referens",
+      "Om materialet"
+    ]
+  },
+  {
+    "objectID": "om.html#fördelning-på-passen",
+    "href": "om.html#fördelning-på-passen",
+    "title": "Om materialet",
+    "section": "Fördelning på passen",
+    "text": "Fördelning på passen\nFöreläsningarna är fördelade så att inget pass bygger på något som inte har föreläsats ännu. Därför ligger dummyvariabler (F3, 6 okt) i pass 3 och inte i pass 2 (5 okt). Kursplanens excelflik anger “Sambandsanalys, Dummy” för pass 2.",
+    "crumbs": [
+      "Start",
+      "Referens",
+      "Om materialet"
+    ]
+  },
+  {
+    "objectID": "om.html#hur-etiketterna-är-satta",
+    "href": "om.html#hur-etiketterna-är-satta",
+    "title": "Om materialet",
+    "section": "Hur etiketterna är satta",
+    "text": "Hur etiketterna är satta\n\n🔥 Begreppsfälla: frågan är fetmarkerad i resultatanalysen för 2026-08-20, dvs gapet mellan godkända och underkända var stort (ungefär 1,8 poäng eller mer). Det gäller fråga 9, 13, 14, 15, 16 och 17.\n⚠️ Svårt för alla: lågt resultat men litet gap, t.ex. fråga 7, 8 och 11 på 2026-08-20.\n🔁 På varje tenta: min egen genomgång av de sju tentorna, inte resultatanalysen.\n\nFör tentorna 2026-03-21 och 2026-06-03 finns resultat per fråga men inga frågepapper. Där vet vi bara att essäfrågorna 13–16 var de mest urskiljande, vilket stämmer med mönstret på 2026-08-20.",
+    "crumbs": [
+      "Start",
+      "Referens",
+      "Om materialet"
+    ]
+  },
+  {
+    "objectID": "om.html#examinatorer",
+    "href": "om.html#examinatorer",
+    "title": "Om materialet",
+    "section": "Examinatorer",
+    "text": "Examinatorer\nTentorna 2024–2025 är skrivna av Aslan och Anders, med engelska essäfrågor om kvadratiska modeller, logaritmer och interaktion samt en linjär sannolikhetsmodell. Tentan 2026-08-20 är skriven av Björn och Anders och har bland annat en svensk essäfråga om fixa effekter. Eftersom Björn och Anders föreläser HT26 är 2026-08-20 den mest representativa tentan.",
+    "crumbs": [
+      "Start",
+      "Referens",
+      "Om materialet"
+    ]
+  },
+  {
+    "objectID": "pass2.html",
+    "href": "pass2.html",
+    "title": "Pass 2: Sambandsanalys",
+    "section": "",
+    "text": "Passet ligger samma dag som F2, så regressionen är helt ny för studenterna. Lägg tid på bilderna innan ni går in på tentafrågorna. Dummyvariabler föreläses först på F3 dagen efter och tas därför i pass 3.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 2: Sambandsanalys"
+    ]
+  },
+  {
+    "objectID": "pass2.html#körschema",
+    "href": "pass2.html#körschema",
+    "title": "Pass 2: Sambandsanalys",
+    "section": "Körschema",
+    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n14:00–14:10\nTavelgenomgång: linjen, residualen, β mot b\nBild 1–3 nedan. Kort, studenterna ska räkna själva sedan.\n\n\n14:10–14:55\nDel 1: studenterna räknar uppgift 1–7\nUppmuntra formelsamlingen. Gå runt och lyssna efter missförstånd att ta upp efter pausen.\n\n\n14:55–15:05\nPaus\n\n\n\n15:05–15:50\nDel 2: genomgång\nPrioritera i ordning: 6 (notation, begreppsfälla) → 3 (fler variabler) → 4 (kovarians) → 7 (räkna) → 1, 2, 5 snabbt.\n\n\n15:50–16:00\nSammanfattning\nTre saker att ta med sig: e = y − ŷ, β är okänd och b är skattad, korrelation är inte lutning.\n\n\n\n\nOm tiden inte räcker: hoppa över uppgift 1 och 2, de var lätta på tentorna.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 2: Sambandsanalys"
+    ]
+  },
+  {
+    "objectID": "pass2.html#nya-begrepp-från-f2",
+    "href": "pass2.html#nya-begrepp-från-f2",
+    "title": "Pass 2: Sambandsanalys",
+    "section": "Nya begrepp från F2",
+    "text": "Nya begrepp från F2\n\nFrån korrelation till regressionslinje\n\nNytt begrepp: regressionslinjen\nKorrelationen (pass 1) svarar på hur tydligt två variabler hänger ihop. Regressionen svarar på hur mycket y ändras när x ändras. Linjen ŷ = b₀ + b₁x har två tal: b₀ är var linjen skär y-axeln och b₁ är lutningen, dvs hur mycket ŷ ökar när x ökar med en enhet.\nSäg gärna högt: “korrelationen saknar enhet, lutningen har y:s enhet per x:s enhet”. Det är precis det tentafrågan i pass 1 (2024-03-19, fråga 2) testade.\n\n\nRita på tavlan: residualen\n\n\nRita axlarna och 6–8 punkter som ungefär ligger längs en stigande linje.\nDra en linje genom molnet och skriv ŷ = b₀ + b₁x vid den.\nVälj en punkt ovanför linjen. Markera punkten (y) och stället rakt under på linjen (ŷ).\nDra det lodräta avståndet mellan dem: det är residualen e = y − ŷ. Positiv, eftersom punkten ligger ovanför.\nGör samma sak för en punkt under linjen: negativ residual.\nAvsluta med: “OLS väljer den linje där summan av alla kvadrerade residualer, SSE, blir så liten som möjligt.”\n\n\n\nFråga till gruppen innan du visar svaret\n“Varför kvadrerar vi residualerna i stället för att bara summera dem?” (Svar: annars tar positiva och negativa residualer ut varandra; summan av OLS-residualerna är alltid noll.)\n\n\n\nPopulation eller stickprov: β mot b\n\nNytt begrepp: populationsmodell och skattad modell\nDet finns ett sant, okänt samband i populationen, y = β₀ + β₁x + ε. Vi ser bara ett stickprov och räknar fram en skattning, ŷ = b₀ + b₁x. Ett nytt stickprov ger nya b, men β är densamma. Samma tanke som μ och x̄ i förra kursen.\n\n\nRita på tavlan: två kolumner\n\n\n\nPopulationen (okänd)\nStickprovet (det vi räknar på)\n\n\n\n\nβ₀, β₁ (grekiska)\nb₀, b₁ (latinska)\n\n\ny = β₀ + β₁x + ε\nŷ = b₀ + b₁x\n\n\nε = felterm\ne = y − ŷ = residual\n\n\n\n\nVisa att två stickprov ger två olika linjer runt samma streckade sanna linje. Det är därför vi behöver hypotestest för b (pass 3).\n\n\nRita på tavlan: tentans A/B/C-figur\n\nDen här figuren har förekommit på två tentor (2025-03-25, fråga 11 och 2025-08-20, fråga 9). Rita den och fråga: “Vilket avstånd är residualen?” (A–B). Spara B–C till pass 3, där det blir den förklarade delen i R².\n\n\n\nMultipel regression: “allt annat lika”\n\nNytt begrepp: flera x-variabler\nMed flera x tolkas varje b som effekten av just den variabeln när de andra hålls konstanta. Därför ändras ofta en koefficient när man lägger till en ny variabel som hänger ihop med den gamla (uppgift 3).\nVardagsexempel: lön och ålder. Ålder ser ut att höja lönen, men en del av det är egentligen erfarenhet. Lägger man till erfarenhet i modellen blir ålderskoefficienten mindre.\n\n\n\nÄr korrelationen signifikant?\nH₀: ρ = 0 (inget linjärt samband i populationen). Teststatistikan är\n\\[t = \\frac{r\\sqrt{n-2}}{\\sqrt{1-r^2}}, \\qquad df = n - 2.\\]\nPoäng att lyfta: med stort n blir även ett svagt samband signifikant. Statistisk signifikans är inte samma sak som ett starkt samband.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 2: Sambandsanalys"
+    ]
+  },
+  {
+    "objectID": "pass2.html#tentafrågor-uppgiftsbladet",
+    "href": "pass2.html#tentafrågor-uppgiftsbladet",
+    "title": "Pass 2: Sambandsanalys",
+    "section": "Tentafrågor (uppgiftsbladet)",
+    "text": "Tentafrågor (uppgiftsbladet)\nUppgifterna är desamma som på uppgiftsbladet #2 Uppgifter och i Mentor pass 2.\n\n1. Enkel kontra multipel regression\n2025-06-05, fråga 1 2 p Sant/falskt\n\nSkillnaden mellan enkel och multipel regression är att enkel regression endast har en oberoende variabel men multipel regression har minst två oberoende variabler.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nSant. En ren definition, men stanna vid vad den innebär: i multipel regression tolkas varje koefficient “allt annat lika”. Bra ingång till uppgift 3.\n\n\n\n\n\n2. Korrelation och konstanta variabler\n2024-11-01, fråga 2 2 p Sant/falskt\n\nKorrelationen mäter den linjära samvariationen mellan två variabler. För att kunna beräkna korrelationskoefficienten måste den ena variabeln vara konstant (alltid ha samma värde).\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nFalskt, och det är tvärtom. r = Cov(x, y) / (sₓ · s_y). Om en variabel är konstant är dess standardavvikelse 0 och vi delar med noll. Båda variablerna måste variera.\n\n\n\n\n\n3. Påverkar fler variabler den ursprungliga koefficienten?\n2025-08-20, fråga 1 2 p Sant/falskt\n\nOm vi skattat en enkel linjär regressionsmodell och sedan utökar modellen med ytterligare variabler så kommer utökningen av modellen inte att påverka den skattade koefficienten för den ursprungliga oberoende variabeln. Detta eftersom sambandet mellan den oberoende och den beroende variabeln är detsamma oavsett hur många andra variabler som är med i modellen.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nFalskt. Koefficienten ändras om den nya variabeln både påverkar y och hänger ihop med den gamla x. Använd lön/ålder/erfarenhet-exemplet ovan.\nGränsfallet: om den nya variabeln är helt okorrelerad med den gamla ändras koefficienten inte. Det är sällsynt i verkliga data.\nKoppling framåt: detta heter omitted variable bias och återkommer på F12 (pass 5).\n\n\n\n\n\n4. Kovarians kontra korrelation\n2025-08-20, fråga 2 2026-08-20, fråga 2 2 p Sant/falskt Ställd två gånger\n\nKovariansen är ett mått på linjärt samband mellan två variabler, som förutom att ange om sambandet är positivt eller negativt även anger hur starkt/tydligt detta samband är.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nFalskt. Kovariansens storlek beror på enheterna (kronor eller tusental kronor ger olika tal för samma samband). Bara tecknet går att tolka. Korrelationen standardiserar till [−1, 1] och kan därför tolkas som styrka.\n2026-08-20: 69,4 % av maxpoängen, litet gap mellan godkända och underkända.\n\n\n\n\n\n5. Vad är en residual?\n2024-03-19, fråga 1 2 p Sant/falskt\n\nDen så kallade “residualen” utgörs av skillnaden mellan det predikterade värdet på den beroende variabeln och det observerade värdet på den beroende variabeln.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nSant (bekräftat mot tentans rättning). Påståendet säger bara “skillnaden mellan” och tar inte ställning till ordningen. När man räknar gäller e = y − ŷ. Peka på residualbilden ovan.\n\n\n\n\n\n6. Population eller stickprov? Notation\n2026-08-20, fråga 9 4 p Flerval 🔥 Begreppsfälla: 55 %, gap 1,79\n\nAntag att du skattar en modell som förklarar variation i en beroende variabel med tre oberoende variabler. Till detta används ett stickprov på 1500 observationer. Vilken av nedanstående ekvationer visar korrekt modellen för det verkliga sambandet i populationen?\n\n\nŷ = β₀ + β₁x₁ + β₂x₂ + β₃x₃\nŷ = b₀ + b₁x₁ + b₂x₂ + b₃x₃\ny = β₀ + β₁x₁ + β₂x₂ + β₃x₃ + ε\ny = b₀ + b₁x₁ + b₂x₂ + e\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\ny = β₀ + β₁x₁ + β₂x₂ + β₃x₃ + ε.\nLåt studenterna kontrollera varje alternativ mot tabellen “Populationen / Stickprovet” ovan: grekiska bokstäver, y utan hatt och en felterm ε. Alternativ 1 blandar ŷ med β, alternativ 2 är stickprovets skattade linje och alternativ 4 är en stickprovsmodell som dessutom saknar x₃.\nTvillingfråga: 2025-06-05, fråga 7, frågade efter det skattade sambandet i stickprovet. Rätt svar där var ŷ = b₀ + b₁x₁ + b₂x₂ + b₃x₃. Läs alltså noga om frågan gäller populationen eller stickprovet.\n\n\n\n\n\n7. Signifikanstest för korrelationskoefficienten\nEget räkneexempel 6 p\n\nEn analytiker beräknar korrelationen mellan reklamutgifter och försäljning för n = 25 butiker och får r = 0,42. Testa på 5 % signifikansnivå om det finns ett signifikant linjärt samband i populationen (H₀: ρ = 0, H_A: ρ ≠ 0).\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nt = 0,42 · √23 / √(1 − 0,42²) = 2,014 / 0,9075 ≈ 2,22, df = 23.\nKritiskt värde, tvåsidigt 5 %, df = 23: 2,069. Eftersom 2,22 &gt; 2,069 förkastas H₀.\nPoäng: r² ≈ 0,18, alltså förklaras bara cirka 18 % av variationen. Signifikant men svagt samband.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 2: Sambandsanalys"
+    ]
+  },
+  {
+    "objectID": "pass2.html#fler-tentafrågor-på-området",
+    "href": "pass2.html#fler-tentafrågor-på-området",
+    "title": "Pass 2: Sambandsanalys",
+    "section": "Fler tentafrågor på området",
+    "text": "Fler tentafrågor på området\n\n\n\n\n\n\n\n\n\n\nTenta\nFråga\nRätt svar\nAnvänd till\n\n\n\n\n2025-06-05, fråga 6\nLutningen skattad till +0,45 i en enkel regression: vilken tolkning är mest korrekt?\n“När den oberoende variabeln ökar med 1 enhet ökar den beroende variabeln i genomsnitt med 0,45 enheter”\nFallan är “alltid” i stället för “i genomsnitt”, och att blanda ihop vilken variabel som ökar.\n\n\n2025-06-05, fråga 7\nVilken ekvation motsvarar det skattade sambandet i stickprovet (3 x, n = 2500)?\nŷ = b₀ + b₁x₁ + b₂x₂ + b₃x₃\nTvilling till uppgift 6.\n\n\n2025-03-25, fråga 11\nA/B/C-figuren: vilket avstånd är residualen?\nA–B\nTavelbilden ovan.\n\n\n2025-08-20, fråga 9\nSamma figur: vilket avstånd är standardfelet?\nInget, standardfelet är ett sammanfattande mått som inte kan illustreras som ett avstånd\nSpara till pass 3.\n\n\n2025-06-05, fråga 12\n“Om värdet på variabel A helt och perfekt kan förklaras av variabel B säger vi att sambandet är …”\ndeterministiskt\nKontrast: regression handlar om stokastiska samband, därför finns ε.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 2: Sambandsanalys"
+    ]
+  },
+  {
+    "objectID": "pass2.html#interaktivt-visa-från-datorn",
+    "href": "pass2.html#interaktivt-visa-från-datorn",
+    "title": "Pass 2: Sambandsanalys",
+    "section": "Interaktivt (visa från datorn)",
+    "text": "Interaktivt (visa från datorn)\nDra i reglagen och se hur summan av de kvadrerade residualerna (SSE) ändras. Ingen linje kan få lägre SSE än OLS-linjen.\n\ndata2 = [\n  {x: 1, y: 3.0}, {x: 2, y: 4.2}, {x: 3, y: 2.6}, {x: 4, y: 5.4}, {x: 5, y: 5.2},\n  {x: 6, y: 8.6}, {x: 7, y: 6.6}, {x: 8, y: 8.2}, {x: 9, y: 8.9}\n]\nols2 = {\n  const n = data2.length, mx = d3.mean(data2, d =&gt; d.x), my = d3.mean(data2, d =&gt; d.y);\n  const b1 = d3.sum(data2, d =&gt; (d.x - mx) * (d.y - my)) / d3.sum(data2, d =&gt; (d.x - mx) ** 2);\n  return {b0: my - b1 * mx, b1};\n}\nviewof b1u = Inputs.range([-0.5, 1.5], {step: 0.01, value: 0.3, label: \"lutning b₁\"})\nviewof b0u = Inputs.range([-2, 8], {step: 0.05, value: 4, label: \"intercept b₀\"})\nviewof visaOls = Inputs.toggle({label: \"visa OLS-linjen\", value: false})\nsseU = d3.sum(data2, d =&gt; (d.y - b0u - b1u * d.x) ** 2)\nsseO = d3.sum(data2, d =&gt; (d.y - ols2.b0 - ols2.b1 * d.x) ** 2)\nmd`**Din linje:** ŷ = ${b0u.toFixed(2)} + ${b1u.toFixed(2)}x  SSE = **${sseU.toFixed(2)}**  ${visaOls ? `| **OLS:** ŷ = ${ols2.b0.toFixed(2)} + ${ols2.b1.toFixed(2)}x  SSE = **${sseO.toFixed(2)}**` : \"\"}`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 640, height: 360, x: {domain: [0, 10], label: \"x\"}, y: {domain: [0, 11], label: \"y\"},\n  marks: [\n    Plot.ruleX(data2, {x: \"x\", y1: \"y\", y2: d =&gt; b0u + b1u * d.x, stroke: \"#e02424\", strokeWidth: 2}),\n    Plot.line([[0, b0u], [10, b0u + 10 * b1u]], {stroke: \"#1f2a37\", strokeWidth: 2.5}),\n    visaOls ? Plot.line([[0, ols2.b0], [10, ols2.b0 + 10 * ols2.b1]], {stroke: \"#057a55\", strokeDasharray: \"6,4\", strokeWidth: 2}) : null,\n    Plot.dot(data2, {x: \"x\", y: \"y\", fill: \"#1c64f2\", r: 5})\n  ]\n})\n\n\n\n\n\n\n\n\nSignifikanstest för r: ändra r och n och se när H₀ förkastas.\n\nviewof rIn = Inputs.range([0, 0.95], {step: 0.01, value: 0.42, label: \"r\"})\nviewof nIn = Inputs.range([5, 200], {step: 1, value: 25, label: \"n\"})\ntKrit = (df) =&gt; {  // two-sided 5 % critical t (Cornish-Fisher approximation, good for df ≥ 5)\n  const z = 1.959964;\n  return z + (z ** 3 + z) / (4 * df) + (5 * z ** 5 + 16 * z ** 3 + 3 * z) / (96 * df ** 2);\n}\ntObs = rIn * Math.sqrt(nIn - 2) / Math.sqrt(1 - rIn ** 2)\nmd`t = ${tObs.toFixed(2)}, df = ${nIn - 2}, kritiskt t ≈ ${tKrit(nIn - 2).toFixed(3)} → **${Math.abs(tObs) &gt; tKrit(nIn - 2) ? \"förkasta H₀\" : \"förkasta inte H₀\"}**. r² = ${(rIn ** 2 * 100).toFixed(0)} % av variationen.`",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 2: Sambandsanalys"
+    ]
+  },
+  {
+    "objectID": "pass4.html",
+    "href": "pass4.html",
+    "title": "Pass 4: Begränsade modeller, antaganden, polynom",
+    "section": "",
+    "text": "Tre områden som alla återkommer på nästan varje tenta: restriktionstestet med bostadsrätterna, antagandena och den kvadratiska modellens marginaleffekt. Antagandena var en av de tydligaste begreppsfällorna 2026-08-20, så lägg mest tid där. F9 (logaritmer) hålls på förmiddagen samma dag men tas i pass 5.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  },
+  {
+    "objectID": "pass4.html#körschema",
+    "href": "pass4.html#körschema",
+    "title": "Pass 4: Begränsade modeller, antaganden, polynom",
+    "section": "Körschema",
+    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:10\nTavla: LENA PH\nSkriv bokstäverna lodrätt och låt gruppen fylla i.\n\n\n13:10–13:55\nDel 1: uppgift 1–5\nUppgift 1 utan anteckningar först, sedan med.\n\n\n13:55–14:05\nPaus\n\n\n\n14:05–14:55\nDel 2: genomgång\n1 (antaganden, begreppsfälla) → 3 och 5 (kvadratisk, med tavelbilden) → 2 (restriktion) → 4.\n\n\n14:55–15:00\nSammanfattning\nLENA PH en gång till, och formeln b₁ + 2b₂x.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  },
+  {
+    "objectID": "pass4.html#nya-begrepp",
+    "href": "pass4.html#nya-begrepp",
+    "title": "Pass 4: Begränsade modeller, antaganden, polynom",
+    "section": "Nya begrepp",
+    "text": "Nya begrepp\n\nF6: begränsade modeller och intervall\n\nNytt begrepp: restriktionstest (partiellt F-test)\nVi vill testa något annat än “är koefficienten noll”, t.ex. har två variabler samma lutning? Gör så här:\n\nSkriv H₀ som en likhet: β₃ = β₄.\nBygg den begränsade modellen genom att sätta in H₀: y = β₀ + β₁x₁ + β₂x₂ + β₃(x₃ + x₄) + ε.\nSkatta både den obegränsade och den begränsade modellen och jämför deras SSE:\n\n\\[F = \\frac{(SSE_R - SSE_U)/q}{SSE_U/(n-k-1)}\\]\nq = antal restriktioner (här 1). Om F är stort ökar felet mycket när restriktionen tvingas på, och då förkastas H₀. Den begränsade modellen kan aldrig ha mindre SSE än den obegränsade.\n\n\nNytt begrepp: konfidensintervall mot prediktionsintervall\n\nKonfidensintervall: för medelvärdet av y vid givna x, t.ex. genomsnittspriset för alla hus på 100 kvm.\nPrediktionsintervall: för ett enskilt nytt y, t.ex. priset på ett visst hus. Alltid bredare, eftersom det också innehåller slumpen i ε.\nBåda har samma mittpunkt: punktskattningen ŷ.\n\n\n\nRita på tavlan: två band runt samma linje\n\nRita linjen, ett smalt band (KI) och ett brett band (PI) runt samma linje. Fråga: “Vilket intervall skulle du använda om du ska sälja din lägenhet?” (PI.)\n\n\n\nF7: antaganden (LENA PH)\n\nMinnesregel: LENA PH\n\n\n\n\n\n\n\n\n\n\nAntagande\nBrott\nVad händer?\n\n\n\n\nL\nLinjäritet i parametrarna, rätt specificerad modell\nBöjt mönster i residualerna\nFel modell; lös med x², ln x\n\n\nE\nExogenitet: feltermen är inte korrelerad med något x\nUtelämnad variabel, omvänd kausalitet\nSkeva koefficienter (värst)\n\n\nN\nNormalfördelade feltermer\nSkevt residualhistogram\nt- och F-test osäkra i små stickprov\n\n\nA\nIngen autokorrelation\nResidualerna följer varandra över tid\nFör små standardfel\n\n\nP\nIngen perfekt multikollinjäritet\nx₂ = 2·x₁ exakt\nGår inte att skatta\n\n\nH\nHomoskedasticitet: samma varians för alla x\nTrattform\nStandardfel och test opålitliga\n\n\n\n\n\nRita på tavlan: sex små residualplottar\n\nRita en ruta per bokstav och låt gruppen gissa bokstaven innan du skriver den. Poängen med E: brottet syns inte i en residualplot, det måste resoneras fram.\n\n\nFråga till gruppen\n“Är det ett brott mot antagandena att vi har x² i modellen?” (Nej. Linjäriteten gäller parametrarna, inte variablerna. Det är exakt den distraktor som lurade studenter 2026-08-20.)\n\n\n\nF8: modeller med polynom\n\nNytt begrepp: marginaleffekt i en kvadratisk modell\nI ŷ = b₀ + b₁x + b₂x² finns x på två ställen, så effekten av en enhet mer x beror på var man är:\n\\[\\text{marginaleffekt} = b_1 + 2b_2x, \\qquad \\text{vändpunkt: } x = -\\frac{b_1}{2b_2}.\\]\nb₂ &lt; 0 ger en topp (avtagande avkastning), b₂ &gt; 0 en dal. x² kan inte “hållas konstant” medan x ändras.\n\n\nRita på tavlan: parabeln med tangenter\n\n\nRita en upp-och-nervänd parabel.\nRita en brant tangent till vänster (positiv marginaleffekt) och en negativ till höger.\nMarkera toppen och skriv x = −b₁ / (2b₂).\nRäkna med siffrorna: b₁ = 2,4 och b₂ = −0,2 ger 2,4 + 2(−0,2)·2 = 1,6 vid x = 2 och 2,4 + 2(−0,2)·9 = −1,2 vid x = 9.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  },
+  {
+    "objectID": "pass4.html#tentafrågor-uppgiftsbladet",
+    "href": "pass4.html#tentafrågor-uppgiftsbladet",
+    "title": "Pass 4: Begränsade modeller, antaganden, polynom",
+    "section": "Tentafrågor (uppgiftsbladet)",
+    "text": "Tentafrågor (uppgiftsbladet)\n\n1. Matcha regressionsantaganden\n2026-08-20, fråga 15 12 p 🔥 Begreppsfälla: 42 %, gap 2,07 🔁 På varje tenta\n\nInom regressionsanalysen använder vi ett antal antaganden. Para ihop nedanstående beskrivningar med de olika antagandena.\n\nAntaganden: linjäritet, ingen multikollinjäritet, homoskedasticitet, ingen autokorrelation, ingen endogenitet, normalfördelning.\nBeskrivningar att välja bland:\n\nsambandet är linjärt i modellens parametrar och modellen är korrekt specificerad\nde oberoende variablerna har inte ett perfekt linjärt samband\nfeltermens varians är densamma för alla värden på de oberoende variablerna\nfeltermerna från olika observationer är inte korrelerade med varandra\nfeltermen är inte korrelerad med någon av de oberoende variablerna\nfeltermerna är symmetriskt normalfördelade kring noll\nalla variabler i modellen måste vara uttryckta i linjär form och får inte exempelvis kvadreras eller logaritmeras\nden beroende variabeln måste vara normalfördelad för att konfidensintervall och hypotestest ska vara giltiga\nkorrelationen mellan de oberoende variablerna måste vara exakt noll\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nGå igenom i LENA PH-ordning:\n\nLinjäritet → sambandet är linjärt i modellens parametrar och modellen är korrekt specificerad\nExogenitet (ingen endogenitet) → feltermen är inte korrelerad med någon av de oberoende variablerna\nNormalfördelning → feltermerna är symmetriskt normalfördelade kring noll\nIngen autokorrelation → feltermerna från olika observationer är inte korrelerade med varandra\nIngen (perfekt) multikollinjäritet → de oberoende variablerna har inte ett perfekt linjärt samband\nHomoskedasticitet → feltermens varians är densamma för alla värden på de oberoende variablerna\n\nDe tre distraktorerna är precis de missförstånd som kostade poäng. Även den bästa A-tentan föll på två av dem:\n\n“får inte kvadreras eller logaritmeras”: fel, det motsäger hela pass 4 och 5. A-tentan valde den för linjäritet.\n“korrelationen … måste vara exakt noll”: fel, kravet är inte perfekt. A-tentan valde den för autokorrelation.\n“den beroende variabeln måste vara normalfördelad”: fel, det är feltermen.\n\n\n\n\n\n\n2. Hypoteser för lika lutningskoefficienter\n2026-08-20, fråga 10 4 p Lätt: 88 % 🔁 På nästan varje tenta\n\nAntag att du vill skatta sambandet mellan pris på bostadsrättslägenheter och ett antal oberoende variabler. Du skattar därför följande modell y = β₀ + β₁x₁ + β₂x₂ + β₃x₃ + β₄x₄ + ε där de oberoende variablerna är x₁ = bostadsyta, x₂ = antal rum, x₃ = bostadsrättsföreningens ålder och x₄ = byggnadens ålder. Om du vill undersöka om bostadsrättsföreningens ålder och byggnadens ålder har samma lutningskoefficienten, vilken av nedanstående visar då de hypoteser som ska testas?\n\n\nH₀: β₃ + β₄ = 1, H_A: β₃ + β₄ ≠ 1\nH₀: β₃ = β₄ = 0, H_A: β₃ ≠ β₄ ≠ 0\nH₀: β₃ = β₄, H_A: β₃ ≠ β₄\nH₀: β₃ + β₄ = 0, H_A: β₃ + β₄ ≠ 0\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nH₀: β₃ = β₄, H_A: β₃ ≠ β₄. “Samma lutning” översätts ordagrant, och likheten står i H₀.\nTa sedan steget till den begränsade modellen, eftersom det är så frågan oftast ställs: y = β₀ + β₁x₁ + β₂x₂ + β₃(x₃ + x₄) + ε (2024-03-19, fråga 10). På 2025-03-25 och 2025-08-20 gällde frågan i stället bostadsyta och antal rum. Då blir den begränsade modellen y = β₀ + β₁(x₁ + x₂) + β₃x₃ + β₄x₄ + ε.\n\n\n\n\n\n3. Marginaleffekt i en kvadratisk modell (räkna)\n2026-08-20, fråga 6 4 p 74 %, gap 1,39\n\nEn forskare skattar en kvadratisk modell för logaritmen av årslön som funktion av utbildning: ln(lön) = β₀ + β₁·utbildning + β₂·utbildning² + ε. De skattade koefficienterna är b₁ = 0,09 och b₂ = −0,002. Vad är den marginella effekten av utbildning vid 12 års utbildning?\n\n\n9,0 procent\n2,1 procentenheter\n4,2 procent\nDet går inte att tolka som en procentuell förändring eftersom den beroende variabeln är logaritmerad\n−0,2 procent\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\n4,2 procent. 0,09 + 2 · (−0,002) · 12 = 0,09 − 0,048 = 0,042. Eftersom y är logaritmerad tolkas det som cirka 4,2 % högre lön per extra utbildningsår (förhandstitt på pass 5). Distraktorn 9,0 % är bara b₁, dvs att glömma kvadrattermen.\n\n\n\n\n\n4. Vad säger ett gemensamt F-test?\n2025-06-05, fråga 2 2025-03-25, fråga 2 2 + 2 p Sant/falskt\n\n\nOm vi i ett “Test of joint significance”, dvs det F-test som genomförs för modellen som helhet, förkastar nollhypotesen så kan vi tolka detta som att ingen av de oberoende variablerna har ett linjärt samband med den beroende variabeln.\nOm vi i ett “Test of joint significance”, dvs det F-test som genomförs för modellen som helhet, förkastar nollhypotesen så kan vi tolka detta som att summan av lutningskoefficienterna inte är lika med noll.\n\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nBåda falska. H₀: β₁ = … = βₖ = 0. Att förkasta betyder bara att minst en β är skild från noll. a) beskriver H₀ själv. b) är en helt annan restriktion (summan), som skulle kräva ett eget restriktionstest som i uppgift 2.\n\n\n\n\n\n5. Marginaleffekt i en kvadratisk modell (begrepp)\n2025-06-05, fråga 4 2024-03-19, fråga 3 2 p Sant/falskt\n\nFor the quadratic regression model ŷ = b₀ + b₁x + b₂x², the marginal effect of x is b₁ holding x² term constant.\n\n\n\n\n\n\n\nTipsFacit och genomgång\n\n\n\n\n\nFalse. Marginaleffekten är b₁ + 2b₂x och beror på x. x² kan inte hållas konstant medan x ändras. Peka på tangenterna i tavelbilden.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  },
+  {
+    "objectID": "pass4.html#fler-tentafrågor-på-området",
+    "href": "pass4.html#fler-tentafrågor-på-området",
+    "title": "Pass 4: Begränsade modeller, antaganden, polynom",
+    "section": "Fler tentafrågor på området",
+    "text": "Fler tentafrågor på området\n\n\n\n\n\n\n\n\n\n\nTenta\nFråga\nRätt svar\nKommentar\n\n\n\n\n2024-03-19, fråga 10\nBostadsrätterna: vilken är den begränsade modellen om föreningens och byggnadens ålder har samma lutning?\ny = β₀ + β₁x₁ + β₂x₂ + β₃(x₃ + x₄) + ε\nSteget efter uppgift 2.\n\n\n2024-11-01, fråga 9; 2024-12-15, fråga 9\nSamma fråga som uppgift 2\nH₀: β₃ = β₄\nKommer nästan varje gång.\n\n\n2025-03-25, fråga 9; 2025-08-20, fråga 10\nBegränsad modell om bostadsyta och antal rum har samma lutning\nx₁ och x₂ ersätts av (x₁ + x₂)\n\n\n\n2024-11-01, fråga 12\nKonfidensintervall eller prediktionsintervall vid givna x: vilket påstående stämmer?\nPrediktionsintervallet blir helt säkert bredare\n\n\n\n2024-12-15, fråga 10\nSamma situation: vad gäller om mittpunkterna?\nBåda intervallen har samma mittpunkt (punktskattningen)\nDen bästa A-tentan svarade fel. Bra fråga till gruppen.\n\n\n2024-03-19, fråga 9\nVad innebär heteroskedasticitet?\nAtt variansen för feltermen inte är konstant för alla observationer\n\n\n\n2025-08-20, fråga 12\nVilket bryter mot antagandena?\nFeltermen är korrelerad med en eller flera oberoende variabler\nE i LENA PH.\n\n\n2024-11-01 fr. 11; 2025-03-25 fr. 10; 2025-06-05 fr. 5\nLucktext om antaganden (residualer, homoskedasticitet, endogenitet, multikollinjäritet)\n\nSamma begrepp som uppgift 1.\n\n\n2025-03-25, fråga 5; 2025-08-20, fråga 5\nKvadratisk modell: vid vilket x är y maximal, eller marginaleffekten noll?\nx = −b₁ / (2b₂)\n\n\n\n2024-12-15, fråga 3; 2025-08-20, fråga 3\nKubisk modell: “a percent increase in x leads to b₁ + 2b₂x + 3b₃x² change”\nFalse\nDerivatan ger effekten av en enhet, inte en procent.\n\n\nEngelska essäfrågan 2024–2025 (fråga 13)\n“What is the marginal effect of age among people who are 35/40 years old?”\nb_age + 2·b_age²·ålder\nKommer på varje tenta 2024–2025.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  },
+  {
+    "objectID": "pass4.html#interaktivt-visa-från-datorn",
+    "href": "pass4.html#interaktivt-visa-från-datorn",
+    "title": "Pass 4: Begränsade modeller, antaganden, polynom",
+    "section": "Interaktivt (visa från datorn)",
+    "text": "Interaktivt (visa från datorn)\nKvadratisk modell: ändra b₁, b₂ och x och se tangenten (marginaleffekten) och vändpunkten.\n\nviewof q_b1 = Inputs.range([-1, 4], {step: 0.1, value: 2.4, label: \"b₁\"})\nviewof q_b2 = Inputs.range([-0.5, 0.3], {step: 0.01, value: -0.2, label: \"b₂\"})\nviewof q_x0 = Inputs.range([0, 12], {step: 0.5, value: 2, label: \"x\"})\nq_f = (x) =&gt; 1 + q_b1 * x + q_b2 * x * x\nq_me = q_b1 + 2 * q_b2 * q_x0\nq_tp = q_b2 !== 0 ? -q_b1 / (2 * q_b2) : null\nmd`Marginaleffekt vid x = ${q_x0}: b₁ + 2b₂x = ${q_b1.toFixed(1)} + 2·(${q_b2.toFixed(2)})·${q_x0} = **${q_me.toFixed(2)}**. ${q_tp !== null && q_tp &gt; 0 && q_tp &lt; 12 ? `Vändpunkt vid x = ${q_tp.toFixed(1)}.` : \"\"}`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  width: 640, height: 340, x: {domain: [0, 12], label: \"x\"}, y: {label: \"ŷ\"},\n  marks: [\n    Plot.line(d3.range(0, 12.01, 0.1).map(x =&gt; [x, q_f(x)]), {stroke: \"#1f2a37\", strokeWidth: 2.5}),\n    Plot.line([[q_x0 - 2, q_f(q_x0) - 2 * q_me], [q_x0 + 2, q_f(q_x0) + 2 * q_me]], {stroke: q_me &gt;= 0 ? \"#057a55\" : \"#e02424\", strokeWidth: 2}),\n    Plot.dot([[q_x0, q_f(q_x0)]], {fill: \"#1c64f2\", r: 6}),\n    q_tp !== null && q_tp &gt; 0 && q_tp &lt; 12 ? Plot.ruleX([q_tp], {stroke: \"#9ca3af\", strokeDasharray: \"4,4\"}) : null\n  ]\n})",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  }
+]
