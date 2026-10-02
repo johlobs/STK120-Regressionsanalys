@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="349.520625pt" height="197.435847pt" viewBox="0 0 349.520625 197.435847" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-02T14:10:14.180706</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 197.435847 
+L 349.520625 197.435847 
+L 349.520625 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="text_1">
+    <g id="patch_2">
+     <path d="M 11.513047 157.237766 
+L 103.326953 157.237766 
+Q 108.826953 157.237766 108.826953 151.737766 
+L 108.826953 128.774234 
+Q 108.826953 123.274234 103.326953 123.274234 
+L 11.513047 123.274234 
+Q 6.013047 123.274234 6.013047 128.774234 
+L 6.013047 151.737766 
+Q 6.013047 157.237766 11.513047 157.237766 
+z
+" style="fill: #ffffff; stroke: #1f2a37; stroke-width: 1.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #1f2a37" transform="translate(54.164687 137.132516)">x</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #1f2a37" transform="translate(11.513047 149.450109)">(t.ex. utbildning)</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_3">
+     <path d="M 265.166016 157.237766 
+L 318.393984 157.237766 
+Q 323.893984 157.237766 323.893984 151.737766 
+L 323.893984 128.774234 
+Q 323.893984 123.274234 318.393984 123.274234 
+L 265.166016 123.274234 
+Q 259.666016 123.274234 259.666016 128.774234 
+L 259.666016 151.737766 
+Q 259.666016 157.237766 265.166016 157.237766 
+z
+" style="fill: #ffffff; stroke: #1f2a37; stroke-width: 1.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #1f2a37" transform="translate(288.524687 137.132516)">y</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #1f2a37" transform="translate(265.166016 149.450109)">(t.ex. lön)</text>
+   </g>
+   <g id="text_3">
+    <g id="patch_4">
+     <path d="M 133.30875 51.572591 
+L 215.89125 51.572591 
+Q 221.39125 51.572591 221.39125 46.072591 
+L 221.39125 21.549809 
+Q 221.39125 16.049809 215.89125 16.049809 
+L 133.30875 16.049809 
+Q 127.80875 16.049809 127.80875 21.549809 
+L 127.80875 46.072591 
+Q 127.80875 51.572591 133.30875 51.572591 
+z
+" style="fill: #fde8e8; stroke: #e02424; stroke-width: 1.8; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #1f2a37" transform="translate(140.335859 29.908091)">z utelämnad</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #1f2a37" transform="translate(133.30875 43.784934)">(t.ex. förmåga)</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 109.638501 140.256 
+Q 174.598808 140.256 237.323047 140.256 
+" style="fill: none; stroke: #1f2a37; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 230.123047 136.656 
+L 237.323047 140.256 
+L 230.123047 143.856 
+z
+" style="fill: #1f2a37; stroke: #1f2a37; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 146.248668 58.120016 
+Q 114.335617 83.485744 84.173041 107.460128 
+" style="fill: none; stroke: #e02424; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 92.049481 105.798293 
+L 84.173041 107.460128 
+L 87.569437 100.161875 
+z
+" style="fill: #e02424; stroke: #e02424; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 202.951332 58.120016 
+Q 234.864383 83.485744 265.026959 107.460128 
+" style="fill: none; stroke: #e02424; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 261.630563 100.161875 
+L 265.026959 107.460128 
+L 257.150519 105.798293 
+z
+" style="fill: #e02424; stroke: #e02424; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #1f2a37" x="174.6" y="154.44864" transform="rotate(-0 174.6 154.44864)">β₁ vill vi skatta</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #e02424" transform="translate(23.255156 64.537009)">1. z hänger</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #e02424" transform="translate(23.67 74.61504)">ihop med x</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #e02424" x="275.04" y="74.61504" transform="rotate(-0 275.04 74.61504)">2. z påverkar y</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #e02424" x="174.6" y="188.15616" transform="rotate(-0 174.6 188.15616)">Båda villkoren uppfyllda → b₁ blir skev (OVB)</text>
+   </g>
+  </g>
+ </g>
+</svg>

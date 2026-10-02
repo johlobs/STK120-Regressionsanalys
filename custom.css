@@ -1,0 +1,79 @@
+/* ── Pass header: lectures covered ─────────────────────────────────── */
+.pass-meta table { font-size: 0.92rem; }
+.pass-meta th { background: #2c3e50; color: #fff; }
+
+/* ── Running order (körschema) ─────────────────────────────────────── */
+.korschema table td:first-child { white-space: nowrap; font-weight: 600; }
+
+/* ── Board figure blocks ───────────────────────────────────────────── */
+.tavla {
+  border-left: 5px solid #1c64f2;
+  background: #f5f8ff;
+  padding: 0.8rem 1rem 0.4rem;
+  margin: 1rem 0 1.4rem;
+  border-radius: 4px;
+}
+.tavla > p:first-child { font-weight: 700; color: #1c64f2; margin-bottom: 0.4rem; }
+.tavla img { background: #fff; border: 1px solid #e5e7eb; border-radius: 4px; }
+
+/* New concept: extra pedagogical support */
+.nytt {
+  border-left: 5px solid #d97706;
+  background: #fff8ec;
+  padding: 0.8rem 1rem 0.3rem;
+  margin: 1rem 0 1.2rem;
+  border-radius: 4px;
+}
+.nytt > p:first-child { font-weight: 700; color: #b45309; margin-bottom: 0.4rem; }
+
+.fraga-gruppen {
+  border: 2px dashed #057a55;
+  padding: 0.6rem 1rem 0.2rem;
+  border-radius: 6px;
+  margin: 0.8rem 0 1.2rem;
+}
+.fraga-gruppen > p:first-child { font-weight: 700; color: #057a55; margin-bottom: 0.3rem; }
+
+/* ── Exam question cards ───────────────────────────────────────────── */
+.tenta {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem 0.3rem;
+  margin: 1.1rem 0 1.6rem;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.tenta h3 { margin-top: 0.2rem; font-size: 1.15rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  margin: 0 0.3rem 0.35rem 0;
+  background: #eef2f7;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+.chip.datum { background: #1f2a37; color: #fff; border-color: #1f2a37; }
+.chip.disc { background: #e02424; color: #fff; border-color: #e02424; }
+.chip.svar { background: #fff4e5; color: #b45309; border-color: #f59e0b; }
+.chip.ofta { background: #e6f4ea; color: #057a55; border-color: #34d399; }
+.chip.latt { background: #f1f5f9; color: #64748b; }
+.chip.egen { background: #fff; color: #6b7280; border-style: dashed; }
+
+.tenta blockquote {
+  font-size: 0.97rem;
+  border-left: 3px solid #94a3b8;
+  color: #1f2937;
+  margin: 0.4rem 0 0.8rem;
+}
+
+/* Small index tables of further exam questions */
+.fler table { font-size: 0.88rem; }
+
+@media print {
+  .callout.callout-tip .callout-collapse { display: block !important; height: auto !important; }
+  #quarto-sidebar, #TOC, .nav-footer { display: none !important; }
+  .tenta, .tavla, .nytt { break-inside: avoid; }
+}
