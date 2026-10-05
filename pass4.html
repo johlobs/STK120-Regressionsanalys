@@ -278,9 +278,10 @@ window.Quarto = {
    
   <ul class="collapse">
   <li><a href="#körschema" id="toc-körschema" class="nav-link active" data-scroll-target="#körschema">Körschema</a></li>
+  <li><a href="#inledning" id="toc-inledning" class="nav-link" data-scroll-target="#inledning">Inledning: det här behöver ni för uppgifterna</a></li>
   <li><a href="#nya-begrepp" id="toc-nya-begrepp" class="nav-link" data-scroll-target="#nya-begrepp">Nya begrepp</a></li>
   <li><a href="#tentafrågor-uppgiftsbladet" id="toc-tentafrågor-uppgiftsbladet" class="nav-link" data-scroll-target="#tentafrågor-uppgiftsbladet">Tentafrågor (uppgiftsbladet)</a></li>
-  <li><a href="#fler-tentafrågor-på-området" id="toc-fler-tentafrågor-på-området" class="nav-link" data-scroll-target="#fler-tentafrågor-på-området">Fler tentafrågor på området</a></li>
+  <li><a href="#fler-tentafragor" id="toc-fler-tentafragor" class="nav-link" data-scroll-target="#fler-tentafragor">Fler tentafrågor på området</a></li>
   <li><a href="#interaktivt-visa-från-datorn" id="toc-interaktivt-visa-från-datorn" class="nav-link" data-scroll-target="#interaktivt-visa-från-datorn">Interaktivt (visa från datorn)</a></li>
   </ul>
 </nav>
@@ -370,22 +371,22 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>13:00–13:10</td>
-<td>Tavla: LENA PH</td>
-<td>Skriv bokstäverna lodrätt och låt gruppen fylla i.</td>
+<td>13:00–13:25</td>
+<td>Inledning: det här behöver ni för uppgifterna</td>
+<td>Se nästa avsnitt. Repetition (5 min), verktygslådan (5 min), sedan bilderna för LENA PH, restriktionen och parabeln (15 min). Formelbladet står först på uppgiftsbladet.</td>
 </tr>
 <tr class="even">
-<td>13:10–13:55</td>
+<td>13:25–14:05</td>
 <td>Del 1: uppgift 1–5</td>
-<td>Uppgift 1 utan anteckningar först, sedan med.</td>
+<td>Uppgift 1 utan anteckningar först, sedan med. Hänvisa till formelbladet och tipsraderna innan du förklarar själv.</td>
 </tr>
 <tr class="odd">
-<td>13:55–14:05</td>
+<td>14:05–14:15</td>
 <td>Paus</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>14:05–14:55</td>
+<td>14:15–14:55</td>
 <td>Del 2: genomgång</td>
 <td><strong>1</strong> (antaganden, begreppsfälla) → <strong>3</strong> och <strong>5</strong> (kvadratisk, med tavelbilden) → <strong>2</strong> (restriktion) → 4.</td>
 </tr>
@@ -397,11 +398,90 @@ window.Quarto = {
 </tbody>
 </table>
 </div>
+<p>Blir det ändå tid över: ta en av frågorna under <a href="#fler-tentafragor">Fler tentafrågor på området</a>, t.ex. den begränsade modellen eller KI mot PI.</p>
+</section>
+<section id="inledning" class="level2">
+<h2 class="anchored" data-anchor-id="inledning">Inledning: det här behöver ni för uppgifterna</h2>
+<p>Studenterna har ett formelblad först på uppgiftsbladet och en tipsrad under varje uppgift. Inledningen ska få dem att använda bladet, så att du slipper förklara samma sak för varje grupp.</p>
+<section id="steg-1-repetition-från-pass-3-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="steg-1-repetition-från-pass-3-5-min">Steg 1: repetition från pass 3 (5 min)</h3>
+<div class="fraga-gruppen">
+<p>Fråga till gruppen, en i taget</p>
+<ol type="1">
+<li>“Vad testar F-testet i Excelutskriften, och vad vet vi om H₀ förkastas?” (Svar: H₀: alla β = 0. Förkastas den vet vi bara att <strong>minst ett</strong> β är skilt från 0. Det är hela uppgift 4.)</li>
+<li>“Vad är SSE?” (Svar: summan av de kvadrerade residualerna, den oförklarade variationen. Restriktionstestet jämför SSE från två modeller.)</li>
+<li>“Vad betyder lutningen b₁ i ŷ = b₀ + b₁x?” (Svar: hur mycket ŷ ändras när x ökar med en enhet. Följdfråga: “Är lutningen densamma överallt på en parabel?” Det leder till marginaleffekten.)</li>
+</ol>
+</div>
+</section>
+<section id="steg-2-verktygslådan-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="steg-2-verktygslådan-5-min">Steg 2: verktygslådan (5 min)</h3>
+<div class="tavla">
+<p>Skriv upp listan i ett hörn av tavlan och låt den stå kvar hela passet</p>
+<ol type="1">
+<li><strong>Restriktion:</strong> skriv påståendet som en likhet mellan β:n.&nbsp;Likheten står i H₀.</li>
+<li><strong>Begränsad modell:</strong> sätt in H₀ i modellen. Jämför SSE med partiellt F: F = ((SSE_R − SSE_U) / q) / (SSE_U / (n − k − 1)).</li>
+<li><strong>KI mot PI:</strong> samma mittpunkt ŷ. PI är alltid bredare.</li>
+<li><strong>LENA PH:</strong> linjäritet (i parametrarna), exogenitet, normalfördelad felterm, ingen autokorrelation, ingen perfekt multikollinjäritet, homoskedasticitet.</li>
+<li><strong>Kvadratisk modell:</strong> marginaleffekt = b₁ + 2b₂x, vändpunkt x = −b₁ / (2b₂).</li>
+<li><strong>ln y:</strong> en förändring på 0,01 i ln y är ungefär 1 % i y.</li>
+</ol>
+</div>
+</section>
+<section id="steg-3-vilket-verktyg-behövs-i-vilken-uppgift" class="level3">
+<h3 class="anchored" data-anchor-id="steg-3-vilket-verktyg-behövs-i-vilken-uppgift">Steg 3: vilket verktyg behövs i vilken uppgift?</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Uppgift</th>
+<th>Verktyg (från listan)</th>
+<th>Det ni ska kunna göra</th>
+<th>Tavelbild</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Antaganden (12 p)</td>
+<td>4</td>
+<td>Para ihop antagande och beskrivning, och känna igen de tre beskrivningarna som är fel</td>
+<td><a href="#f7-lena">LENA PH</a></td>
+</tr>
+<tr class="even">
+<td>2. Lika lutning (4 p)</td>
+<td>1</td>
+<td>Översätta “samma lutning” till H₀ och H_A</td>
+<td><a href="#f6-restriktion">Restriktionstest</a></td>
+</tr>
+<tr class="odd">
+<td>3. Kvadratisk, räkna (4 p)</td>
+<td>5, 6</td>
+<td>Sätta in i b₁ + 2b₂x och tolka svaret i procent eftersom y är logaritmerad</td>
+<td><a href="#f8-polynom">Parabeln med tangenter</a></td>
+</tr>
+<tr class="even">
+<td>4. Gemensamt F-test</td>
+<td>2 (pass 3)</td>
+<td>Säga vad H₀ är och vad det betyder att förkasta den</td>
+<td>Ingen ny bild</td>
+</tr>
+<tr class="odd">
+<td>5. Kvadratisk, begrepp (2 p)</td>
+<td>5</td>
+<td>Förklara varför x² inte kan hållas konstant</td>
+<td><a href="#f8-polynom">Parabeln med tangenter</a></td>
+</tr>
+</tbody>
+</table>
+<div class="fraga-gruppen">
+<p>Avsluta inledningen med en kontrollfråga</p>
+<p>“Gäller antagandet om linjäritet <em>variablerna</em> eller <em>parametrarna</em>?” Låt dem gissa, men säg inte svaret än. Det är begreppsfällan i uppgift 1 och ni tar den i genomgången.</p>
+</div>
+</section>
 </section>
 <section id="nya-begrepp" class="level2">
 <h2 class="anchored" data-anchor-id="nya-begrepp">Nya begrepp</h2>
-<section id="f6-begränsade-modeller-och-intervall" class="level3">
-<h3 class="anchored" data-anchor-id="f6-begränsade-modeller-och-intervall">F6: begränsade modeller och intervall</h3>
+<section id="f6-restriktion" class="level3">
+<h3 class="anchored" data-anchor-id="f6-restriktion">F6: begränsade modeller och intervall</h3>
 <div class="nytt">
 <p>Nytt begrepp: restriktionstest (partiellt F-test)</p>
 <p>Vi vill testa något annat än “är koefficienten noll”, t.ex. <strong>har två variabler samma lutning?</strong> Gör så här:</p>
@@ -427,8 +507,8 @@ window.Quarto = {
 <p>Rita linjen, ett smalt band (KI) och ett brett band (PI) runt samma linje. Fråga: “Vilket intervall skulle du använda om du ska sälja <strong>din</strong> lägenhet?” (PI.)</p>
 </div>
 </section>
-<section id="f7-antaganden-lena-ph" class="level3">
-<h3 class="anchored" data-anchor-id="f7-antaganden-lena-ph">F7: antaganden (LENA PH)</h3>
+<section id="f7-lena" class="level3">
+<h3 class="anchored" data-anchor-id="f7-lena">F7: antaganden (LENA PH)</h3>
 <div class="nytt">
 <p>Minnesregel: LENA PH</p>
 <table class="caption-top table">
@@ -496,8 +576,8 @@ window.Quarto = {
 <p>“Är det ett brott mot antagandena att vi har x² i modellen?” (Nej. Linjäriteten gäller <strong>parametrarna</strong>, inte variablerna. Det är exakt den distraktor som lurade studenter 2026-08-20.)</p>
 </div>
 </section>
-<section id="f8-modeller-med-polynom" class="level3">
-<h3 class="anchored" data-anchor-id="f8-modeller-med-polynom">F8: modeller med polynom</h3>
+<section id="f8-polynom" class="level3">
+<h3 class="anchored" data-anchor-id="f8-polynom">F8: modeller med polynom</h3>
 <div class="nytt">
 <p>Nytt begrepp: marginaleffekt i en kvadratisk modell</p>
 <p>I ŷ = b₀ + b₁x + b₂x² finns x på två ställen, så effekten av en enhet mer x beror på var man är:</p>
@@ -678,8 +758,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="fler-tentafrågor-på-området" class="level2">
-<h2 class="anchored" data-anchor-id="fler-tentafrågor-på-området">Fler tentafrågor på området</h2>
+<section id="fler-tentafragor" class="level2">
+<h2 class="anchored" data-anchor-id="fler-tentafragor">Fler tentafrågor på området</h2>
 <div class="fler">
 <table class="caption-top table">
 <colgroup>
@@ -771,13 +851,13 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="interaktivt-visa-från-datorn">Interaktivt (visa från datorn)</h2>
 <p>Kvadratisk modell: ändra b₁, b₂ och x och se tangenten (marginaleffekten) och vändpunkten.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="242" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 241;"><span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>viewof q_b1 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">2.4</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"b₁"</span>})</span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>viewof q_b2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="fl">0.5</span><span class="op">,</span> <span class="fl">0.3</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"b₂"</span>})</span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>viewof q_x0 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span>})</span>
-<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>q_f <span class="op">=</span> (x) <span class="kw">=&gt;</span> <span class="dv">1</span> <span class="op">+</span> q_b1 <span class="op">*</span> x <span class="op">+</span> q_b2 <span class="op">*</span> x <span class="op">*</span> x</span>
-<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>q_me <span class="op">=</span> q_b1 <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> q_b2 <span class="op">*</span> q_x0</span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>q_tp <span class="op">=</span> q_b2 <span class="op">!==</span> <span class="dv">0</span> <span class="op">?</span> <span class="op">-</span>q_b1 <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> q_b2) <span class="op">:</span> <span class="kw">null</span></span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`Marginaleffekt vid x = </span><span class="sc">${</span>q_x0<span class="sc">}</span><span class="vs">: b₁ + 2b₂x = </span><span class="sc">${</span>q_b1<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> + 2·(</span><span class="sc">${</span>q_b2<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">)·</span><span class="sc">${</span>q_x0<span class="sc">}</span><span class="vs"> = **</span><span class="sc">${</span>q_me<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">**. </span><span class="sc">${</span>q_tp <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> q_tp <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> q_tp <span class="op">&lt;</span> <span class="dv">12</span> <span class="op">?</span> <span class="vs">`Vändpunkt vid x = </span><span class="sc">${</span>q_tp<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">.`</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span><span class="vs">`</span></span></code></pre></div><button title="Kopiera till urklipp" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="287" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 286;"><span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>viewof q_b1 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">2.4</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"b₁"</span>})</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>viewof q_b2 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="fl">0.5</span><span class="op">,</span> <span class="fl">0.3</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.01</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"b₂"</span>})</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>viewof q_x0 <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span>})</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>q_f <span class="op">=</span> (x) <span class="kw">=&gt;</span> <span class="dv">1</span> <span class="op">+</span> q_b1 <span class="op">*</span> x <span class="op">+</span> q_b2 <span class="op">*</span> x <span class="op">*</span> x</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>q_me <span class="op">=</span> q_b1 <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> q_b2 <span class="op">*</span> q_x0</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>q_tp <span class="op">=</span> q_b2 <span class="op">!==</span> <span class="dv">0</span> <span class="op">?</span> <span class="op">-</span>q_b1 <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> q_b2) <span class="op">:</span> <span class="kw">null</span></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="fu">md</span><span class="vs">`Marginaleffekt vid x = </span><span class="sc">${</span>q_x0<span class="sc">}</span><span class="vs">: b₁ + 2b₂x = </span><span class="sc">${</span>q_b1<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> + 2·(</span><span class="sc">${</span>q_b2<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">)·</span><span class="sc">${</span>q_x0<span class="sc">}</span><span class="vs"> = **</span><span class="sc">${</span>q_me<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">**. </span><span class="sc">${</span>q_tp <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> q_tp <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> q_tp <span class="op">&lt;</span> <span class="dv">12</span> <span class="op">?</span> <span class="vs">`Vändpunkt vid x = </span><span class="sc">${</span>q_tp<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">.`</span> <span class="op">:</span> <span class="st">""</span><span class="sc">}</span><span class="vs">`</span></span></code></pre></div><button title="Kopiera till urklipp" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -827,15 +907,15 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="249" data-source-offset="-557"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 248;"><span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">640</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">340</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span>}<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"ŷ"</span>}<span class="op">,</span></span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">0</span><span class="op">,</span> <span class="fl">12.01</span><span class="op">,</span> <span class="fl">0.1</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> [x<span class="op">,</span> <span class="fu">q_f</span>(x)])<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1f2a37"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>([[q_x0 <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> <span class="fu">q_f</span>(q_x0) <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> q_me]<span class="op">,</span> [q_x0 <span class="op">+</span> <span class="dv">2</span><span class="op">,</span> <span class="fu">q_f</span>(q_x0) <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> q_me]]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> q_me <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="st">"#057a55"</span> <span class="op">:</span> <span class="st">"#e02424"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([[q_x0<span class="op">,</span> <span class="fu">q_f</span>(q_x0)]]<span class="op">,</span> {<span class="dt">fill</span><span class="op">:</span> <span class="st">"#1c64f2"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span>})<span class="op">,</span></span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>    q_tp <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> q_tp <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> q_tp <span class="op">&lt;</span> <span class="dv">12</span> <span class="op">?</span> Plot<span class="op">.</span><span class="fu">ruleX</span>([q_tp]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#9ca3af"</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,4"</span>}) <span class="op">:</span> <span class="kw">null</span></span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Kopiera till urklipp" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="294" data-source-offset="-557"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 293;"><span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">640</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">340</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span>}<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"ŷ"</span>}<span class="op">,</span></span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>(d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">0</span><span class="op">,</span> <span class="fl">12.01</span><span class="op">,</span> <span class="fl">0.1</span>)<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> [x<span class="op">,</span> <span class="fu">q_f</span>(x)])<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#1f2a37"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span>})<span class="op">,</span></span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">line</span>([[q_x0 <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> <span class="fu">q_f</span>(q_x0) <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> q_me]<span class="op">,</span> [q_x0 <span class="op">+</span> <span class="dv">2</span><span class="op">,</span> <span class="fu">q_f</span>(q_x0) <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> q_me]]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> q_me <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="st">"#057a55"</span> <span class="op">:</span> <span class="st">"#e02424"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span>})<span class="op">,</span></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">dot</span>([[q_x0<span class="op">,</span> <span class="fu">q_f</span>(q_x0)]]<span class="op">,</span> {<span class="dt">fill</span><span class="op">:</span> <span class="st">"#1c64f2"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">6</span>})<span class="op">,</span></span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>    q_tp <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> q_tp <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> q_tp <span class="op">&lt;</span> <span class="dv">12</span> <span class="op">?</span> Plot<span class="op">.</span><span class="fu">ruleX</span>([q_tp]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"#9ca3af"</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"4,4"</span>}) <span class="op">:</span> <span class="kw">null</span></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Kopiera till urklipp" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-8" data-nodetype="expression">

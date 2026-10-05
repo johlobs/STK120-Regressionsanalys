@@ -16,7 +16,7 @@
     "href": "pass5.html#körschema",
     "title": "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata",
     "section": "Körschema",
-    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:10\nTavla: tabellen med de tre logmodellerna och LPM mot S-kurvan\n\n\n\n13:10–13:55\nDel 1: uppgift 4 och 8 (essäerna) först, sedan 1–3\nSäg uttryckligen att 5–7 är för den som hinner.\n\n\n13:55–14:05\nPaus\n\n\n\n14:05–14:55\nDel 2: genomgång\n4 (LPM, störst gap) → 8 (fixa effekter) → 2 (dummyessä) → 3 (log + interaktion) → 1, 5–7 snabbt.\n\n\n14:55–15:00\nAvslut inför tentan\nPeka på startsidans tabell “Återkommer på varje tenta”.",
+    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:20\nInledning: det här behöver ni för uppgifterna\nSe nästa avsnitt. Repetition (5 min), verktygslådan med logtabellen (5 min), sedan LPM mot S-kurvan och de tre molnen (10 min). Formelbladet står först på uppgiftsbladet.\n\n\n13:20–14:00\nDel 1: uppgift 4 och 8 (essäerna) först, sedan 1–3\nSäg uttryckligen att 5–7 är för den som hinner. Hänvisa till formelbladet och tipsraderna innan du förklarar själv.\n\n\n14:00–14:10\nPaus\n\n\n\n14:10–14:55\nDel 2: genomgång\n4 (LPM, störst gap) → 8 (fixa effekter) → 2 (dummyessä) → 3 (log + interaktion) → 1, 5–7 snabbt.\n\n\n14:55–15:00\nAvslut inför tentan\nPeka på startsidans tabell “Återkommer på varje tenta”.",
     "crumbs": [
       "Start",
       "Mentorspass HT26",
@@ -392,7 +392,7 @@
     "href": "pass4.html#körschema",
     "title": "Pass 4: Begränsade modeller, antaganden, polynom",
     "section": "Körschema",
-    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:10\nTavla: LENA PH\nSkriv bokstäverna lodrätt och låt gruppen fylla i.\n\n\n13:10–13:55\nDel 1: uppgift 1–5\nUppgift 1 utan anteckningar först, sedan med.\n\n\n13:55–14:05\nPaus\n\n\n\n14:05–14:55\nDel 2: genomgång\n1 (antaganden, begreppsfälla) → 3 och 5 (kvadratisk, med tavelbilden) → 2 (restriktion) → 4.\n\n\n14:55–15:00\nSammanfattning\nLENA PH en gång till, och formeln b₁ + 2b₂x.",
+    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:25\nInledning: det här behöver ni för uppgifterna\nSe nästa avsnitt. Repetition (5 min), verktygslådan (5 min), sedan bilderna för LENA PH, restriktionen och parabeln (15 min). Formelbladet står först på uppgiftsbladet.\n\n\n13:25–14:05\nDel 1: uppgift 1–5\nUppgift 1 utan anteckningar först, sedan med. Hänvisa till formelbladet och tipsraderna innan du förklarar själv.\n\n\n14:05–14:15\nPaus\n\n\n\n14:15–14:55\nDel 2: genomgång\n1 (antaganden, begreppsfälla) → 3 och 5 (kvadratisk, med tavelbilden) → 2 (restriktion) → 4.\n\n\n14:55–15:00\nSammanfattning\nLENA PH en gång till, och formeln b₁ + 2b₂x.\n\n\n\n\nBlir det ändå tid över: ta en av frågorna under Fler tentafrågor på området, t.ex. den begränsade modellen eller KI mot PI.",
     "crumbs": [
       "Start",
       "Mentorspass HT26",
@@ -469,6 +469,42 @@
       "Start",
       "Mentorspass HT26",
       "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
+    ]
+  },
+  {
+    "objectID": "pass4.html#inledning",
+    "href": "pass4.html#inledning",
+    "title": "Pass 4: Begränsade modeller, antaganden, polynom",
+    "section": "Inledning: det här behöver ni för uppgifterna",
+    "text": "Inledning: det här behöver ni för uppgifterna\nStudenterna har ett formelblad först på uppgiftsbladet och en tipsrad under varje uppgift. Inledningen ska få dem att använda bladet, så att du slipper förklara samma sak för varje grupp.\n\nSteg 1: repetition från pass 3 (5 min)\n\nFråga till gruppen, en i taget\n\n“Vad testar F-testet i Excelutskriften, och vad vet vi om H₀ förkastas?” (Svar: H₀: alla β = 0. Förkastas den vet vi bara att minst ett β är skilt från 0. Det är hela uppgift 4.)\n“Vad är SSE?” (Svar: summan av de kvadrerade residualerna, den oförklarade variationen. Restriktionstestet jämför SSE från två modeller.)\n“Vad betyder lutningen b₁ i ŷ = b₀ + b₁x?” (Svar: hur mycket ŷ ändras när x ökar med en enhet. Följdfråga: “Är lutningen densamma överallt på en parabel?” Det leder till marginaleffekten.)\n\n\n\n\nSteg 2: verktygslådan (5 min)\n\nSkriv upp listan i ett hörn av tavlan och låt den stå kvar hela passet\n\nRestriktion: skriv påståendet som en likhet mellan β:n. Likheten står i H₀.\nBegränsad modell: sätt in H₀ i modellen. Jämför SSE med partiellt F: F = ((SSE_R − SSE_U) / q) / (SSE_U / (n − k − 1)).\nKI mot PI: samma mittpunkt ŷ. PI är alltid bredare.\nLENA PH: linjäritet (i parametrarna), exogenitet, normalfördelad felterm, ingen autokorrelation, ingen perfekt multikollinjäritet, homoskedasticitet.\nKvadratisk modell: marginaleffekt = b₁ + 2b₂x, vändpunkt x = −b₁ / (2b₂).\nln y: en förändring på 0,01 i ln y är ungefär 1 % i y.\n\n\n\n\nSteg 3: vilket verktyg behövs i vilken uppgift?\n\n\n\nUppgift\nVerktyg (från listan)\nDet ni ska kunna göra\nTavelbild\n\n\n\n\n1. Antaganden (12 p)\n4\nPara ihop antagande och beskrivning, och känna igen de tre beskrivningarna som är fel\nLENA PH\n\n\n2. Lika lutning (4 p)\n1\nÖversätta “samma lutning” till H₀ och H_A\nRestriktionstest\n\n\n3. Kvadratisk, räkna (4 p)\n5, 6\nSätta in i b₁ + 2b₂x och tolka svaret i procent eftersom y är logaritmerad\nParabeln med tangenter\n\n\n4. Gemensamt F-test\n2 (pass 3)\nSäga vad H₀ är och vad det betyder att förkasta den\nIngen ny bild\n\n\n5. Kvadratisk, begrepp (2 p)\n5\nFörklara varför x² inte kan hållas konstant\nParabeln med tangenter\n\n\n\n\nAvsluta inledningen med en kontrollfråga\n“Gäller antagandet om linjäritet variablerna eller parametrarna?” Låt dem gissa, men säg inte svaret än. Det är begreppsfällan i uppgift 1 och ni tar den i genomgången.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  },
+  {
+    "objectID": "pass4.html#fler-tentafragor",
+    "href": "pass4.html#fler-tentafragor",
+    "title": "Pass 4: Begränsade modeller, antaganden, polynom",
+    "section": "Fler tentafrågor på området",
+    "text": "Fler tentafrågor på området\n\n\n\n\n\n\n\n\n\n\nTenta\nFråga\nRätt svar\nKommentar\n\n\n\n\n2024-03-19, fråga 10\nBostadsrätterna: vilken är den begränsade modellen om föreningens och byggnadens ålder har samma lutning?\ny = β₀ + β₁x₁ + β₂x₂ + β₃(x₃ + x₄) + ε\nSteget efter uppgift 2.\n\n\n2024-11-01, fråga 9; 2024-12-15, fråga 9\nSamma fråga som uppgift 2\nH₀: β₃ = β₄\nKommer nästan varje gång.\n\n\n2025-03-25, fråga 9; 2025-08-20, fråga 10\nBegränsad modell om bostadsyta och antal rum har samma lutning\nx₁ och x₂ ersätts av (x₁ + x₂)\n\n\n\n2024-11-01, fråga 12\nKonfidensintervall eller prediktionsintervall vid givna x: vilket påstående stämmer?\nPrediktionsintervallet blir helt säkert bredare\n\n\n\n2024-12-15, fråga 10\nSamma situation: vad gäller om mittpunkterna?\nBåda intervallen har samma mittpunkt (punktskattningen)\nDen bästa A-tentan svarade fel. Bra fråga till gruppen.\n\n\n2024-03-19, fråga 9\nVad innebär heteroskedasticitet?\nAtt variansen för feltermen inte är konstant för alla observationer\n\n\n\n2025-08-20, fråga 12\nVilket bryter mot antagandena?\nFeltermen är korrelerad med en eller flera oberoende variabler\nE i LENA PH.\n\n\n2024-11-01 fr. 11; 2025-03-25 fr. 10; 2025-06-05 fr. 5\nLucktext om antaganden (residualer, homoskedasticitet, endogenitet, multikollinjäritet)\n\nSamma begrepp som uppgift 1.\n\n\n2025-03-25, fråga 5; 2025-08-20, fråga 5\nKvadratisk modell: vid vilket x är y maximal, eller marginaleffekten noll?\nx = −b₁ / (2b₂)\n\n\n\n2024-12-15, fråga 3; 2025-08-20, fråga 3\nKubisk modell: “a percent increase in x leads to b₁ + 2b₂x + 3b₃x² change”\nFalse\nDerivatan ger effekten av en enhet, inte en procent.\n\n\nEngelska essäfrågan 2024–2025 (fråga 13)\n“What is the marginal effect of age among people who are 35/40 years old?”\nb_age + 2·b_age²·ålder\nKommer på varje tenta 2024–2025.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  },
+  {
+    "objectID": "pass5.html#inledning",
+    "href": "pass5.html#inledning",
+    "title": "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata",
+    "section": "Inledning: det här behöver ni för uppgifterna",
+    "text": "Inledning: det här behöver ni för uppgifterna\nStudenterna har ett formelblad först på uppgiftsbladet och en tipsrad under varje uppgift. Passet har fler uppgifter än det hinns med, så inledningen är kortare här (20 min). Målet är att de ska klara essäerna 4 och 8 med hjälp av bladet.\n\nSteg 1: repetition från pass 3–4 (5 min)\n\nFråga till gruppen, en i taget\n\n“Hur får man en ekvation per grupp när modellen har en dummy och en interaktion?” (Svar: sätt in d = 0 och d = 1 och samla termerna. Det behövs i uppgift 3 och 4.)\n“Vad är marginaleffekten av x i ŷ = b₀ + b₁x + b₂x²?” (Svar: b₁ + 2b₂x. Det är uppgift 4, fråga 2, med ålder och ålder2.)\n“Tabellen har standardfel inom parentes men inga p-värden. Hur ser man om en koefficient är signifikant?” (Svar: t ≈ koefficient / standardfel. |t| &gt; 2 betyder ungefär signifikant på 5 %. Eller titta på stjärnorna. Det behövs i uppgift 8b.)\n\n\n\n\nSteg 2: verktygslådan (5 min)\n\nSkriv upp listan i ett hörn av tavlan och låt den stå kvar hela passet\n\nLogmodeller: lin-log b₁ / 100 enheter, log-lin 100 · b₁ %, log-log b₁ %. ln framför x = procent i x, ln framför y = procent i y.\nInteraktion med dummy: sätt in d = 0 och d = 1. Effekten av x är b₁ respektive b₁ + b₃.\nLPM: ŷ är en sannolikhet. Koefficienterna är förändringar i procentenheter.\nLogit och probit: S-kurva mellan 0 och 1, marginaleffekten beror på var man är.\nFixa effekter: en egen konstant per enhet, jämförelse inom samma enhet.\nKausalitet: finns det något som både hänger ihop med x och påverkar y?\n\n\n\n\nSteg 3: vilket verktyg behövs i vilken uppgift?\n\n\n\nUppgift\nVerktyg (från listan)\nDet ni ska kunna göra\nTavelbild\n\n\n\n\n1. Lin-log (2 p)\n1\nKänna igen modelltypen och använda b₁ / 100\nLogtabellen\n\n\n2. Dummyessä (10 p)\n2, pass 3\nBeskriva dummyns egenskaper, tolka koefficienten mot referensgruppen, undvika the dummy variable trap\nDummy som parallell linje (pass 3)\n\n\n3. Log och interaktion (4 p)\n1, 2\nSätta in d = 1 och sedan tolka som lin-log\nLogtabellen\n\n\n4. LPM (15 p)\n2, 3, 4\nPredicera (alla termer, ålder², interaktionen), räkna marginaleffekten av ålder, tolka i procentenheter, ge en nackdel med LPM\nRak linje mot S-kurva\n\n\n5. LPM eller probit (4 p)\n4\nPröva varje påstående mot S-kurvan\nRak linje mot S-kurva\n\n\n6. R² och logit\n4\nFörklara varför SST = SSR + SSE inte gäller\nIngen ny bild\n\n\n7. Fixa effekter\n5\nJämföra påståendet med definitionen\nTre moln\n\n\n8. Fixa effekter, essä (15 p)\n5, 6\nSkriva upp skattad funktion, tolka och bedöma signifikans, föreslå en alternativ förklaring\nTre moln, OVB\n\n\n\n\nAvsluta inledningen med en kontrollfråga\n“En LPM-koefficient är 0,035. Är det 3,5 procent eller 3,5 procentenheter?” Låt dem svara direkt. Det här ska sitta innan de börjar med uppgift 4.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 5: Logaritmer, interaktion, sannolikhetsmodeller, paneldata"
     ]
   }
 ]
