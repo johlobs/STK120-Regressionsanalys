@@ -18,16 +18,61 @@ Tre områden som alla återkommer på nästan varje tenta: restriktionstestet me
 ::: {.korschema}
 | Tid | Vad | Kommentar |
 |---|---|---|
-| 13:00–13:10 | Tavla: LENA PH | Skriv bokstäverna lodrätt och låt gruppen fylla i. |
-| 13:10–13:55 | Del 1: uppgift 1–5 | Uppgift 1 utan anteckningar först, sedan med. |
-| 13:55–14:05 | Paus | |
-| 14:05–14:55 | Del 2: genomgång | **1** (antaganden, begreppsfälla) → **3** och **5** (kvadratisk, med tavelbilden) → **2** (restriktion) → 4. |
+| 13:00–13:25 | Inledning: det här behöver ni för uppgifterna | Se nästa avsnitt. Repetition (5 min), verktygslådan (5 min), sedan bilderna för LENA PH, restriktionen och parabeln (15 min). Formelbladet står först på uppgiftsbladet. |
+| 13:25–14:05 | Del 1: uppgift 1–5 | Uppgift 1 utan anteckningar först, sedan med. Hänvisa till formelbladet och tipsraderna innan du förklarar själv. |
+| 14:05–14:15 | Paus | |
+| 14:15–14:55 | Del 2: genomgång | **1** (antaganden, begreppsfälla) → **3** och **5** (kvadratisk, med tavelbilden) → **2** (restriktion) → 4. |
 | 14:55–15:00 | Sammanfattning | LENA PH en gång till, och formeln b₁ + 2b₂x. |
+:::
+
+Blir det ändå tid över: ta en av frågorna under [Fler tentafrågor på området](#fler-tentafragor), t.ex. den begränsade modellen eller KI mot PI.
+
+## Inledning: det här behöver ni för uppgifterna {#inledning}
+
+Studenterna har ett formelblad först på uppgiftsbladet och en tipsrad under varje uppgift. Inledningen ska få dem att använda bladet, så att du slipper förklara samma sak för varje grupp.
+
+### Steg 1: repetition från pass 3 (5 min)
+
+::: {.fraga-gruppen}
+Fråga till gruppen, en i taget
+
+1. "Vad testar F-testet i Excelutskriften, och vad vet vi om H₀ förkastas?" (Svar: H₀: alla β = 0. Förkastas den vet vi bara att **minst ett** β är skilt från 0. Det är hela uppgift 4.)
+2. "Vad är SSE?" (Svar: summan av de kvadrerade residualerna, den oförklarade variationen. Restriktionstestet jämför SSE från två modeller.)
+3. "Vad betyder lutningen b₁ i ŷ = b₀ + b₁x?" (Svar: hur mycket ŷ ändras när x ökar med en enhet. Följdfråga: "Är lutningen densamma överallt på en parabel?" Det leder till marginaleffekten.)
+:::
+
+### Steg 2: verktygslådan (5 min)
+
+::: {.tavla}
+Skriv upp listan i ett hörn av tavlan och låt den stå kvar hela passet
+
+1. **Restriktion:** skriv påståendet som en likhet mellan β:n. Likheten står i H₀.
+2. **Begränsad modell:** sätt in H₀ i modellen. Jämför SSE med partiellt F: F = ((SSE_R − SSE_U) / q) / (SSE_U / (n − k − 1)).
+3. **KI mot PI:** samma mittpunkt ŷ. PI är alltid bredare.
+4. **LENA PH:** linjäritet (i parametrarna), exogenitet, normalfördelad felterm, ingen autokorrelation, ingen perfekt multikollinjäritet, homoskedasticitet.
+5. **Kvadratisk modell:** marginaleffekt = b₁ + 2b₂x, vändpunkt x = −b₁ / (2b₂).
+6. **ln y:** en förändring på 0,01 i ln y är ungefär 1 % i y.
+:::
+
+### Steg 3: vilket verktyg behövs i vilken uppgift?
+
+| Uppgift | Verktyg (från listan) | Det ni ska kunna göra | Tavelbild |
+|---|---|---|---|
+| 1. Antaganden (12 p) | 4 | Para ihop antagande och beskrivning, och känna igen de tre beskrivningarna som är fel | [LENA PH](#f7-lena) |
+| 2. Lika lutning (4 p) | 1 | Översätta "samma lutning" till H₀ och H_A | [Restriktionstest](#f6-restriktion) |
+| 3. Kvadratisk, räkna (4 p) | 5, 6 | Sätta in i b₁ + 2b₂x och tolka svaret i procent eftersom y är logaritmerad | [Parabeln med tangenter](#f8-polynom) |
+| 4. Gemensamt F-test | 2 (pass 3) | Säga vad H₀ är och vad det betyder att förkasta den | Ingen ny bild |
+| 5. Kvadratisk, begrepp (2 p) | 5 | Förklara varför x² inte kan hållas konstant | [Parabeln med tangenter](#f8-polynom) |
+
+::: {.fraga-gruppen}
+Avsluta inledningen med en kontrollfråga
+
+"Gäller antagandet om linjäritet *variablerna* eller *parametrarna*?" Låt dem gissa, men säg inte svaret än. Det är begreppsfällan i uppgift 1 och ni tar den i genomgången.
 :::
 
 ## Nya begrepp
 
-### F6: begränsade modeller och intervall
+### F6: begränsade modeller och intervall {#f6-restriktion}
 
 ::: {.nytt}
 Nytt begrepp: restriktionstest (partiellt F-test)
@@ -59,7 +104,7 @@ Rita på tavlan: två band runt samma linje
 Rita linjen, ett smalt band (KI) och ett brett band (PI) runt samma linje. Fråga: "Vilket intervall skulle du använda om du ska sälja **din** lägenhet?" (PI.)
 :::
 
-### F7: antaganden (LENA PH)
+### F7: antaganden (LENA PH) {#f7-lena}
 
 ::: {.nytt}
 Minnesregel: LENA PH
@@ -88,7 +133,7 @@ Fråga till gruppen
 "Är det ett brott mot antagandena att vi har x² i modellen?" (Nej. Linjäriteten gäller **parametrarna**, inte variablerna. Det är exakt den distraktor som lurade studenter 2026-08-20.)
 :::
 
-### F8: modeller med polynom
+### F8: modeller med polynom {#f8-polynom}
 
 ::: {.nytt}
 Nytt begrepp: marginaleffekt i en kvadratisk modell
@@ -215,7 +260,7 @@ Ta sedan steget till den begränsade modellen, eftersom det är så frågan ofta
 :::
 :::
 
-## Fler tentafrågor på området
+## Fler tentafrågor på området {#fler-tentafragor}
 
 ::: {.fler}
 | Tenta | Fråga | Rätt svar | Kommentar |

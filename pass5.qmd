@@ -21,16 +21,62 @@ I VT26 handlade Lecture 12 om omitted variable bias och paneldata. Bilden om ute
 ::: {.korschema}
 | Tid | Vad | Kommentar |
 |---|---|---|
-| 13:00–13:10 | Tavla: tabellen med de tre logmodellerna och LPM mot S-kurvan | |
-| 13:10–13:55 | Del 1: uppgift 4 och 8 (essäerna) först, sedan 1–3 | Säg uttryckligen att 5–7 är för den som hinner. |
-| 13:55–14:05 | Paus | |
-| 14:05–14:55 | Del 2: genomgång | **4** (LPM, störst gap) → **8** (fixa effekter) → **2** (dummyessä) → **3** (log + interaktion) → 1, 5–7 snabbt. |
+| 13:00–13:20 | Inledning: det här behöver ni för uppgifterna | Se nästa avsnitt. Repetition (5 min), verktygslådan med logtabellen (5 min), sedan LPM mot S-kurvan och de tre molnen (10 min). Formelbladet står först på uppgiftsbladet. |
+| 13:20–14:00 | Del 1: uppgift 4 och 8 (essäerna) först, sedan 1–3 | Säg uttryckligen att 5–7 är för den som hinner. Hänvisa till formelbladet och tipsraderna innan du förklarar själv. |
+| 14:00–14:10 | Paus | |
+| 14:10–14:55 | Del 2: genomgång | **4** (LPM, störst gap) → **8** (fixa effekter) → **2** (dummyessä) → **3** (log + interaktion) → 1, 5–7 snabbt. |
 | 14:55–15:00 | Avslut inför tentan | Peka på startsidans tabell "Återkommer på varje tenta". |
+:::
+
+## Inledning: det här behöver ni för uppgifterna {#inledning}
+
+Studenterna har ett formelblad först på uppgiftsbladet och en tipsrad under varje uppgift. Passet har fler uppgifter än det hinns med, så inledningen är kortare här (20 min). Målet är att de ska klara essäerna 4 och 8 med hjälp av bladet.
+
+### Steg 1: repetition från pass 3–4 (5 min)
+
+::: {.fraga-gruppen}
+Fråga till gruppen, en i taget
+
+1. "Hur får man en ekvation per grupp när modellen har en dummy och en interaktion?" (Svar: sätt in d = 0 och d = 1 och samla termerna. Det behövs i uppgift 3 och 4.)
+2. "Vad är marginaleffekten av x i ŷ = b₀ + b₁x + b₂x²?" (Svar: b₁ + 2b₂x. Det är uppgift 4, fråga 2, med ålder och ålder2.)
+3. "Tabellen har standardfel inom parentes men inga p-värden. Hur ser man om en koefficient är signifikant?" (Svar: t ≈ koefficient / standardfel. |t| > 2 betyder ungefär signifikant på 5 %. Eller titta på stjärnorna. Det behövs i uppgift 8b.)
+:::
+
+### Steg 2: verktygslådan (5 min)
+
+::: {.tavla}
+Skriv upp listan i ett hörn av tavlan och låt den stå kvar hela passet
+
+1. **Logmodeller:** lin-log b₁ / 100 enheter, log-lin 100 · b₁ %, log-log b₁ %. ln framför x = procent i x, ln framför y = procent i y.
+2. **Interaktion med dummy:** sätt in d = 0 och d = 1. Effekten av x är b₁ respektive b₁ + b₃.
+3. **LPM:** ŷ är en sannolikhet. Koefficienterna är förändringar i **procentenheter**.
+4. **Logit och probit:** S-kurva mellan 0 och 1, marginaleffekten beror på var man är.
+5. **Fixa effekter:** en egen konstant per enhet, jämförelse inom samma enhet.
+6. **Kausalitet:** finns det något som både hänger ihop med x och påverkar y?
+:::
+
+### Steg 3: vilket verktyg behövs i vilken uppgift?
+
+| Uppgift | Verktyg (från listan) | Det ni ska kunna göra | Tavelbild |
+|---|---|---|---|
+| 1. Lin-log (2 p) | 1 | Känna igen modelltypen och använda b₁ / 100 | [Logtabellen](#f9-log) |
+| 2. Dummyessä (10 p) | 2, pass 3 | Beskriva dummyns egenskaper, tolka koefficienten mot referensgruppen, undvika the dummy variable trap | Dummy som parallell linje (pass 3) |
+| 3. Log och interaktion (4 p) | 1, 2 | Sätta in d = 1 och sedan tolka som lin-log | [Logtabellen](#f9-log) |
+| 4. LPM (15 p) | 2, 3, 4 | Predicera (alla termer, ålder², interaktionen), räkna marginaleffekten av ålder, tolka i procentenheter, ge en nackdel med LPM | [Rak linje mot S-kurva](#f12-lpm) |
+| 5. LPM eller probit (4 p) | 4 | Pröva varje påstående mot S-kurvan | [Rak linje mot S-kurva](#f12-lpm) |
+| 6. R² och logit | 4 | Förklara varför SST = SSR + SSE inte gäller | Ingen ny bild |
+| 7. Fixa effekter | 5 | Jämföra påståendet med definitionen | [Tre moln](#f12-fe) |
+| 8. Fixa effekter, essä (15 p) | 5, 6 | Skriva upp skattad funktion, tolka och bedöma signifikans, föreslå en alternativ förklaring | [Tre moln](#f12-fe), OVB |
+
+::: {.fraga-gruppen}
+Avsluta inledningen med en kontrollfråga
+
+"En LPM-koefficient är 0,035. Är det 3,5 procent eller 3,5 procentenheter?" Låt dem svara direkt. Det här ska sitta innan de börjar med uppgift 4.
 :::
 
 ## Nya begrepp
 
-### F9: logaritmiska modeller
+### F9: logaritmiska modeller {#f9-log}
 
 ::: {.nytt}
 Nytt begrepp: tre logmodeller och deras tolkning
@@ -60,7 +106,7 @@ Nytt begrepp: interaktion med en dummy
 I y = b₀ + b₁x + b₂d + b₃(x · d) är effekten av x **b₁ för d = 0** och **b₁ + b₃ för d = 1**. Sätt alltid in d = 0 och d = 1 och skriv två ekvationer, som i cykeluppgiften i pass 3. Med ln x i stället för x gäller samma sak, men delat med 100: (b₁ + b₃) / 100 för d = 1.
 :::
 
-### F12: sannolikhetsmodeller
+### F12: sannolikhetsmodeller {#f12-lpm}
 
 ::: {.nytt}
 Nytt begrepp: linjär sannolikhetsmodell (LPM) och logit
@@ -87,7 +133,7 @@ Fråga till gruppen: procent eller procentenheter?
 "En LPM-koefficient är −0,01. Minskar sannolikheten med 1 procent?" Nej, med **1 procentenhet**. Exakt den skillnaden avgjorde 2025-08-20, fråga 4, där den bästa A-tentan svarade fel.
 :::
 
-### F12: paneldata och fixa effekter
+### F12: paneldata och fixa effekter {#f12-fe}
 
 ::: {.nytt}
 Nytt begrepp: fixa effekter
