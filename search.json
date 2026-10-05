@@ -88,7 +88,7 @@
     "href": "pass3.html#körschema",
     "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
     "section": "Körschema",
-    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:10\nTavla: dummy som parallellförskjuten linje, SST = SSR + SSE\nBild 1 och 3 nedan.\n\n\n13:10–13:55\nDel 1: uppgift 1–5\nUppgift 1 är lång (20 p). Säg åt studenterna att göra a–e först och ta f sist.\n\n\n13:55–14:05\nPaus\n\n\n\n14:05–14:55\nDel 2: genomgång\n2 (Excel, begreppsfälla) → 1 (dummy och interaktion) → 4 (svagaste frågan på 2026-08-20) → 3 och 5 snabbt.\n\n\n14:55–15:00\nSammanfattning\n“Var hittar jag vad i Excelutskriften?” Visa kartan nedan en gång till.",
+    "text": "Körschema\n\n\n\n\n\n\n\n\n\nTid\nVad\nKommentar\n\n\n\n\n13:00–13:25\nInledning: det här behöver ni för uppgifterna\nSe nästa avsnitt. Repetition (5 min), verktygslådan på tavlan (5 min), sedan bilderna för dummy, SST och t = b / se(b) (15 min).\n\n\n13:25–14:05\nDel 1: uppgift 1–5\nUppgift 1 är lång (20 p). Säg åt studenterna att göra a–e först och ta f sist. Låt verktygslådan stå kvar på tavlan.\n\n\n14:05–14:15\nPaus\n\n\n\n14:15–14:55\nDel 2: genomgång\n2 (Excel, begreppsfälla) → 1 (dummy och interaktion) → 4 (svagaste frågan på 2026-08-20) → 3 och 5 snabbt. Peka tillbaka på verktygslådan: “vilket verktyg använde vi här?”\n\n\n14:55–15:00\nSammanfattning\n“Var hittar jag vad i Excelutskriften?” Visa kartan nedan en gång till.\n\n\n\n\nBlir det ändå tid över: ta en av Excelessäerna under Fler tentafrågor på området som extrauppgift.",
     "crumbs": [
       "Start",
       "Mentorspass HT26",
@@ -445,6 +445,30 @@
       "Start",
       "Mentorspass HT26",
       "Pass 4: Begränsade modeller, antaganden, polynom"
+    ]
+  },
+  {
+    "objectID": "pass3.html#inledning",
+    "href": "pass3.html#inledning",
+    "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
+    "section": "Inledning: det här behöver ni för uppgifterna",
+    "text": "Inledning: det här behöver ni för uppgifterna\nSyftet är att studenterna ska veta vilka verktyg de ska ha i huvudet innan de börjar räkna, så att de inte fastnar i uppgift 1 utan att veta vad en dummy gör. Kör inledningen i tre steg.\n\nSteg 1: repetition från pass 1–2 (5 min)\n\nFråga till gruppen, en i taget\n\n“I ŷ = 42 − 3,1·avstånd, vad betyder −3,1?” (Svar: ŷ minskar med 3,1 enheter när avståndet ökar med 1 km. Med flera x: allt annat lika.)\n“Vad är skillnaden mellan β och b?” (Svar: β är den okända sanna koefficienten i populationen, b är skattningen från stickprovet. Det är b vi testar för att säga något om β.)\n“När förkastar vi H₀?” (Svar: när p &lt; α, t.ex. 0,05. Samma sak som att |t| är större än det kritiska värdet.)\n\n\nOm någon av frågorna går trögt, ta den bilden från pass 2 igen innan ni går vidare. Allt annat i passet bygger på de här tre.\n\n\nSteg 2: verktygslådan på tavlan (5 min)\n\nSkriv upp listan i ett hörn av tavlan och låt den stå kvar hela passet\n\nDummy: 0/1, flyttar linjen upp eller ned. Koefficienten = skillnad mellan grupperna, allt annat lika. k kategorier ger k − 1 dummies.\nInteraktion: dummy × x ändrar lutningen för gruppen med 1.\nR² = SSR / SST: andel av variationen i y som modellen förklarar. Justerat R² vid jämförelse mellan modeller.\nsₑ (översta Standardfel): typiskt avstånd mellan y och ŷ, i y:s enhet.\nt = b / se(b): testar H₀: β = 0 för en koefficient. Stort |t| ger litet p.\nF-test: testar om alla β = 0 samtidigt, alltså om modellen förklarar något alls.\n\n\n\n\nSteg 3: vilket verktyg behövs i vilken uppgift?\nVisa tabellen (eller läs upp den) så att studenterna vet vad de ska slå upp när de fastnar. Gå sedan igenom de tre bilderna i kolumnen längst till höger, ungefär 5 minuter var.\n\n\n\nUppgift\nVerktyg (från listan)\nDet ni ska kunna göra\nTavelbild\n\n\n\n\n1. Cykelresande (20 p)\n1, 2\nSkriva modellen med dummy och interaktion, dela upp den i en ekvation per grupp, tolka varje koefficient, sätta in värden och predicera\nDummy som parallell linje, interaktionsbilden\n\n\n2. Excelutskrift (8 p)\n4, 5, plus tolkning av b och konstanten\nHitta rätt siffra i utskriften, tolka b med “allt annat lika”, ange H₀ och H_A, avgöra signifikans med p-värdet\nKartan över Excelutskriften\n\n\n3. t-värde och p-värde\n5\nSe att större |t| ger mindre yta i svansarna\nt-fördelningen\n\n\n4. Koefficient, standardfel, t\n5\nTesta varje påstående mot t = b / se(b)\nt-fördelningen\n\n\n5. F-test och R²\n3, 6\nSkilja om modellen förklarar något (F) från hur mycket (R²)\nSST = SSR + SSE\n\n\n\n\nAvsluta inledningen med en kontrollfråga\n“Uppgift 2 frågar efter ‘Standardfel’ i översta tabellen. Är det samma sak som standardfelet för FoU?” Låt dem gissa, men säg inte svaret än. Det är begreppsfällan i uppgift 2 och ni tar den i genomgången.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
+    ]
+  },
+  {
+    "objectID": "pass3.html#fler-tentafragor",
+    "href": "pass3.html#fler-tentafragor",
+    "title": "Pass 3: Dummyvariabler, goodness of fit, signifikanstest",
+    "section": "Fler tentafrågor på området",
+    "text": "Fler tentafrågor på området\n\n\n\n\n\n\n\n\n\n\nTenta\nFråga\nRätt svar\nKommentar\n\n\n\n\n2024-03-19, fråga 11\n“Värdet på den skattade koefficienten för en dummyvariabel visar:”\nden genomsnittliga skillnaden i intercept mellan de två grupperna\nTavelbilden med parallella linjer.\n\n\n2024-11-01, fråga 10\n“En så kallad dummyvariabel:”\när en variabel som bara kan anta två olika värden\n\n\n\n2025-08-20, fråga 16.4\nLönemodell med ålder, utbildningsnivå (3 nivåer), erfarenhet och kön: hur många dummyvariabler?\n3 (2 för utbildning, 1 för kön)\nBästa A-tentan svarade 1. Bra diskussionsfråga.\n\n\n2024-12-15, fråga 11\n“I en regressionsmodell mäter determinationskoefficienten …”\nhur stor andel av variationen i den beroende variabeln som förklaras av modellen\n\n\n\n2026-08-20, fråga 12\nVad representerar R² i en enkel linjär regression?\nden procentuella andelen av den totala variationen i den beroende variabeln som förklaras av de oberoende variablerna\n82 % av maxpoängen. Distraktorn byter plats på beroende och oberoende.\n\n\n2024-12-15, fråga 12\nKoefficienten för “bostadsyta” betecknas …?\nβ₁ (inte x₁)\nNotation, som i pass 2.\n\n\n2025-08-20, fråga 9\nA/B/C-figuren: vilket avstånd är standardfelet?\nInget, det är ett sammanfattande mått\nKoppla till “Standardfel” i kartan.\n\n\n2024-03-19, fråga 15; 2024-12-15, fråga 15; 2025-08-20, fråga 16\nExcelessäer: tolka F-test, R², koefficienter, hypoteser\n\nSamma färdigheter som uppgift 2. Bra extrauppgifter.\n\n\n\n\nGemensamt F-test som sant/falskt (2025-06-05 fråga 2 och 2025-03-25 fråga 2) ligger på uppgiftsbladet för pass 4.",
+    "crumbs": [
+      "Start",
+      "Mentorspass HT26",
+      "Pass 3: Dummyvariabler, goodness of fit, signifikanstest"
     ]
   }
 ]
