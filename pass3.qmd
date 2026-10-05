@@ -18,16 +18,65 @@ Tre föreläsningar sedan förra passet, så det här är det tyngsta passet. By
 ::: {.korschema}
 | Tid | Vad | Kommentar |
 |---|---|---|
-| 13:00–13:10 | Tavla: dummy som parallellförskjuten linje, SST = SSR + SSE | Bild 1 och 3 nedan. |
-| 13:10–13:55 | Del 1: uppgift 1–5 | Uppgift 1 är lång (20 p). Säg åt studenterna att göra a–e först och ta f sist. |
-| 13:55–14:05 | Paus | |
-| 14:05–14:55 | Del 2: genomgång | **2** (Excel, begreppsfälla) → **1** (dummy och interaktion) → **4** (svagaste frågan på 2026-08-20) → 3 och 5 snabbt. |
+| 13:00–13:25 | Inledning: det här behöver ni för uppgifterna | Se nästa avsnitt. Repetition (5 min), verktygslådan på tavlan (5 min), sedan bilderna för dummy, SST och t = b / se(b) (15 min). |
+| 13:25–14:05 | Del 1: uppgift 1–5 | Uppgift 1 är lång (20 p). Säg åt studenterna att göra a–e först och ta f sist. Låt verktygslådan stå kvar på tavlan. |
+| 14:05–14:15 | Paus | |
+| 14:15–14:55 | Del 2: genomgång | **2** (Excel, begreppsfälla) → **1** (dummy och interaktion) → **4** (svagaste frågan på 2026-08-20) → 3 och 5 snabbt. Peka tillbaka på verktygslådan: "vilket verktyg använde vi här?" |
 | 14:55–15:00 | Sammanfattning | "Var hittar jag vad i Excelutskriften?" Visa kartan nedan en gång till. |
+:::
+
+Blir det ändå tid över: ta en av Excelessäerna under [Fler tentafrågor på området](#fler-tentafragor) som extrauppgift.
+
+## Inledning: det här behöver ni för uppgifterna {#inledning}
+
+Syftet är att studenterna ska veta *vilka verktyg* de ska ha i huvudet innan de börjar räkna, så att de inte fastnar i uppgift 1 utan att veta vad en dummy gör. Kör inledningen i tre steg.
+
+### Steg 1: repetition från pass 1–2 (5 min)
+
+::: {.fraga-gruppen}
+Fråga till gruppen, en i taget
+
+1. "I ŷ = 42 − 3,1·avstånd, vad betyder −3,1?" (Svar: ŷ minskar med 3,1 enheter när avståndet ökar med 1 km. Med flera x: *allt annat lika*.)
+2. "Vad är skillnaden mellan β och b?" (Svar: β är den okända sanna koefficienten i populationen, b är skattningen från stickprovet. Det är b vi testar för att säga något om β.)
+3. "När förkastar vi H₀?" (Svar: när p < α, t.ex. 0,05. Samma sak som att |t| är större än det kritiska värdet.)
+:::
+
+Om någon av frågorna går trögt, ta den bilden från pass 2 igen innan ni går vidare. Allt annat i passet bygger på de här tre.
+
+### Steg 2: verktygslådan på tavlan (5 min)
+
+::: {.tavla}
+Skriv upp listan i ett hörn av tavlan och låt den stå kvar hela passet
+
+1. **Dummy:** 0/1, flyttar linjen upp eller ned. Koefficienten = skillnad mellan grupperna, allt annat lika. k kategorier ger k − 1 dummies.
+2. **Interaktion:** dummy × x ändrar *lutningen* för gruppen med 1.
+3. **R² = SSR / SST:** andel av variationen i y som modellen förklarar. Justerat R² vid jämförelse mellan modeller.
+4. **sₑ (översta Standardfel):** typiskt avstånd mellan y och ŷ, i y:s enhet.
+5. **t = b / se(b):** testar H₀: β = 0 för en koefficient. Stort |t| ger litet p.
+6. **F-test:** testar om alla β = 0 samtidigt, alltså om modellen förklarar något alls.
+:::
+
+### Steg 3: vilket verktyg behövs i vilken uppgift?
+
+Visa tabellen (eller läs upp den) så att studenterna vet vad de ska slå upp när de fastnar. Gå sedan igenom de tre bilderna i kolumnen längst till höger, ungefär 5 minuter var.
+
+| Uppgift | Verktyg (från listan) | Det ni ska kunna göra | Tavelbild |
+|---|---|---|---|
+| 1. Cykelresande (20 p) | 1, 2 | Skriva modellen med dummy och interaktion, dela upp den i en ekvation per grupp, tolka varje koefficient, sätta in värden och predicera | [Dummy som parallell linje](#f3-dummy), interaktionsbilden |
+| 2. Excelutskrift (8 p) | 4, 5, plus tolkning av b och konstanten | Hitta rätt siffra i utskriften, tolka b med "allt annat lika", ange H₀ och H_A, avgöra signifikans med p-värdet | [Kartan över Excelutskriften](#excelkarta) |
+| 3. t-värde och p-värde | 5 | Se att större \|t\| ger mindre yta i svansarna | [t-fördelningen](#f5-test) |
+| 4. Koefficient, standardfel, t | 5 | Testa varje påstående mot t = b / se(b) | [t-fördelningen](#f5-test) |
+| 5. F-test och R² | 3, 6 | Skilja *om* modellen förklarar något (F) från *hur mycket* (R²) | [SST = SSR + SSE](#f4-fit) |
+
+::: {.fraga-gruppen}
+Avsluta inledningen med en kontrollfråga
+
+"Uppgift 2 frågar efter 'Standardfel' i översta tabellen. Är det samma sak som standardfelet för FoU?" Låt dem gissa, men säg inte svaret än. Det är begreppsfällan i uppgift 2 och ni tar den i genomgången.
 :::
 
 ## Nya begrepp
 
-### F3: dummyvariabler
+### F3: dummyvariabler {#f3-dummy}
 
 ::: {.nytt}
 Nytt begrepp: dummyvariabel
@@ -62,7 +111,7 @@ Fråga till gruppen
 "Vi har tre utbildningsnivåer och kön i en lönemodell. Hur många dummyvariabler behövs?" (Svar: 2 + 1 = 3. Exakt så frågade tentan 2025-08-20, fråga 16.4. Den bästa A-tentan svarade 1.)
 :::
 
-### F4: goodness of fit
+### F4: goodness of fit {#f4-fit}
 
 ::: {.nytt}
 Nytt begrepp: R², justerat R² och standardfelet
@@ -92,7 +141,7 @@ Rita på tavlan: R² mot justerat R²
 Här läggs rena brusvariabler till en efter en. R² kryper uppåt ändå, medan justerat R² sjunker. Rita det som två skissade kurvor.
 :::
 
-### F5: signifikanstest
+### F5: signifikanstest {#f5-test}
 
 ::: {.nytt}
 Nytt begrepp: t-test och F-test
@@ -109,7 +158,7 @@ Rita på tavlan: tentans t-test i en bild
 Samma bild som i pass 1, nu med t = b / se(b). Skriv formeln stort och visa hur t växer när b växer och krymper när se växer. Det är hela uppgift 4.
 :::
 
-### Karta över Excelutskriften
+### Karta över Excelutskriften {#excelkarta}
 
 Använd utskriften från uppgift 2 och peka på varje del:
 
@@ -241,7 +290,7 @@ Frågan kom ordagrant även 2025-03-25: den återkommer.
 :::
 :::
 
-## Fler tentafrågor på området
+## Fler tentafrågor på området {#fler-tentafragor}
 
 ::: {.fler}
 | Tenta | Fråga | Rätt svar | Kommentar |
