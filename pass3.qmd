@@ -15,64 +15,79 @@ Tre föreläsningar sedan förra passet, så det här är det tyngsta passet. By
 
 ## Körschema
 
+Nytt upplägg från och med det här passet: studenterna letar själva upp det de behöver, löser uppgifterna i grupp med roller och leder genomgången. Du går runt, svarar med motfrågor och sammanfattar fällorna. Uppgiftsbladet har roller, en letalista, ledtrådar i två nivåer och slutsvar längst bak.
+
 ::: {.korschema}
-| Tid | Vad | Kommentar |
+| Tid | Vad | Du gör |
 |---|---|---|
-| 13:00–13:25 | Inledning: det här behöver ni för uppgifterna | Se nästa avsnitt. Repetition (5 min), verktygslådan på tavlan (5 min), sedan bilderna för dummy, SST och t = b / se(b) (15 min). |
-| 13:25–14:05 | Del 1: uppgift 1–5 | Uppgift 1 är lång (20 p). Säg åt studenterna att göra a–e först och ta f sist. Låt verktygslådan stå kvar på tavlan. |
-| 14:05–14:15 | Paus | |
-| 14:15–14:55 | Del 2: genomgång | **2** (Excel, begreppsfälla) → **1** (dummy och interaktion) → **4** (svagaste frågan på 2026-08-20) → 3 och 5 snabbt. Peka tillbaka på verktygslådan: "vilket verktyg använde vi här?" |
-| 14:55–15:00 | Sammanfattning | "Var hittar jag vad i Excelutskriften?" Visa kartan nedan en gång till. |
+| 13:00–13:05 | Nytt upplägg och förväntningar | Säg [manuset](#inledning) och skriv förväntningarna på tavlan. |
+| 13:05–13:20 | Letalistan i par | Gå runt och svara bara med motfrågor. Dela in grupper om 3–4 och dela ut expertuppgifter. |
+| 13:20–13:30 | Helgruppskoll av letalistan | Låt grupperna säga vad de hittat ([facit](#letalista)). Rita [dummylinjen](#f3-dummy) eller [SST = SSR + SSE](#f4-fit) bara om något saknas. |
+| 13:30–14:05 | Uppgift 1–5 i grupp | Rollerna byts vid varje ny uppgift. Expertgruppen börjar med sin egen uppgift. Frågor du inte svarar på skrivs i parkeringsrutan. |
+| 14:05–14:15 | Paus | Kolla vilka uppgifter som behöver mest stöd. |
+| 14:15–14:50 | Studentledd genomgång | Expertgrupperna redovisar, cirka 7 min var. Du kompletterar efteråt, särskilt fällorna i **2a** (två olika standardfel) och **4** (svagaste frågan 2026-08-20). |
+| 14:50–15:00 | Parkeringsrutan och exit ticket | Andra grupper svarar på frågorna i rutan. Alla skriver en sak de fortfarande är osäkra på på en post-it. |
 :::
 
 Blir det ändå tid över: ta en av Excelessäerna under [Fler tentafrågor på området](#fler-tentafragor) som extrauppgift.
 
-## Inledning: det här behöver ni för uppgifterna {#inledning}
+## Inledning: nytt upplägg och förväntningar {#inledning}
 
-Syftet är att studenterna ska veta *vilka verktyg* de ska ha i huvudet innan de börjar räkna, så att de inte fastnar i uppgift 1 utan att veta vad en dummy gör. Kör inledningen i tre steg.
+### Manus (5 min)
 
-### Steg 1: repetition från pass 1–2 (5 min)
+Säg det med egna ord. Det viktiga är att du förklarar varför upplägget ändras och vad du förväntar dig.
 
-::: {.fraga-gruppen}
-Fråga till gruppen, en i taget
-
-1. "I ŷ = 42 − 3,1·avstånd, vad betyder −3,1?" (Svar: ŷ minskar med 3,1 enheter när avståndet ökar med 1 km. Med flera x: *allt annat lika*.)
-2. "Vad är skillnaden mellan β och b?" (Svar: β är den okända sanna koefficienten i populationen, b är skattningen från stickprovet. Det är b vi testar för att säga något om β.)
-3. "När förkastar vi H₀?" (Svar: när p < α, t.ex. 0,05. Samma sak som att |t| är större än det kritiska värdet.)
-:::
-
-Om någon av frågorna går trögt, ta den bilden från pass 2 igen innan ni går vidare. Allt annat i passet bygger på de här tre.
-
-### Steg 2: verktygslådan på tavlan (5 min)
+> "Hittills har jag stått här och förklarat ganska mycket. Det har varit bekvämt för oss alla, men man lär sig mest när man själv letar upp saker, förklarar för någon annan och diskuterar. På tentan sitter ni själva, och då är det de vanorna som hjälper er."
+>
+> "Därför gör vi lite annorlunda från och med i dag. Ni jobbar i grupper med roller som byts vid varje uppgift: letare, sekreterare, förklarare och skeptiker. Först i bladet finns en letalista. Den gör ni i par och slår upp i formelsamlingen, bilderna och boken. Varje grupp blir expert på en uppgift och redovisar den efter pausen. Det är helt okej att ha fel, vi rättar tillsammans."
+>
+> "När ni kör fast: fråga tre före mig. Först gruppen, sedan bladet med ledtrådarna längst bak och sedan formelsamlingen, bilderna eller boken. Jag kommer ofta att svara med en motfråga. Det är inte för att vara jobbig, utan för att ni ska hitta det själva och komma ihåg det bättre."
+>
+> "Det här kommer att kännas ovant och kanske lite långsammare i början. Det är meningen. Vad ni kan förvänta er av mig: jag går runt, lyssnar, hjälper er vidare när ni har kört fast och sammanfattar de vanligaste fällorna i slutet."
 
 ::: {.tavla}
-Skriv upp listan i ett hörn av tavlan och låt den stå kvar hela passet
+Skriv på tavlan och låt det stå kvar
 
-1. **Dummy:** 0/1, flyttar linjen upp eller ned. Koefficienten = skillnad mellan grupperna, allt annat lika. k kategorier ger k − 1 dummies.
-2. **Interaktion:** dummy × x ändrar *lutningen* för gruppen med 1.
-3. **R² = SSR / SST:** andel av variationen i y som modellen förklarar. Justerat R² vid jämförelse mellan modeller.
-4. **sₑ (översta Standardfel):** typiskt avstånd mellan y och ŷ, i y:s enhet.
-5. **t = b / se(b):** testar H₀: β = 0 för en koefficient. Stort |t| ger litet p.
-6. **F-test:** testar om alla β = 0 samtidigt, alltså om modellen förklarar något alls.
+- **Ni:** försöker själva först, bidrar alla, förklarar för varandra, frågar tre före mentorn.
+- **Jag:** går runt, ställer frågor tillbaka, hjälper vidare när ni har kört fast, sammanfattar fällorna.
 :::
 
-### Steg 3: vilket verktyg behövs i vilken uppgift?
+### Grupper och expertuppgifter
 
-Visa tabellen (eller läs upp den) så att studenterna vet vad de ska slå upp när de fastnar. Gå sedan igenom de tre bilderna i kolumnen längst till höger, ungefär 5 minuter var.
+- **Grupper:** 3–4 personer. Räkna av så att kompisgäng blandas, men behåll gärna samma grupper hela passet.
+- **Expertuppgifter:** uppgift 2 (Excel, begreppsfälla) och uppgift 1 (lång, dela gärna a–c och d–f på två grupper) först. Sedan uppgift 4, och därefter 3 och 5 tillsammans. Är det färre grupper än uppgifter tar du de korta själv i slutet.
+- **Redovisningen:** förklararen redovisar, resten av gruppen får fylla i. Fråga sedan gruppen "Håller ni med? Hur vet ni det?" innan du själv lägger till något.
 
-| Uppgift | Verktyg (från listan) | Det ni ska kunna göra | Tavelbild |
-|---|---|---|---|
-| 1. Cykelresande (20 p) | 1, 2 | Skriva modellen med dummy och interaktion, dela upp den i en ekvation per grupp, tolka varje koefficient, sätta in värden och predicera | [Dummy som parallell linje](#f3-dummy), interaktionsbilden |
-| 2. Excelutskrift (8 p) | 4, 5, plus tolkning av b och konstanten | Hitta rätt siffra i utskriften, tolka b med "allt annat lika", ange H₀ och H_A, avgöra signifikans med p-värdet | [Kartan över Excelutskriften](#excelkarta) |
-| 3. t-värde och p-värde | 5 | Se att större \|t\| ger mindre yta i svansarna | [t-fördelningen](#f5-test) |
-| 4. Koefficient, standardfel, t | 5 | Testa varje påstående mot t = b / se(b) | [t-fördelningen](#f5-test) |
-| 5. F-test och R² | 3, 6 | Skilja *om* modellen förklarar något (F) från *hur mycket* (R²) | [SST = SSR + SSE](#f4-fit) |
+### Motfrågor du kan använda
 
-::: {.fraga-gruppen}
-Avsluta inledningen med en kontrollfråga
+- "Vad säger formelsamlingen om det?"
+- "Vad har ni skrivit i letalistan om det?"
+- "Vad tror resten av gruppen?"
+- "Har någon annan grupp löst den? Gå och fråga dem."
+- "Vilken ledtråd har ni tagit? Ta nästa nivå."
+- "Vad skulle hända om …?"
 
-"Uppgift 2 frågar efter 'Standardfel' i översta tabellen. Är det samma sak som standardfelet för FoU?" Låt dem gissa, men säg inte svaret än. Det är begreppsfällan i uppgift 2 och ni tar den i genomgången.
-:::
+Vänta minst 10 sekunder efter en fråga innan du säger något mer. Tystnaden är när de tänker.
+
+### Parkeringsrutan och exit ticket
+
+- **Parkeringsrutan:** rita en ruta i hörnet av tavlan. Frågor du inte svarar på direkt skrivs där, och i slutet får andra grupper svara.
+- **Exit ticket:** ta med post-it-lappar. Alla skriver en sak de fortfarande är osäkra på och lämnar lappen när de går. Det blir underlag för pass 4.
+
+### Facit till letalistan {#letalista}
+
+| Punkt på letalistan | Svar | Används i uppgift |
+|---|---|---|
+| 1. Dummyvariabel | Antar bara 0 eller 1. Gruppen med 0 är referensgruppen. | 1 |
+| 2. Interaktion | y = β₀ + β₁x + β₂d + β₃(d × x) + ε. Sätt in d = 0 och d = 1 och samla termerna. | 1 |
+| 3. Tolkning | "När x ökar med en enhet förändras y i genomsnitt med b enheter, allt annat lika." Konstanten är ŷ när alla x = 0. | 1, 2 |
+| 4. R² | R² = SSR / SST = 1 − SSE / SST. Total, förklarad och oförklarad variation. | 5 |
+| 5. Justerat R² | Vid jämförelse mellan modeller med olika antal variabler. | |
+| 6. sₑ | Typiskt avstånd mellan y och ŷ, i y:s enhet. | 2a |
+| 7. t-test | t = b / se(b). H₀: β = 0, H_A: β ≠ 0. | 2b, 3, 4 |
+| 8. Beslutsregel | Förkasta H₀ om p < α, t.ex. 0,05. | 2b, 3 |
+| 9. F-test | H₀: alla β = 0. Förkastas den vet man bara att minst ett β ≠ 0. | 5 |
+| 10. Excelutskriften | Två ställen: översta tabellen (sₑ) och koefficienttabellen (se(b)). Se [kartan](#excelkarta). | 2 |
 
 ## Nya begrepp
 
